@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SFML_ECS_Test</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SFML.Graphics" Version="2.5.1" />
+    <PackageReference Include="SFML.Net" Version="2.5.1" />
+    <PackageReference Include="SFML.System" Version="2.5.1" />
+    <PackageReference Include="SFML.Window" Version="2.5.1" />
+  </ItemGroup>
+
+</Project>

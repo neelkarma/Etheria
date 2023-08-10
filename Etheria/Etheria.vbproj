@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="resources\audio\sfx\" />
     <Folder Include="resources\sprites\animations\sample\" />
   </ItemGroup>
 

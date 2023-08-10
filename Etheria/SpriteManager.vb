@@ -5,7 +5,7 @@ Public Class SpriteManager
     Private ReadOnly sprites As New Dictionary(Of String, Sprite())
 
     Public Sub New()
-        ' TODO: Load all sprites here
+        ' Load all sprites here
         LoadSingle("sample.png", "sampleSingle")
         LoadAnimation("sample", "sampleAnimation", 4)
     End Sub

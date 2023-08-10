@@ -19,6 +19,7 @@ Public Module Program
     Public ReadOnly clock As New Clock
     Public ReadOnly scenes As New Dictionary(Of String, Scene)
     Public ReadOnly sprites As New SpriteManager
+    Public ReadOnly audio As New AudioManager
     Public current_scene As String
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
 
@@ -26,6 +27,9 @@ Public Module Program
         Window.SetVerticalSyncEnabled(True)
 
         InitScenes()
+
+        ' TODO: remove this after some time
+        audio.PlayBGM("spongebob")
 
         While Window.IsOpen()
             ' enforce set fps

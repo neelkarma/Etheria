@@ -1,6 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports SFML.Graphics
-Imports SFML.System
+﻿Imports SFML.Graphics
 
 Public Class ColliderComponent
     Inherits Component

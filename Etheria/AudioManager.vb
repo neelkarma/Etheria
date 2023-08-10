@@ -7,10 +7,11 @@ Public Class AudioManager
     Private currentBgm As Music
 
     Public Sub New()
-        ' TODO: Load sfx here
+        ' Load sfx here
+        LoadSFX("ui-select.wav", "ui-select")
+
         ' Load bgm here
         LoadBGM("grass-beach.wav", "spongebob")
-
     End Sub
 
     Private Sub LoadSFX(filename As String, name As String)

@@ -17,15 +17,13 @@ Public Module Program
     Public windowScale As Integer = 1
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
-    Public ReadOnly scenes As New SceneManager
+    Public ReadOnly scenes As New SceneManager("Test")
     Public ReadOnly sprites As New SpriteManager
     Public ReadOnly audio As New AudioManager
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
 
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
-
-        scenes.Open("Title")
 
         ' TODO: remove this after some time
         audio.PlayBGM("grass-beach")

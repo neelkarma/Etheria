@@ -1,8 +1,17 @@
 ﻿Imports System.IO
-Imports SFML
 Imports SFML.Graphics
 
+
+
 Public Class SpriteManager
+    Private Class FileNameComparer
+        Implements IComparer(Of FileInfo)
+
+        Private Function Compare(x As FileInfo, y As FileInfo) As Integer Implements IComparer(Of FileInfo).Compare
+            Return New CaseInsensitiveComparer().Compare(x.Name, y.Name)
+        End Function
+    End Class
+
     Private ReadOnly sprites As New Dictionary(Of String, Sprite())
 
     Public Sub New()
@@ -14,19 +23,25 @@ Public Class SpriteManager
     Private Sub LoadSingles()
         For Each filename In Directory.EnumerateFiles("../../../resources/sprites/singles/")
             sprites(Path.GetFileNameWithoutExtension(filename)) = New Sprite() {New Sprite(New Texture(filename))}
+            Console.WriteLine($"SPRITES: Single {Path.GetFileNameWithoutExtension(filename)} loaded")
         Next
     End Sub
 
 
     Private Sub LoadAnimations()
-        For Each dirName In Directory.EnumerateDirectories("../../../resources/sprites/animations/")
-
+        For Each d In New DirectoryInfo("../../../resources/sprites/animations/").EnumerateDirectories()
             Dim frames As New List(Of Sprite)
-            For Each filename In Directory.EnumerateFiles(dirName)
-                frames.Add(New Sprite(New Texture(filename)))
+
+            ' file order by GetFiles() is not guaranteed - we have to sort manually
+            Dim files = d.GetFiles()
+            Array.Sort(files, New FileNameComparer())
+
+            For Each file In files
+                frames.Add(New Sprite(New Texture(file.FullName)))
             Next
 
-            sprites(dirName) = frames.ToArray()
+            sprites(d.Name) = frames.ToArray()
+            Console.WriteLine($"SPRITES: Animation {d.Name} loaded ({frames.Count} frames)")
         Next
     End Sub
 

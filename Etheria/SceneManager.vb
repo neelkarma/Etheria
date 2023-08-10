@@ -8,17 +8,19 @@
     End Property
     Private ReadOnly scenes As New Dictionary(Of String, Scene)
 
-    Public Sub New()
+    Public Sub New(initialScene As String)
         ' init scenes
         Dim title As New TitleScene
         Dim game As New GameScene
         Dim endScene As New EndScene
+        Dim test As New TestScene
 
         scenes(title.Type) = title
         scenes(game.Type) = game
         scenes(endScene.Type) = endScene
+        scenes(test.Type) = test
 
-        Open(title.Type)
+        Open(initialScene)
     End Sub
 
     Public Sub Open(name As String, Optional init As Boolean = True)

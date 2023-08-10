@@ -4,7 +4,6 @@
     Private ReadOnly systems As New List(Of System)
 
     Public Overridable Sub Open(Optional init As Boolean = True)
-        current_scene = Type
         If init Then
             entities.Clear()
             systems.Clear()

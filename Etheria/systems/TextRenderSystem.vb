@@ -13,9 +13,9 @@ Public Class TextRenderSystem
             Dim text = entity.GetComponent(Of TextComponent)("Text")
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
 
-            Dim textObj = text.BuildText()
-            textObj.Position = position.pos
-            Window.Draw(textObj)
+            Dim textRenderable = text.Text
+            textRenderable.Position = position.pos
+            Window.Draw(textRenderable)
         Next
     End Sub
 End Class

@@ -9,7 +9,6 @@
 
         ' ball
         AddEntity(New BallEntity)
-
     End Sub
 
 End Class

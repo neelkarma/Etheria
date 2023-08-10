@@ -17,16 +17,15 @@ Public Module Program
     Public windowScale As Integer = 1
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
-    Public ReadOnly scenes As New Dictionary(Of String, Scene)
+    Public ReadOnly scenes As New SceneManager
     Public ReadOnly sprites As New SpriteManager
     Public ReadOnly audio As New AudioManager
-    Public current_scene As String
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
 
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
 
-        InitScenes()
+        scenes.Open("Title")
 
         ' TODO: remove this after some time
         audio.PlayBGM("spongebob")
@@ -41,20 +40,13 @@ Public Module Program
 
             Window.DispatchEvents()
             Window.Clear()
-            scenes(current_scene).Update()
+            scenes.CurrentScene.Update()
             Window.Display()
         End While
     End Sub
 
-    Sub InitScenes()
-        Dim title As New TitleScene
-        Dim game As New GameScene
-        Dim endScene As New EndScene
-
-        scenes(title.Type) = title
-        scenes(game.Type) = game
-        scenes(endScene.Type) = endScene
-
-        scenes("Title").Open()
+    Sub HandleWindowClose() Handles Window.Closed
+        ' this handles clicking the x button
+        Window.Close()
     End Sub
 End Module

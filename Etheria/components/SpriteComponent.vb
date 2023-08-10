@@ -7,6 +7,14 @@ Public Class SpriteComponent
 
     Public Overrides ReadOnly Property Type As String = "Sprite"
 
+    Public ReadOnly Property Sprite As Sprite
+        Get
+            Dim s = sprites.GetSprites(name)(frame)
+            s.Scale = scale
+            Return s
+        End Get
+    End Property
+
     Public name As String
     Public scale As Vector2i
     Public frame As Integer
@@ -20,11 +28,4 @@ Public Class SpriteComponent
         Me.frameDuration = frameDuration
         Me.scale = scale
     End Sub
-
-    Public Function GetSprite() As Sprite
-        Dim sprite = sprites.GetSprites(name)(frame)
-        sprite.Scale = Me.scale
-        Return sprite
-    End Function
-
 End Class

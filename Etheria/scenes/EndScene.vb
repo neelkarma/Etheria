@@ -16,7 +16,7 @@ Public Class EndScene
             New PositionComponent(New Vector2i(50, 210))
         )
 
-        AddEntity(New TextButtonEntity("Restart", New Vector2i(50, 100), Sub() scenes("Game").Open()))
-        AddEntity(New TextButtonEntity("Quit To Title", New Vector2i(50, 150), Sub() scenes("Title").Open()))
+        AddEntity(New TextButtonEntity("Restart", New Vector2i(50, 100), Sub() scenes.Open("Game")))
+        AddEntity(New TextButtonEntity("Quit To Title", New Vector2i(50, 150), Sub() scenes.Open("Title")))
     End Sub
 End Class

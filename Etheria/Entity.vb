@@ -1,6 +1,6 @@
 ﻿Public Class Entity
     Public ReadOnly id As Long = UIDGenerator.Generate()
-    Public ReadOnly components As New Dictionary(Of String, Component)
+    Private ReadOnly components As New Dictionary(Of String, Component)
 
     ''' <summary>
     ''' Creates a new entity with the given components.

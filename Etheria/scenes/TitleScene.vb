@@ -11,7 +11,7 @@ Public Class TitleScene
             New PositionComponent(New Vector2i(50, 50))
         )
 
-        AddEntity(New TextButtonEntity("Start", New Vector2i(50, 100), Sub() scenes("Game").Open()))
+        AddEntity(New TextButtonEntity("Start", New Vector2i(50, 100), Sub() scenes.Open("Game")))
         AddEntity(New TextButtonEntity("Controls", New Vector2i(50, 150), Sub() Console.WriteLine("Controls")))
         AddEntity(New TextButtonEntity("Scoreboard", New Vector2i(50, 200), Sub() Console.WriteLine("Scoreboard")))
         AddEntity(New TextButtonEntity("Settings", New Vector2i(50, 250), Sub() Console.WriteLine("Settings")))

@@ -9,7 +9,7 @@
             Dim sprite = entity.GetComponent(Of SpriteComponent)("Sprite")
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
 
-            Dim spriteRenderable = sprite.GetSprite()
+            Dim spriteRenderable = sprite.Sprite
             spriteRenderable.Position = position.pos
 
             Window.Draw(spriteRenderable)

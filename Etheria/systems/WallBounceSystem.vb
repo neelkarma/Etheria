@@ -20,7 +20,7 @@ Public Class WallBounceSystem
             End If
 
             If position.pos.X < 0 Or position.pos.X > windowWidth - collider.rect.Width Then
-                scenes("End").Open()
+                scenes.Open("End")
             End If
         Next
     End Sub

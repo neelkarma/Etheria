@@ -18,6 +18,7 @@ Public Module Program
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
     Public ReadOnly scenes As New Dictionary(Of String, Scene)
+    Public ReadOnly sprites As New SpriteManager
     Public current_scene As String
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
 

@@ -79,6 +79,8 @@
         AddSystem(New ButtonActionSystem)
         AddSystem(New TextButtonSystem)
         AddSystem(New TextSizeSystem)
+        AddSystem(New SpriteRenderSystem)
+        AddSystem(New AnimationSystem)
         ' TODO: Add systems as they get developed
     End Sub
 

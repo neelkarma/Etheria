@@ -28,7 +28,7 @@ Public Module Program
         scenes.Open("Title")
 
         ' TODO: remove this after some time
-        audio.PlayBGM("spongebob")
+        audio.PlayBGM("grass-beach")
 
         While Window.IsOpen()
             ' enforce set fps

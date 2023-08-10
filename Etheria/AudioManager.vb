@@ -1,4 +1,5 @@
-﻿Imports SFML.Audio
+﻿Imports System.IO
+Imports SFML.Audio
 
 Public Class AudioManager
     Private ReadOnly sfx As New Dictionary(Of String, Sound)
@@ -7,19 +8,20 @@ Public Class AudioManager
     Private currentBgm As Music
 
     Public Sub New()
-        ' Load sfx here
-        LoadSFX("ui-select.wav", "ui-select")
-
-        ' Load bgm here
-        LoadBGM("grass-beach.wav", "spongebob")
+        LoadSFX()
+        LoadBGM()
     End Sub
 
-    Private Sub LoadSFX(filename As String, name As String)
-        sfx(name) = New Sound(New SoundBuffer("../../../resources/audio/sfx/" + filename))
+    Private Sub LoadSFX()
+        For Each filename In Directory.EnumerateFiles("../../../resources/audio/sfx/")
+            sfx(Path.GetFileNameWithoutExtension(filename)) = New Sound(New SoundBuffer(filename))
+        Next
     End Sub
 
-    Private Sub LoadBGM(filename As String, name As String)
-        bgm(name) = New Music("../../../resources/audio/bgm/" + filename) With {.[Loop] = True}
+    Private Sub LoadBGM()
+        For Each filename In Directory.EnumerateFiles("../../../resources/audio/bgm/")
+            bgm(Path.GetFileNameWithoutExtension(filename)) = New Music(filename) With {.[Loop] = True}
+        Next
     End Sub
 
     Public Sub PlaySFX(name As String)

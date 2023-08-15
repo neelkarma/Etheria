@@ -5,6 +5,5 @@
 
     Public wasClicked = False
     Public isHeld = False
-    Public wasHeldLastFrame = False
     Public isHovered = False
 End Class

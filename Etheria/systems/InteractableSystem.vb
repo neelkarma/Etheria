@@ -17,9 +17,7 @@ Public Class InteractableSystem
 
             interactable.isHovered = rect.Contains(mousePosition.X, mousePosition.Y)
             interactable.isHeld = interactable.isHovered And Mouse.IsButtonPressed(Mouse.Button.Left)
-            interactable.wasClicked = interactable.isHeld And Not interactable.wasHeldLastFrame
-
-            interactable.wasHeldLastFrame = Mouse.IsButtonPressed(Mouse.Button.Left)
+            interactable.wasClicked = interactable.isHeld And Not mouseWasHeldLastFrame
         Next
     End Sub
 End Class

@@ -22,6 +22,8 @@ Public Class SpriteComponent
     Public frameDuration As Integer
 
     Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Vector2i = Nothing)
+        ' TODO: Why tf does this line always reassign the vector???
+        ' Apparently scale can't be Nothing, and if it isn't assigned it's simply (0, 0). Check for that instead?
         If scale = Nothing Then scale = New Vector2i(1, 1)
 
         Me.name = name

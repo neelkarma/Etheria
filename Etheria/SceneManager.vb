@@ -11,11 +11,13 @@
     Public Sub New(initialScene As String)
         ' init scenes
         Dim title As New TitleScene
+        Dim controls As New ControlsScene
         Dim game As New GameScene
         Dim endScene As New EndScene
         Dim test As New TestScene
 
         scenes(title.Type) = title
+        scenes(controls.Type) = controls
         scenes(game.Type) = game
         scenes(endScene.Type) = endScene
         scenes(test.Type) = test

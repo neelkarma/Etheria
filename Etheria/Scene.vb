@@ -71,6 +71,7 @@
         AddSystem(New VelocitySystem)
         AddSystem(New PaddleBounceSystem)
         AddSystem(New WallBounceSystem)
+        AddSystem(New SpriteRenderSystem)
 
         AddSystem(New RectRenderSystem)
         AddSystem(New TextRenderSystem)
@@ -78,7 +79,7 @@
         AddSystem(New ButtonActionSystem)
         AddSystem(New TextButtonSystem)
         AddSystem(New TextSizeSystem)
-        AddSystem(New SpriteRenderSystem)
+
         AddSystem(New AnimationSystem)
         ' TODO: Add systems as they get developed
     End Sub

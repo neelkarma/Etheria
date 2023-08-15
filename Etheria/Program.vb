@@ -17,9 +17,10 @@ Public Module Program
     Public windowScale As Integer = 1
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
-    Public ReadOnly scenes As New SceneManager("Test")
+    Public ReadOnly scenes As New SceneManager("Title")
     Public ReadOnly sprites As New SpriteManager
     Public ReadOnly audio As New AudioManager
+    Public mouseWasHeldLastFrame As Boolean = False
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
 
     Sub Main()
@@ -39,7 +40,9 @@ Public Module Program
             Window.DispatchEvents()
             Window.Clear()
             scenes.CurrentScene.Update()
+            mouseWasHeldLastFrame = Mouse.IsButtonPressed(Mouse.Button.Left)
             Window.Display()
+
         End While
     End Sub
 

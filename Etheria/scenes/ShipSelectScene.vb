@@ -9,11 +9,11 @@ Public Class ShipSelectScene
 
 
 
-    End Sub;
+    End Sub
 
 
     Public Overrides Sub InitEntities()
-        \
+
 
 
     End Sub

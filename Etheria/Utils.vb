@@ -15,4 +15,38 @@ Public Module Utils
 #Disable Warning BC42105 ' we have covered all enum variants, so this warning is irrelevant
     End Function
 #Enable Warning BC42105
+
+    Public Function CalculateTextRect(text As String, Optional scale As Decimal = 1) As FloatRect
+        Dim textRenderable As New Text(text, font, scale)
+        Return textRenderable.GetLocalBounds()
+    End Function
+
+    Public Sub CheckHighScore(score As Integer)
+        For i As Integer = 0 To 9
+            If score > highscores(i) Then
+                highscores.Insert(i, score)
+                If highscores.Count > 10 Then
+                    highscores.RemoveAt(10)
+                End If
+                Exit For
+            End If
+        Next
+    End Sub
+    Public Sub SaveHighScore()
+        Dim temp As String = ""
+        For i = 0 To highscores.Count - 1
+            temp += $"{highscores(i)}{vbCrLf}"
+        Next
+
+        IO.File.WriteAllText("../../../resources/data/highscores.txt", temp)
+    End Sub
+    Public Sub LoadHighScore()
+        highscores.Clear()
+        For Each line In IO.File.ReadLines("../../../resources/data/highscores.txt")
+            highscores.Add(line)
+        Next line
+        While highscores.Count < 10
+            highscores.Add(0)
+        End While
+    End Sub
 End Module

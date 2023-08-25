@@ -1,10 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>SFML_ECS_Test</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="entities\NewFile1.txt" />
+    <None Remove="resources\data\NewFile1.txt" />
+    <None Remove="scenes\NewFile1.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SFML.Graphics" Version="2.5.1" />

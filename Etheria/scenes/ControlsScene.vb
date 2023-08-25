@@ -1,4 +1,5 @@
 ﻿Imports SFML.System
+Imports SFML.Window
 
 Public Class ControlsScene
     Inherits Scene
@@ -7,27 +8,30 @@ Public Class ControlsScene
 
     Public Overrides Sub InitEntities()
         AddEntity(
-            New PositionComponent(),
-            New SpriteComponent("menu-bg")
+            New MenuBackgroundEntity()
         )
         AddEntity(
-            New PositionComponent(New Vector2i(100, 100)),
-            New SpriteComponent("spacebar", 1, New Vector2i(0.1, 0.1))
+            New PositionComponent(New Vector2i(250, 290)),
+            New SpriteComponent("spacebar", , New Vector2f(0.5, 0.5))
         )
         AddEntity(
-            New PositionComponent(),
-            New SpriteComponent("wasd", 1, New Vector2i(0.1, 0.1))
+            New PositionComponent(New Vector2i(250, 155)),
+            New SpriteComponent("wasd", , New Vector2f(0.5, 0.5))
         )
         AddEntity(
-            New PositionComponent(),
-            New SpriteComponent("shift", 1, New Vector2i(0.1, 0.1))
+            New PositionComponent(New Vector2i(70, 250)),
+            New SpriteComponent("shift", , New Vector2f(0.5, 0.5))
+        )
+        AddEntity(
+            New PositionComponent(New Vector2i(560, 160)),
+            New SpriteComponent("mouse", , New Vector2f(0.5, 0.5))
         )
 
         AddEntity(
-            New TextComponent("Controls", Nothing, 1.5),
+            New TextComponent("Controls", , 1.5),
             New PositionComponent(New Vector2i(50, 50))
         )
 
-        AddEntity(New TextButtonEntity("Back", New Vector2i(50, 300), Sub() scenes.Open("Title")))
+        AddEntity(New TextButtonEntity("Back", New Vector2i(330, 470), Sub() scenes.Open("Title")))
     End Sub
 End Class

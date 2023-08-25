@@ -20,12 +20,13 @@ Public Module Program
     Public ReadOnly scenes As New SceneManager("Title")
     Public ReadOnly sprites As New SpriteManager
     Public ReadOnly audio As New AudioManager
+    Public highscores As New List(Of Integer)
     Public mouseWasHeldLastFrame As Boolean = False
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
 
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
-
+        LoadHighScore()
         ' TODO: remove this after some time
         audio.PlayBGM("grass-beach")
 

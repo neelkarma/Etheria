@@ -6,14 +6,13 @@ Public Class SliderEntity
 
     Private Const size = 30
 
-    Public Sub New(_type As String, x As Integer, y As Integer, leftX As Integer, rightX As Integer)
+    Public Sub New(sound As String, x As Integer, y As Integer, leftX As Integer, rightX As Integer, action As Action(Of Decimal))
         MyBase.New()
         AddComponents(
-            New SpriteComponent("SliderHandle"),
-           New TransformComponent(x, y, 0, 0),
-           New ColliderComponent(New IntRect(0, 0, size, size)),
-           New InteractableComponent(),
-           New SliderComponent(_type, x, y, leftX, rightX)
+            New PositionComponent(New Vector2i(x, y)),
+            New ColliderComponent(New IntRect(0, 0, size, size)),
+            New InteractableComponent(),
+            New SliderComponent(sound, leftX, rightX, action)
         )
     End Sub
 

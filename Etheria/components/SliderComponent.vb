@@ -6,30 +6,24 @@ Public Class SliderComponent
     Public Overrides ReadOnly Property Type As String = "Slider"
     Public leftX As Integer
     Public rightX As Integer
-    Public y As Integer
     Public soundType As String
     Public dragging As Boolean
     Public offset As Vector2i
     Public hoverLast As Boolean
-    Public lastX As Integer
     Public wasMoved As Boolean
-    Public moveSpeed As Integer
     Public labelId As Integer
+    Public action As Action(Of Decimal)
 
-    Public Sub New(_soundType As String, _x As Integer, _y As Integer, _leftX As Integer, _rightX As Integer)
-
-
+    Public Sub New(_soundType As String, _leftX As Integer, _rightX As Integer, _action As Action(Of Decimal))
         soundType = _soundType
         leftX = _leftX
         rightX = _rightX
-        y = _y
 
         offset = New Vector2i(0, 0)
         dragging = False
         hoverLast = False
         wasMoved = False
-        moveSpeed = 2
-        lastX = _x
+        action = _action
     End Sub
 
 

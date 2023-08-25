@@ -81,6 +81,8 @@
         AddSystem(New TextSizeSystem)
 
         AddSystem(New AnimationSystem)
+        AddSystem(New MouseCoordsSystem)
+        AddSystem(New SliderSystem)
         ' TODO: Add systems as they get developed
     End Sub
 

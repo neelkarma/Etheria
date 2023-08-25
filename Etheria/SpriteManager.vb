@@ -16,6 +16,9 @@ Public Class SpriteManager
 
     Public Sub New()
         ' Load all sprites
+
+
+
         LoadSingles()
         LoadAnimations()
     End Sub

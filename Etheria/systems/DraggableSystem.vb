@@ -18,25 +18,25 @@ Public Class DraggableSystem
             If interactable.isHeld Then
                 ' make the entity move with the cursor
                 If Not mouseWasHeldLastFrame Then
+                    draggable.initialPosition = position.pos
                     draggable.positionOffset = mousePos - position.pos
                 End If
-                position.pos = mousePos + draggable.positionOffset
+                position.pos = mousePos - draggable.positionOffset
             End If
 
-            If Not mouseWasHeldLastFrame Then
-                Return
-            End If
+            If Not interactable.isHeld And mouseWasHeldLastFrame And Not scenes.sceneJustChanged Then
+                ' check if mouse cursor is over a valid drop target
+                Dim predicate = Function(ent As Entity) ent.HasComponents("DropTarget", "Sprite") And draggable.validDropTargets.Contains(ent.id)
+                If collider.collisions.Any(predicate) Then
+                    ' if so, set the drop sprite to the thing
+                    Dim other = collider.collisions.Find(predicate)
+                    Dim sprite = other.GetComponent(Of SpriteComponent)("Sprite")
+                    sprite.name = draggable.sprite
+                End If
 
-            ' check if mouse cursor is over a valid drop target
-            Dim predicate = Function(ent As Entity) ent.HasComponent("DropTarget") And draggable.validDropTargets.Contains(ent.id)
-            If collider.collisions.Any(predicate) Then
-                Dim other = collider.collisions.Find(predicate)
-                Dim dropTarget = other.GetComponent(Of DropTargetComponent)("DropTarget")
-                dropTarget.activeSprite = draggable.sprite
+                ' set entity position to draggable initial position
+                position.pos = draggable.initialPosition
             End If
-            ' if so, set the drop sprite to the thing
-            ' set entity position to draggable initial position
-
         Next
     End Sub
 End Class

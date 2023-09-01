@@ -2,6 +2,7 @@
     Public MustOverride ReadOnly Property Type As String
     Private ReadOnly entities As New Dictionary(Of Long, Entity)
     Private ReadOnly systems As New List(Of System)
+    Public cursorEnabled As Boolean = True
 
     Public Overridable Sub Open(Optional init As Boolean = True)
         If init Then
@@ -29,17 +30,20 @@
     ''' Adds an entity to the scene
     ''' </summary>
     ''' <param name="entity">The entity to add</param>
-    Public Sub AddEntity(entity As Entity)
+    ''' <returns>The entity</returns>
+    Public Function AddEntity(entity As Entity) As Entity
         entities(entity.id) = entity
-    End Sub
+        Return entity
+    End Function
 
     ''' <summary>
     ''' Adds an entity to the scene
     ''' </summary>
     ''' <param name="components">The components to add to the new entity</param>
-    Public Sub AddEntity(ParamArray components() As Component)
-        AddEntity(New Entity(components))
-    End Sub
+    ''' <returns>The entity created.</returns>
+    Public Function AddEntity(ParamArray components() As Component) As Entity
+        Return AddEntity(New Entity(components))
+    End Function
 
     ''' <summary>
     ''' Adds a system to the scene
@@ -76,6 +80,7 @@
         AddSystem(New RectRenderSystem)
         AddSystem(New TextRenderSystem)
         AddSystem(New InteractableSystem)
+        AddSystem(New DraggableSystem)
         AddSystem(New ButtonActionSystem)
         AddSystem(New TextButtonSystem)
         AddSystem(New TextSizeSystem)

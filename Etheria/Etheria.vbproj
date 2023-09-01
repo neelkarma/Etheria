@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="components\NewFile1.txt" />
+    <None Remove="components\PlayerComponent" />
+    <None Remove="components\ScreenColliderComponent" />
     <None Remove="entities\NewFile1.txt" />
     <None Remove="resources\data\NewFile1.txt" />
     <None Remove="scenes\NewFile1.txt" />
+    <None Remove="systems\NewFile1.txt" />
   </ItemGroup>
 
   <ItemGroup>

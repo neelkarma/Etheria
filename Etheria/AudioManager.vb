@@ -33,4 +33,12 @@ Public Class AudioManager
         currentBgm = bgm(name)
         currentBgm.Play()
     End Sub
+
+    Public Sub SetBGMVol(value As Single)
+        currentBgm.Volume = value
+    End Sub
+
+    Public Sub SetSFXVol(value As Single)
+        currentSfx.Volume = value
+    End Sub
 End Class

@@ -23,7 +23,9 @@ Public Module Program
     Public highscores As New List(Of Integer)
     Public mouseWasHeldLastFrame As Boolean = False
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
+    Public score As Integer = 0
 
+    Public playerColour As String = ""
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
         LoadHighScore()
@@ -42,6 +44,7 @@ Public Module Program
             Window.Clear()
             scenes.CurrentScene.Update()
             mouseWasHeldLastFrame = Mouse.IsButtonPressed(Mouse.Button.Left)
+            scenes.sceneJustChanged = False
             Window.Display()
 
         End While

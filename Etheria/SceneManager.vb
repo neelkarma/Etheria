@@ -1,5 +1,6 @@
 ﻿Public Class SceneManager
     Public currentSceneName As String
+    Public sceneJustChanged As Boolean = False
 
     Public ReadOnly Property CurrentScene As Scene
         Get
@@ -17,8 +18,10 @@
         Dim leaderboard As New LeaderboardScene
         Dim test As New TestScene
         Dim settings As New SettingsScene
+        Dim shipSelect As New ShipSelectScene
 
         scenes(title.Type) = title
+        scenes(shipSelect.Type) = shipSelect
         scenes(controls.Type) = controls
         scenes(game.Type) = game
         scenes(endScene.Type) = endScene
@@ -31,6 +34,7 @@
 
     Public Sub Open(name As String, Optional init As Boolean = True)
         currentSceneName = name
+        sceneJustChanged = True
         CurrentScene.Open(init)
     End Sub
 End Class

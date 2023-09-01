@@ -8,24 +8,21 @@ Public Class LeaderboardScene
         AddEntity(New MenuBackgroundEntity())
         AddEntity(
             New TextComponent("Highscores", Nothing, 1.5),
-            New PositionComponent(New Vector2i(300, 15))
+            New PositionComponent(New Vector2i(200, 15))
         )
 
         AddEntity(New TextButtonEntity("Back", New Vector2i(330, 470), Sub() scenes.Open("Title")))
 
-        Const scorePadding As Integer = 18
+        Const scorePadding As Integer = 35
 
         For i = 0 To 9
+            'New PositionComponent(New Vector2i(windowWidth / 2 - CalculateTextRect("00:    000000").Width / 2, 60 + 15 * i))
             AddEntity(
                 New TextComponent($"{(i + 1).ToString(StrDup(2, "0"))}:    {highscores(i).ToString(StrDup(scorePadding, "0"))}"),
-                New PositionComponent(New Vector2i(windowWidth / 2 - CalculateTextRect("00:    000000").Width / 2, 60 + 15 * i))
+                New PositionComponent(New Vector2i(200, 60 + 15 * i))
             )
         Next
 
-        AddEntity(
-            New TextComponent("Etheria", Nothing, 1.5),
-            New PositionComponent(New Vector2i(50, 50))
-        )
 
     End Sub
 

@@ -22,11 +22,9 @@ Public Class CollisionSystem
                 Dim c2 = e2.GetComponent(Of ColliderComponent)("Collider")
                 Dim r2 = GetGlobalRect(p2, c2)
 
-                For i = 0 To 3
-                    If r1.Intersects(r2) Then
-                        c1.collisions.Add(e2)
-                    End If
-                Next
+                If r1.Intersects(r2) Then
+                    c1.collisions.Add(e2)
+                End If
             Next
         Next
     End Sub

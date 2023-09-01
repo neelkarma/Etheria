@@ -7,6 +7,11 @@
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
         For Each entity In entities
             Dim sprite = entity.GetComponent(Of SpriteComponent)("Sprite")
+
+            If sprite.hidden Then
+                Continue For
+            End If
+
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
 
             Dim spriteRenderable = sprite.Sprite

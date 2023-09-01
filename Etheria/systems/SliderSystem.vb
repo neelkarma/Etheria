@@ -18,9 +18,6 @@ Public Class SliderSystem
             Dim mousePos = Mouse.GetPosition(Window)
 
             ' if the mouse is being held, set the slider value and call the action.
-            If interactable.isHeld Then
-                Console.WriteLine("Held")
-            End If
             If interactable.isHeld And GetGlobalRect(position, collider).Contains(mousePos.X, mousePos.Y) Or slider.dragging Then
                 slider.dragging = True
                 ' update the value
@@ -28,7 +25,9 @@ Public Class SliderSystem
 
                 Dim value = (position.pos.X - slider.leftX) / (slider.rightX - slider.leftX)
                 slider.action(value)
-            ElseIf Not interactable.isHeld Then
+            End If
+
+            If Not interactable.isHeld And Not mouseWasHeldLastFrame Then
                 slider.dragging = False
             End If
 
@@ -36,7 +35,7 @@ Public Class SliderSystem
             Dim barRect As New RectangleShape() With {
                 .Position = New Vector2i(slider.leftX, position.pos.Y),
                 .FillColor = New Color(200, 200, 200),
-                .Size = New Vector2i(slider.rightX - slider.leftX, collider.rect.Height)
+                .Size = New Vector2i(slider.rightX - slider.leftX + collider.rect.Width, collider.rect.Height)
             }
             Dim handleRect As New RectangleShape() With {
                 .Position = New Vector2i(position.pos.X, position.pos.Y),

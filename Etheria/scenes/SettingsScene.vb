@@ -17,8 +17,13 @@ Public Class SettingsScene
 
         '' Public Sub New(_soundType As String, _x As Integer, _y As Integer, _leftX As Integer, _rightX As Integer)
 
+
+
         '' AddEntity(New SliderComponent("music", windowWidth / 2 - 10 + musicSliderPos, 71, windowWidth / 2 - 10, windowWidth / 2 + 64))
-        AddEntity(New SliderEntity("music", 100, 100, 100, 500, Sub(value) Console.WriteLine($"BGM Vol changed to {value}")))
+        AddEntity(New TextComponent("Music"), New PositionComponent(New Vector2i(100, 150)))
+        AddEntity(New TextComponent("SFX"), New PositionComponent(New Vector2i(100, 300)))
+        AddEntity(New SliderEntity("music", 200, 150, 100, 500, Sub(value) audio.SetBGMVol(value * 100)))
+        AddEntity(New SliderEntity("soundfx", 200, 300, 100, 500, Sub(value) audio.SetSFXVol(value * 100)))
 
         ' fullscreen
         AddEntity(New TextButtonEntity("Fullscreen", New Vector2i(0, 400), Sub() Console.WriteLine("Fullscreen Triggered!")))

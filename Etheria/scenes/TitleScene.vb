@@ -13,7 +13,7 @@ Public Class TitleScene
             New PositionComponent(New Vector2i(50, 50))
         )
 
-        AddEntity(New TextButtonEntity("Start", New Vector2i(50, 100), Sub() scenes.Open("Game")))
+        AddEntity(New TextButtonEntity("Start", New Vector2i(50, 100), Sub() scenes.Open("ShipSelect")))
         AddEntity(New TextButtonEntity("Controls", New Vector2i(50, 150), Sub() scenes.Open("Controls")))
         AddEntity(New TextButtonEntity("Leaderboard", New Vector2i(50, 200), Sub() scenes.Open("Leaderboard")))
         AddEntity(New TextButtonEntity("Settings", New Vector2i(50, 250), Sub() scenes.Open("Settings")))

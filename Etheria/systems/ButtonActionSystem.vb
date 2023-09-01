@@ -10,7 +10,7 @@
             Dim interactable = entity.GetComponent(Of InteractableComponent)("Interactable")
             Dim button = entity.GetComponent(Of ButtonComponent)("Button")
             If interactable.wasClicked Then
-                button.action.Invoke()
+                button.action()
             End If
         Next
     End Sub

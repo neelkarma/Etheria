@@ -19,17 +19,21 @@ Public Class SpriteComponent
     Public scale As Vector2f
     Public frame As Integer
     Public framesUntilNext As Integer
+    Public frameSpeed As Integer
+    Public subFrame As Integer
     Public frameDuration As Integer
+    Public hidden As Boolean = False
+    Public Property colour As SFML.Graphics.Color
 
-    Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Vector2f = Nothing)
-        Console.WriteLine(scale)
-        ' TODO: Why tf does this line always reassign the vector???
-        ' Apparently scale can't be Nothing, and if it isn't assigned it's simply (0, 0). Check for that instead?
+    Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Vector2f = Nothing, Optional hidden As Boolean = False)
         If scale = Nothing Then scale = New Vector2f(1, 1)
-        Console.WriteLine(scale)
+        If c = Nothing Then c = New Color(255, 255, 255)
 
         Me.name = name
         Me.frameDuration = frameDuration
         Me.scale = scale
+        Me.hidden = hidden
+
+
     End Sub
 End Class

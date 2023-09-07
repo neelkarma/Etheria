@@ -25,8 +25,18 @@ Public Class MouseCoordsSystem
             yLine.Append(New Vertex(New Vector2i(x, mousePos.Y)))
         Next
 
+        ' TODO: fix this not showing
+        Dim text As New Text With {
+            .DisplayedString = $"{mousePos.X}, {mousePos.Y}",
+            .Font = font,
+            .FillColor = Color.White,
+            .Position = mousePos + New Vector2i(20, 20),
+            .Scale = New Vector2i(0.5, 0.5)
+        }
+
         Window.Draw(xLine)
         Window.Draw(yLine)
+        Window.Draw(text)
         Console.WriteLine($"MOUSE: ({mousePos.X}, {mousePos.Y})")
     End Sub
 End Class

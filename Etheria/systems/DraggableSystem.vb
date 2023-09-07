@@ -7,6 +7,16 @@ Public Class DraggableSystem
         Return entity.HasComponents("Position", "Interactable", "Collider", "Draggable")
     End Function
 
+    ' note to future self: DO NOT FUCKING REMOVE THIS YOU WILL REGRET IT
+    Public Overrides Sub Init(entities As IEnumerable(Of Entity))
+        For Each entity In entities
+            Dim position = entity.GetComponent(Of PositionComponent)("Position")
+            Dim draggable = entity.GetComponent(Of DraggableComponent)("Draggable")
+
+            draggable.initialPosition = position.pos
+        Next
+    End Sub
+
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
         For Each entity In entities
             Dim interactable = entity.GetComponent(Of InteractableComponent)("Interactable")

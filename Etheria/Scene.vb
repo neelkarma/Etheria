@@ -23,7 +23,14 @@
             ' Calling GetSystemEntityMatches every frame for every system is very inefficient. Too bad!
             Dim matches = GetSystemEntityMatches(system)
             system.Update(matches)
+
+
+            If scenes.CurrentScene IsNot Me Then
+                Exit For
+            End If
         Next
+
+
     End Sub
 
     ''' <summary>
@@ -45,6 +52,22 @@
         Return AddEntity(New Entity(components))
     End Function
 
+    Public Sub RemoveEntity(id As Long)
+        entities.Remove(id)
+    End Sub
+
+    Public Sub RemoveEntity(entity As Entity)
+        RemoveEntity(entity.id)
+    End Sub
+
+    Public Function HasEntityWithId(id As Long) As Boolean
+        Return entities.ContainsKey(id)
+    End Function
+
+    Public Function HasEntity(predicate As Func(Of Entity, Boolean)) As Boolean
+        Return entities.Any(Function(pair) predicate(pair.Value))
+    End Function
+
     ''' <summary>
     ''' Adds a system to the scene
     ''' </summary>
@@ -63,6 +86,7 @@
     Private Function GetSystemEntityMatches(system As System) As IEnumerable(Of Entity)
         Return entities.Values.Where(Function(entity) system.Match(entity))
     End Function
+
 
     ''' <summary>
     ''' Initializes the systems in the scene.

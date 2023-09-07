@@ -34,7 +34,7 @@ Public Module Program
 
         While Window.IsOpen()
             ' enforce set fps
-            If clock.ElapsedTime.AsSeconds < 1 / fps Then
+            If clock.ElapsedTime.AsSeconds() < 1 / fps Then
                 Continue While
             End If
             Dim dt As Single = clock.Restart().AsSeconds()
@@ -44,14 +44,16 @@ Public Module Program
             Window.Clear()
             scenes.CurrentScene.Update()
             mouseWasHeldLastFrame = Mouse.IsButtonPressed(Mouse.Button.Left)
-            scenes.sceneJustChanged = False
+            If Not (scenes.sceneJustChanged And mouseWasHeldLastFrame) Then
+                scenes.sceneJustChanged = False
+            End If
             Window.Display()
 
         End While
     End Sub
 
     Sub HandleWindowClose() Handles Window.Closed
-        ' this handles clicking the x button
+        ' this handles closing the app when the x button is clicked
         Window.Close()
     End Sub
 End Module

@@ -14,7 +14,6 @@ Public Class ColliderComponent
 
     Public Sub New()
     End Sub
-
     Public Sub New(rect As IntRect)
         Me.rect = rect
     End Sub

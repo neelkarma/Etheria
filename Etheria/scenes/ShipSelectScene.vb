@@ -20,20 +20,20 @@ Public Class ShipSelectScene
         Dim dropTarget = AddEntity(
                 New PositionComponent(New Vector2i(300, 300)),
                 New ColliderComponent(New IntRect(New Vector2i(), New Vector2i(200, 200))),
-                New SpriteComponent("ship-blue",, New Vector2f(0.4, 0.4)),
-                New ColorComponent(Color.Black),
-                New SizeComponent(New Vector2i(200, 200))
+                New SpriteComponent("ship-blue",, New Vector2f(0.4, 0.4))
             )
 
         ' Ships
         For Each tup In Enumerate({"ship-blue", "ship-purple", "ship-red", "ship-yellow", "ship-green"})
             Dim i = tup.Item1
             Dim sprite = tup.Item2
+            Dim spriteSize = sprites.GetSprites(sprite)(0).GetLocalBounds()
+            Const scale = 0.3
 
             AddEntity(
                 New PositionComponent(New Vector2i(30 + i * 150, 200)),
-                New SpriteComponent(sprite,, New Vector2f(0.3, 0.3)),
-                New ColliderComponent(New IntRect(New Vector2i(), New Vector2i(200, 200))),
+                New SpriteComponent(sprite,, New Vector2f(scale, scale)),
+                New ColliderComponent(New IntRect(New Vector2i(0, 0), New Vector2i(spriteSize.Width * scale, spriteSize.Height * scale))),
                 New InteractableComponent(),
                 New DraggableComponent(New Integer() {dropTarget.id}, sprite)
             )

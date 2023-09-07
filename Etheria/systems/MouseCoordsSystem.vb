@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Security.Cryptography
 Imports SFML.Graphics
 Imports SFML.System
 Imports SFML.Window
@@ -15,12 +16,14 @@ Public Class MouseCoordsSystem
         Dim mousePos = Mouse.GetPosition(Window)
 
         Dim xLine As New VertexArray
-        xLine.Append(New Vertex(New Vector2i(mousePos.X, 0)))
-        xLine.Append(New Vertex(New Vector2i(mousePos.X, windowHeight)))
+        For y = 0 To windowHeight
+            xLine.Append(New Vertex(New Vector2i(mousePos.X, y)))
+        Next
 
         Dim yLine As New VertexArray()
-        yLine.Append(New Vertex(New Vector2i(0, mousePos.Y)))
-        yLine.Append(New Vertex(New Vector2i(windowWidth, mousePos.Y)))
+        For x = 0 To windowWidth
+            yLine.Append(New Vertex(New Vector2i(x, mousePos.Y)))
+        Next
 
         Window.Draw(xLine)
         Window.Draw(yLine)

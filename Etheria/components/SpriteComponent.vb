@@ -27,7 +27,7 @@ Public Class SpriteComponent
 
     Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Vector2f = Nothing, Optional hidden As Boolean = False)
         If scale = Nothing Then scale = New Vector2f(1, 1)
-        If c = Nothing Then c = New Color(255, 255, 255)
+        'If c = Nothing Then c = New Color(255, 255, 255)
 
         Me.name = name
         Me.frameDuration = frameDuration

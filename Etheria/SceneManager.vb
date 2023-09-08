@@ -35,6 +35,10 @@
     Public Sub Open(name As String, Optional init As Boolean = True)
         currentSceneName = name
         sceneJustChanged = True
+
+        ' this is here as a crappy solution to InteractableComponent.holdIsLocked not being reset on scene change (i.e. if the held entity was destroyed)
+        InteractableComponent.holdIsLocked = -1
+
         CurrentScene.Open(init)
     End Sub
 End Class

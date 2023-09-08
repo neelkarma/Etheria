@@ -13,12 +13,12 @@ Public Class GameScene
     Public Overrides Sub InitEntities()
         Dim player As New Player(playerColour, 1, 0, windowHeight / 2 - 6)
         AddEntity(player)
-        ' paddles
-        AddEntity(New PaddleEntity(PlayerSide.Left))
-        AddEntity(New PaddleEntity(PlayerSide.Right))
 
-        ' ball
-        AddEntity(New BallEntity)
+        AddEntity(
+            New PlayerHUDComponent()
+        )
+
+
     End Sub
 
 End Class

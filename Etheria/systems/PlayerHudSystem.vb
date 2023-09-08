@@ -10,23 +10,51 @@ Public Class PlayerHudSystem
     Public Const scorePadding As Integer = 18
 
     Public Overrides Function Match(entity As Entity) As Boolean
-        Return False
+        Return entity.HasComponent("PlayerHUDComponent")
     End Function
     Public Overrides Sub Init(entities As IEnumerable(Of Entity))
         ' Dim hasPlayer As Scenes.CurrentScene.("player")
         For Each entity In entities
-            For i = 0 To 2
+            Dim hud = entity.GetComponent(Of PlayerHUDComponent)("PlayerHUD")
 
-                Dim healthEntity = entity.GetComponent(Of SpriteComponent)("Sprite")
-                healthEntity.hidden = True
-                'Dim healthEntity = entity.GetComponent(Of TransformComponent)("Transform")
+            For i = 0 To 2
+                Dim healthEntity As Entity = New Entity(
+                        New SpriteComponent(1,,, True),
+                        New TransformComponent(i * 8, 0, 0, 0)
+                    )
+                healthSpriteIds.Add(healthEntity.id)
+
+                scenes.CurrentScene.AddEntity(healthEntity)
 
             Next
+            For i = 0 To 2
+                Dim healthEntity As Entity = New Entity(
+                    New SpriteComponent(1,,, True),
+                    New TransformComponent(36 + i * 8, 0, 0, 0)
+                )
+                healthSpriteIds.Add(healthEntity.id)
+
+                scenes.CurrentScene.AddEntity(healthEntity)
+            Next
+            For i = 0 To 1
+                Dim healthEntity As Entity = New Entity(
+                    New SpriteComponent(1,,, True),
+                    New TransformComponent(24 + i * 8, 0, 0, 0)
+                )
+                healthSpriteIds.Add(healthEntity.id)
+
+                scenes.CurrentScene.AddEntity(healthEntity)
+            Next
+
         Next
 
     End Sub
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
-        MyBase.Update(entities)
+
+        If scenes.CurrentScene.Type <> "GameScene" Then
+            Return
+        End If
+        ' Dim _playerComponent = Entity.GetComponent(PlayerComponent)("PLayer")
 
     End Sub
 End Class

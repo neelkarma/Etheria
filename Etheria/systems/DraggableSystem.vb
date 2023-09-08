@@ -28,13 +28,13 @@ Public Class DraggableSystem
             If interactable.isHeld Then
                 ' make the entity move with the cursor
                 If Not mouseWasHeldLastFrame Then
-                    draggable.initialPosition = position.pos
                     draggable.positionOffset = mousePos - position.pos
                 End If
                 position.pos = mousePos - draggable.positionOffset
             End If
 
-            If Not interactable.isHeld And mouseWasHeldLastFrame And Not scenes.sceneJustChanged Then
+            If interactable.wasReleased Then
+                Console.WriteLine("Dropped onto valid target")
                 ' check if mouse cursor is over a valid drop target
                 Dim predicate = Function(ent As Entity) ent.HasComponents("DropTarget", "Sprite") And draggable.validDropTargets.Contains(ent.id)
                 If collider.collisions.Any(predicate) Then

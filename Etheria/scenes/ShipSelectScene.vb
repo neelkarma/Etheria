@@ -41,7 +41,7 @@ Public Class ShipSelectScene
 
         ' Back Button
         AddEntity(
-            New TextButtonEntity("Back", New Vector2i(100, 600), Sub() scenes.Open("Title"))
+            New TextButtonEntity("Back", New Vector2i(50, 400), Sub() scenes.Open("Title"))
         )
 
         ' Advance Button

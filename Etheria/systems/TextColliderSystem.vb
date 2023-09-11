@@ -1,4 +1,4 @@
-﻿Public Class TextSizeSystem
+﻿Public Class TextColliderSystem
     Inherits System
 
     Public Overrides Function Match(entity As Entity) As Boolean

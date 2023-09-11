@@ -5,7 +5,7 @@ Imports SFML.Window
 Public Class PlayerSystem
     Inherits System
     Public Overrides Function Match(entity As Entity) As Boolean
-        Return entity.HasComponents("Paddle", "Position", "Velocity", "Collider")
+        Return entity.HasComponents("Position", "Velocity", "Collider")
 
     End Function
 

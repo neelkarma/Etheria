@@ -19,18 +19,13 @@
     ''' This sub is called once every frame.
     ''' </summary>
     Public Sub Update()
+        If scenes.CurrentScene IsNot Me Then Return
+
         For Each system In systems
             ' Calling GetSystemEntityMatches every frame for every system is very inefficient. Too bad!
             Dim matches = GetSystemEntityMatches(system)
             system.Update(matches)
-
-
-            If scenes.CurrentScene IsNot Me Then
-                Exit For
-            End If
         Next
-
-
     End Sub
 
     ''' <summary>
@@ -52,18 +47,47 @@
         Return AddEntity(New Entity(components))
     End Function
 
+    ''' <summary>
+    ''' Removes the entity with the given id from the scene.
+    ''' </summary>
+    ''' <param name="id">The id of the entity to remove.</param>
     Public Sub RemoveEntity(id As Long)
         entities.Remove(id)
     End Sub
 
+    ''' <summary>
+    ''' Removes an entity from the scene.
+    ''' </summary>
+    ''' <param name="entity">The entity to remove.</param>
     Public Sub RemoveEntity(entity As Entity)
         RemoveEntity(entity.id)
     End Sub
 
+    ''' <summary>
+    ''' Gets an <see cref="Entity"/> from the scene, given it's id.
+    ''' 
+    ''' Note: This just directly indexes the dictionary, meaning the game will crash if the ID doesn't exist! Use <see cref= "HasEntityWithId(Long)"/> first.
+    ''' </summary>
+    ''' <param name="id">The id of the entity to get.</param>
+    ''' <returns>The entity with the matching ID.</returns>
+    Public Function GetEntityById(id As Integer) As Entity
+        Return entities(id)
+    End Function
+
+    ''' <summary>
+    ''' Checks if an entity with the given id exists in the scene.
+    ''' </summary>
+    ''' <param name="id">The id of the entity to be checked.</param>
+    ''' <returns>If the entity exists in the scene or not.</returns>
     Public Function HasEntityWithId(id As Long) As Boolean
         Return entities.ContainsKey(id)
     End Function
 
+    ''' <summary>
+    ''' Checks if an entity exists in the scene, given a predicate function.
+    ''' </summary>
+    ''' <param name="predicate">The predicate function - an entity is passed to it, and it returns true if it's a match or false if not.</param>
+    ''' <returns>If any of the entities in the system passed the predicate.</returns>
     Public Function HasEntity(predicate As Func(Of Entity, Boolean)) As Boolean
         Return entities.Any(Function(pair) predicate(pair.Value))
     End Function
@@ -107,11 +131,15 @@
         AddSystem(New DraggableSystem)
         AddSystem(New ButtonActionSystem)
         AddSystem(New TextButtonSystem)
-        AddSystem(New TextSizeSystem)
+        AddSystem(New SpriteColliderSystem)
+        AddSystem(New TextColliderSystem)
 
         AddSystem(New AnimationSystem)
         AddSystem(New MouseCoordsSystem)
         AddSystem(New SliderSystem)
+
+        AddSystem(New DebugSystem)
+        AddSystem(New ColliderDebugSystem)
         ' TODO: Add systems as they get developed
     End Sub
 

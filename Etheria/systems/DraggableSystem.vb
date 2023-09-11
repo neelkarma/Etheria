@@ -34,7 +34,6 @@ Public Class DraggableSystem
             End If
 
             If interactable.wasReleased Then
-                Console.WriteLine("Dropped onto valid target")
                 ' check if mouse cursor is over a valid drop target
                 Dim predicate = Function(ent As Entity) ent.HasComponents("DropTarget", "Sprite") And draggable.validDropTargets.Contains(ent.id)
                 If collider.collisions.Any(predicate) Then

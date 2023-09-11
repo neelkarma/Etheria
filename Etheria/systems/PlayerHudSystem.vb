@@ -50,11 +50,27 @@ Public Class PlayerHudSystem
 
     End Sub
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
+        For Each entity In entities
+            If scenes.CurrentScene.Type <> "GameScene" Then
+                Return
+            End If
+            Dim _playerComponent = entity.GetComponent(Of PlayerComponent)("PLayer")
+            For i = 0 To 2
 
-        If scenes.CurrentScene.Type <> "GameScene" Then
-            Return
-        End If
-        ' Dim _playerComponent = Entity.GetComponent(PlayerComponent)("PLayer")
+                If Not scenes.CurrentScene.HasEntityWithId(healthSpriteIds(i)) Then Continue For
+                Dim healthEntity As Entity = scenes.CurrentScene.GetEntityById(healthSpriteIds(i))
+                Dim _spriteComponent As SpriteComponent = healthEntity.GetComponent(Of SpriteComponent)("SpriteComponent")
+
+                If i <= _playerComponent.lives - 1 Then
+                    _spriteComponent.hidden = False
+                Else
+                    _spriteComponent.hidden = True
+                End If
+                _spriteComponent.name = $"health{_playerComponent.colour}"
+            Next
+        Next
+
+
 
     End Sub
 End Class

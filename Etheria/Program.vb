@@ -17,12 +17,12 @@ Public Module Program
     Public windowScale As Integer = 1
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
-    Public ReadOnly scenes As New SceneManager("Title")
+    Public ReadOnly scenes As New SceneManager("Game")
     Public ReadOnly sprites As New SpriteManager
     Public ReadOnly audio As New AudioManager
     Public highscores As New List(Of Integer)
     Public mouseWasHeldLastFrame As Boolean = False
-    Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Pong")
+    Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Etheria")
     Public score As Integer = 0
 
     Public playerColour As String = ""

@@ -10,7 +10,7 @@
             Dim sprite = entity.GetComponent(Of SpriteComponent)("Sprite")
             If Not sprite.overrideCollider Then Continue For
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
-            collider.rect = sprite.Sprite.GetLocalBounds()
+            collider.rect = sprite.Sprite.GetGlobalBounds()
         Next
     End Sub
 End Class

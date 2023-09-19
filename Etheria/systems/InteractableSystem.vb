@@ -16,13 +16,13 @@ Public Class InteractableSystem
             Dim mousePosition = Mouse.GetPosition(Window)
 
             interactable.isHovered = rect.Contains(mousePosition.X, mousePosition.Y)
-            interactable.isHeld = interactable.isHovered And Mouse.IsButtonPressed(Mouse.Button.Left) And (InteractableComponent.holdIsLocked = -1 Or InteractableComponent.holdIsLocked = entity.id)
+            interactable.isHeld = Mouse.IsButtonPressed(Mouse.Button.Left) And ((interactable.isHovered And InteractableComponent.holdIsLocked = -1) Or (InteractableComponent.holdIsLocked = entity.id))
             If interactable.isHeld Then
                 InteractableComponent.holdIsLocked = entity.id
             End If
             interactable.wasClicked = interactable.isHeld And Not mouseWasHeldLastFrame
-            interactable.wasReleased = (Not interactable.isHeld) And mouseWasHeldLastFrame And interactable.isHovered
-            If InteractableComponent.holdIsLocked = entity.id And interactable.wasReleased Then
+            interactable.wasReleased = (Not interactable.isHeld) And mouseWasHeldLastFrame And InteractableComponent.holdIsLocked = entity.id
+            If InteractableComponent.holdIsLocked = entity.id And Not Mouse.IsButtonPressed(Mouse.Button.Left) Then
                 InteractableComponent.holdIsLocked = -1
             End If
         Next

@@ -52,7 +52,8 @@ Public Class SpriteManager
         If sprites.ContainsKey(name) Then
             Return sprites(name)
         Else
-            Throw New KeyNotFoundException($"No sprites with name {name} exists in the SpriteManager.")
+            Console.WriteLine($"SPRITES: Warning: No sprites with name {name} exist in the SpriteManager.")
+            Return sprites("error")
         End If
     End Function
 

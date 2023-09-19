@@ -6,7 +6,7 @@ Public Class MenuBackgroundEntity
     Public Sub New()
         AddComponents(
             New PositionComponent(),
-            New SpriteComponent("menu-bg", , New Vector2f(1.2, 1.2))
+            New SpriteComponent("menu-bg", , 1.2)
         )
     End Sub
 

@@ -12,19 +12,19 @@ Public Class ControlsScene
         )
         AddEntity(
             New PositionComponent(New Vector2i(250, 290)),
-            New SpriteComponent("spacebar", , New Vector2f(0.5, 0.5))
+            New SpriteComponent("spacebar", , 0.5)
         )
         AddEntity(
             New PositionComponent(New Vector2i(250, 155)),
-            New SpriteComponent("wasd", , New Vector2f(0.5, 0.5))
+            New SpriteComponent("wasd", , 0.5)
         )
         AddEntity(
             New PositionComponent(New Vector2i(70, 250)),
-            New SpriteComponent("shift", , New Vector2f(0.5, 0.5))
+            New SpriteComponent("shift", , 0.5)
         )
         AddEntity(
             New PositionComponent(New Vector2i(560, 160)),
-            New SpriteComponent("mouse", , New Vector2f(0.5, 0.5))
+            New SpriteComponent("mouse", , 0.5)
         )
 
         AddEntity(

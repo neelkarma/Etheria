@@ -14,16 +14,18 @@ Public Class LeaderboardScene
         AddEntity(New TextButtonEntity("Back", New Vector2i(330, 470), Sub() scenes.Open("Title")))
 
         Const scorePadding As Integer = 60
+        Const scoreGap As Integer = 40
 
-        For i = 0 To 9
-            'New PositionComponent(New Vector2i(windowWidth / 2 - CalculateTextRect("00:    000000").Width / 2, 60 + 15 * i))
+        For Each entry In Enumerate(leaderboard.Leaderboard)
+            Dim i = entry.Item1
+            Dim lbEntry = entry.Item2
+            Dim name = lbEntry.Item1
+            Dim score = lbEntry.Item2
+
             AddEntity(
-                New TextComponent($"{(i + 1).ToString(StrDup(2, "0"))}:    {highscores(i).ToString(StrDup(scorePadding, "0"))}"),
-                New PositionComponent(New Vector2i(100, scorePadding + 15 * i))
+                New TextComponent($"{(i + 1):D2}: {name} {score:D8}",, 0.8),
+                New PositionComponent(New Vector2i(100, scorePadding + (scoreGap * i)))
             )
         Next
-
-
     End Sub
-
 End Class

@@ -5,18 +5,12 @@ Imports SFML.Window
 Public Class ColliderDebugSystem
     Inherits System
 
-    Private active As Boolean = False
-
     Public Overrides Function Match(entity As Entity) As Boolean
         Return entity.HasComponents("Position", "Collider")
     End Function
 
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
-        If Keyboard.IsKeyPressed(Keyboard.Key.F2) Then
-            active = Not active
-        End If
-
-        If Not active Then Return
+        If Not isDebug Then Return
 
         For Each entity In entities
             Dim position = entity.GetComponent(Of PositionComponent)("Position")

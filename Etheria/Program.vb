@@ -17,19 +17,20 @@ Public Module Program
     Public windowScale As Integer = 1
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
-    Public ReadOnly scenes As New SceneManager("Game")
+    Public ReadOnly scenes As New SceneManager("Title")
     Public ReadOnly sprites As New SpriteManager
     Public ReadOnly audio As New AudioManager
-    Public highscores As New List(Of Integer)
+    Public leaderboard As New LeaderboardManager
     Public mouseWasHeldLastFrame As Boolean = False
     Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Etheria")
     Public score As Integer = 0
+    Public isDebug As Boolean = False
 
-    Public playerColour As String = ""
+    Public playerColor As String = "blue"
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
-        LoadHighScore()
-        ' TODO: remove this after some time
+
+        ' TODO: change this after some time
         audio.PlayBGM("grass-beach")
 
         While Window.IsOpen()
@@ -44,6 +45,9 @@ Public Module Program
             Window.Clear()
             scenes.CurrentScene.Update()
             mouseWasHeldLastFrame = Mouse.IsButtonPressed(Mouse.Button.Left)
+            If Keyboard.IsKeyPressed(Keyboard.Key.F2) Then
+                isDebug = Not isDebug
+            End If
             If Not (scenes.sceneJustChanged And mouseWasHeldLastFrame) Then
                 scenes.sceneJustChanged = False
             End If

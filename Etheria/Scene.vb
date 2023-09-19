@@ -116,13 +116,9 @@
     ''' Initializes the systems in the scene.
     ''' </summary>
     Public Sub InitSystems()
-        AddSystem(New PaddleControlSystem)
-
         AddSystem(New CollisionSystem)
 
         AddSystem(New VelocitySystem)
-        AddSystem(New PaddleBounceSystem)
-        AddSystem(New WallBounceSystem)
         AddSystem(New SpriteRenderSystem)
 
         AddSystem(New RectRenderSystem)
@@ -140,6 +136,7 @@
 
         AddSystem(New DebugSystem)
         AddSystem(New ColliderDebugSystem)
+        AddSystem(New InteractableDebugSystem)
         ' TODO: Add systems as they get developed
     End Sub
 

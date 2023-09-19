@@ -24,18 +24,13 @@ Public Class SpriteComponent
     Public frameDuration As Integer
     Public hidden As Boolean = False
     Public overrideCollider As Boolean = True
-    Public Property colour As SFML.Graphics.Color
 
-    Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Vector2f = Nothing, Optional hidden As Boolean = False, Optional overrideCollider As Boolean = True)
-        If scale = Nothing Then scale = New Vector2f(1, 1)
-        'If c = Nothing Then c = New Color(255, 255, 255)
-
+    Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Single = 1, Optional hidden As Boolean = False, Optional overrideCollider As Boolean = True)
         Me.name = name
         Me.frameDuration = frameDuration
         Me.overrideCollider = overrideCollider
-        Me.scale = scale
+        Me.scale = New Vector2f(scale, scale)
         Me.hidden = hidden
-
-
     End Sub
 End Class
+

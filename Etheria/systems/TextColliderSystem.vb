@@ -10,7 +10,7 @@
             Dim text = entity.GetComponent(Of TextComponent)("Text")
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
 
-            collider.rect = text.Text.GetLocalBounds()
+            collider.rect = text.Text.GetGlobalBounds()
         Next
     End Sub
 End Class

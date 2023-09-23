@@ -2,30 +2,15 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SFML_ECS_Test</RootNamespace>
+    <RootNamespace>Etheria</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="components\NewFile1.txt" />
-    <None Remove="components\PlayerComponent" />
-    <None Remove="components\ScreenColliderComponent" />
-    <None Remove="entities\NewFile1.txt" />
-    <None Remove="resources\data\NewFile1.txt" />
-    <None Remove="scenes\NewFile1.txt" />
-    <None Remove="systems\NewFile1.txt" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SFML.Graphics" Version="2.5.1" />
     <PackageReference Include="SFML.Net" Version="2.5.1" />
     <PackageReference Include="SFML.System" Version="2.5.1" />
     <PackageReference Include="SFML.Window" Version="2.5.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="resources\audio\sfx\" />
-    <Folder Include="resources\sprites\animations\sample-animation\" />
   </ItemGroup>
 
 </Project>

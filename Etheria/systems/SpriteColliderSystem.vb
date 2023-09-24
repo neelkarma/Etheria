@@ -1,4 +1,6 @@
-﻿Public Class SpriteColliderSystem
+﻿Imports SFML.Graphics
+
+Public Class SpriteColliderSystem
     Inherits System
 
     Public Overrides Function Match(entity As Entity) As Boolean
@@ -10,7 +12,8 @@
             Dim sprite = entity.GetComponent(Of SpriteComponent)("Sprite")
             If Not sprite.overrideCollider Then Continue For
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
-            collider.rect = sprite.Sprite.GetGlobalBounds()
+            Dim spriteBounds = sprite.Sprite.GetGlobalBounds()
+            collider.rect = New IntRect(0, 0, spriteBounds.Width, spriteBounds.Height)
         Next
     End Sub
 End Class

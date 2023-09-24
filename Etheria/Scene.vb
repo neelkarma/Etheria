@@ -117,23 +117,23 @@
     ''' </summary>
     Public Sub InitSystems()
         AddSystem(New CollisionSystem)
-
         AddSystem(New VelocitySystem)
-        AddSystem(New SpriteRenderSystem)
-
-        AddSystem(New RectRenderSystem)
-        AddSystem(New TextRenderSystem)
-        AddSystem(New InteractableSystem)
-        AddSystem(New DraggableSystem)
-        AddSystem(New ButtonActionSystem)
-        AddSystem(New TextButtonSystem)
         AddSystem(New SpriteColliderSystem)
         AddSystem(New TextColliderSystem)
 
-        AddSystem(New AnimationSystem)
-        AddSystem(New MouseCoordsSystem)
+        AddSystem(New InteractableSystem)
+        AddSystem(New DraggableSystem)
         AddSystem(New SliderSystem)
+        AddSystem(New TextButtonSystem)
+        AddSystem(New ButtonActionSystem)
 
+        AddSystem(New SpriteRenderSystem)
+        AddSystem(New RectRenderSystem)
+        AddSystem(New TextRenderSystem)
+
+        AddSystem(New AnimationSystem)
+
+        AddSystem(New MouseCoordsSystem)
         AddSystem(New DebugSystem)
         AddSystem(New ColliderDebugSystem)
         AddSystem(New InteractableDebugSystem)

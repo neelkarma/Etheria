@@ -12,6 +12,7 @@ Public Class InteractableSystem
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim interactable = entity.GetComponent(Of InteractableComponent)("Interactable")
+
             Dim rect = GetGlobalRect(position, collider)
             Dim mousePosition = Mouse.GetPosition(Window)
 

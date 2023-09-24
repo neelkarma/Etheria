@@ -23,6 +23,7 @@ Public Class DraggableSystem
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim draggable = entity.GetComponent(Of DraggableComponent)("Draggable")
+
             Dim mousePos = Mouse.GetPosition(Window)
 
             If interactable.isHeld Then
@@ -41,6 +42,7 @@ Public Class DraggableSystem
                     Dim other = collider.collisions.Find(predicate)
                     Dim sprite = other.GetComponent(Of SpriteComponent)("Sprite")
                     sprite.name = draggable.sprite
+                    If sprite.hidden Then sprite.hidden = False
                 End If
 
                 ' set entity position to draggable initial position

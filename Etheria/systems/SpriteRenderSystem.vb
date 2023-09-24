@@ -8,9 +8,7 @@
         For Each entity In entities
             Dim sprite = entity.GetComponent(Of SpriteComponent)("Sprite")
 
-            If sprite.hidden Then
-                Continue For
-            End If
+            If sprite.hidden Then Continue For
 
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
 

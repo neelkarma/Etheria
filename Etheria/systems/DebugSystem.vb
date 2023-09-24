@@ -6,6 +6,6 @@
     End Function
 
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
-        Console.WriteLine(InteractableComponent.holdIsLocked)
+        ' Console.WriteLine(InteractableComponent.holdIsLocked)
     End Sub
 End Class

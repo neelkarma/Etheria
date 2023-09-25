@@ -14,20 +14,20 @@
         Dim title As New TitleScene
         Dim controls As New ControlsScene
         Dim game As New GameScene
-        Dim endScene As New EndScene
         Dim leaderboard As New LeaderboardScene
         Dim test As New TestScene
         Dim settings As New SettingsScene
         Dim shipSelect As New ShipSelectScene
+        Dim gameOver As New GameOverScene
 
         scenes(title.Type) = title
         scenes(shipSelect.Type) = shipSelect
         scenes(controls.Type) = controls
         scenes(game.Type) = game
-        scenes(endScene.Type) = endScene
         scenes(test.Type) = test
         scenes(leaderboard.Type) = leaderboard
         scenes(settings.Type) = settings
+        scenes(gameOver.Type) = gameOver
 
         Open(initialScene)
     End Sub

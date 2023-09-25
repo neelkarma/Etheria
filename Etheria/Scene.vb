@@ -123,13 +123,14 @@
 
         AddSystem(New InteractableSystem)
         AddSystem(New DraggableSystem)
-        AddSystem(New SliderSystem)
         AddSystem(New TextButtonSystem)
         AddSystem(New ButtonActionSystem)
 
         AddSystem(New SpriteRenderSystem)
         AddSystem(New RectRenderSystem)
+        AddSystem(New SliderSystem)
         AddSystem(New TextRenderSystem)
+        AddSystem(New InitialInputSystem)
 
         AddSystem(New AnimationSystem)
 

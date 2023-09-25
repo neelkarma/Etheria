@@ -7,13 +7,8 @@ Public Class TestScene
 
     Public Overrides Sub InitEntities()
         AddEntity(
-            New PositionComponent(New Vector2i(0, 0)),
-            New SpriteComponent("sampleSingle")
-        )
-
-        AddEntity(
-            New PositionComponent(New Vector2i(300, 0)),
-            New SpriteComponent("sampleAnimation", 10)
+            New InitialInputComponent(),
+            New PositionComponent(New Vector2i(50, 50))
         )
     End Sub
 End Class

@@ -1,7 +1,7 @@
 ﻿Public Class LeaderboardManager
     Private Const filepath As String = "../../../resources/data/highscores.txt"
 
-    Public ReadOnly Property Leaderboard As New List(Of (String, Integer))
+    Public ReadOnly leaderboard As New List(Of (String, Integer))
 
     Public Sub New()
         Load()
@@ -40,4 +40,8 @@
         Next
         Save()
     End Sub
+
+    Public Function CheckScore(score As Integer) As Boolean
+        Return score > Leaderboard.Last().Item2
+    End Function
 End Class

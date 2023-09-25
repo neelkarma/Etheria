@@ -1,4 +1,5 @@
 ﻿Imports SFML.Graphics
+Imports SFML.Window
 
 Public Module Utils
     Public Iterator Function Enumerate(Of T)(input As IEnumerable(Of T), Optional start As Integer = 0) As IEnumerable(Of (Integer, T))
@@ -12,18 +13,102 @@ Public Module Utils
         Return New IntRect(c.rect.Left + p.pos.X, c.rect.Top + p.pos.Y, c.rect.Width, c.rect.Height)
     End Function
 
-    Public Function GetSideName(side As PlayerSide) As String
-        Select Case side
-            Case PlayerSide.Left
-                Return "Left Player"
-            Case PlayerSide.Right
-                Return "Right Player"
-        End Select
-#Disable Warning BC42105 ' we have covered all enum variants, so this warning is irrelevant
-    End Function
-#Enable Warning BC42105
-
     Public Function CalculateTextRect(text As String, Optional scale As Decimal = 1) As IntRect
         Return New Text(text, font, scale).GetGlobalBounds()
+    End Function
+
+    Public Function GetCurrentlyPressedAlphaKey() As Keyboard.Key
+        For Each key In New Keyboard.Key() {
+            Keyboard.Key.A,
+            Keyboard.Key.B,
+            Keyboard.Key.C,
+            Keyboard.Key.D,
+            Keyboard.Key.E,
+            Keyboard.Key.F,
+            Keyboard.Key.G,
+            Keyboard.Key.H,
+            Keyboard.Key.I,
+            Keyboard.Key.J,
+            Keyboard.Key.K,
+            Keyboard.Key.L,
+            Keyboard.Key.M,
+            Keyboard.Key.N,
+            Keyboard.Key.O,
+            Keyboard.Key.P,
+            Keyboard.Key.Q,
+            Keyboard.Key.R,
+            Keyboard.Key.S,
+            Keyboard.Key.T,
+            Keyboard.Key.U,
+            Keyboard.Key.V,
+            Keyboard.Key.W,
+            Keyboard.Key.X,
+            Keyboard.Key.Y,
+            Keyboard.Key.Z
+        }
+
+            If Keyboard.IsKeyPressed(key) Then Return key
+        Next
+
+        Return Keyboard.Key.Unknown
+    End Function
+
+    Public Function KeyboardKeyToChar(key As Keyboard.Key) As Char
+        Select Case key
+            Case Keyboard.Key.A
+                Return "A"
+            Case Keyboard.Key.B
+                Return "B"
+            Case Keyboard.Key.C
+                Return "C"
+            Case Keyboard.Key.D
+                Return "D"
+            Case Keyboard.Key.E
+                Return "E"
+            Case Keyboard.Key.F
+                Return "F"
+            Case Keyboard.Key.G
+                Return "G"
+            Case Keyboard.Key.H
+                Return "H"
+            Case Keyboard.Key.I
+                Return "I"
+            Case Keyboard.Key.J
+                Return "J"
+            Case Keyboard.Key.K
+                Return "K"
+            Case Keyboard.Key.L
+                Return "L"
+            Case Keyboard.Key.M
+                Return "M"
+            Case Keyboard.Key.N
+                Return "N"
+            Case Keyboard.Key.O
+                Return "O"
+            Case Keyboard.Key.P
+                Return "P"
+            Case Keyboard.Key.Q
+                Return "Q"
+            Case Keyboard.Key.R
+                Return "R"
+            Case Keyboard.Key.S
+                Return "S"
+            Case Keyboard.Key.T
+                Return "T"
+            Case Keyboard.Key.U
+                Return "U"
+            Case Keyboard.Key.V
+                Return "V"
+            Case Keyboard.Key.W
+                Return "W"
+            Case Keyboard.Key.X
+                Return "X"
+            Case Keyboard.Key.Y
+                Return "Y"
+            Case Keyboard.Key.Z
+                Return "Z"
+            Case Else
+                Return ""
+        End Select
     End Function
 End Module

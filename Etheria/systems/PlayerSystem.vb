@@ -10,7 +10,6 @@ Public Class PlayerSystem
     End Function
 
     Public Overrides Sub Init(entities As IEnumerable(Of Entity))
-        score = 0
     End Sub
 
 

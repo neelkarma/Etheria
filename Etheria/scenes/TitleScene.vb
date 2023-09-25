@@ -1,4 +1,5 @@
-﻿Imports SFML.System
+﻿Imports SFML.Graphics
+Imports SFML.System
 
 Public Class TitleScene
     Inherits Scene
@@ -6,17 +7,26 @@ Public Class TitleScene
     Public Overrides ReadOnly Property Type As String = "Title"
 
     Public Overrides Sub InitEntities()
+        ' background
         AddEntity(New MenuBackgroundEntity())
 
+        ' title
         AddEntity(
             New TextComponent("Etheria", Nothing, 1.5),
             New PositionComponent(New Vector2i(50, 50))
         )
 
+        ' buttons
         AddEntity(New TextButtonEntity("Start", New Vector2i(50, 100), Sub() scenes.Open("ShipSelect")))
         AddEntity(New TextButtonEntity("Controls", New Vector2i(50, 150), Sub() scenes.Open("Controls")))
         AddEntity(New TextButtonEntity("Leaderboard", New Vector2i(50, 200), Sub() scenes.Open("Leaderboard")))
         AddEntity(New TextButtonEntity("Settings", New Vector2i(50, 250), Sub() scenes.Open("Settings")))
         AddEntity(New TextButtonEntity("Quit", New Vector2i(50, 300), Sub() Window.Close()))
+
+        ' Copyright notice
+        AddEntity(
+            New TextComponent("© Sample Text Studios 2023", Color.White, 0.5),
+            New PositionComponent(New Vector2i(50, 350))
+        )
     End Sub
 End Class

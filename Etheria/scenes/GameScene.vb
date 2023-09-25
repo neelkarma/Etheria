@@ -5,7 +5,7 @@ Public Class GameScene
     Public Overrides ReadOnly Property Type As String = "Game"
 
     Public Overrides Sub InitEntities()
-        AddEntity(New PlayerEntity(playerColor))
+        AddEntity(New PlayerEntity(session.shipSprite))
 
         AddEntity(New PlayerHUDComponent())
     End Sub

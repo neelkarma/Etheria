@@ -21,6 +21,7 @@ Public Module Program
     Public ReadOnly leaderboard As New LeaderboardManager
     Public ReadOnly session As New SessionState
     Public ReadOnly scenes As New SceneManager("Title")
+
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
 
@@ -29,9 +30,7 @@ Public Module Program
 
         While Window.IsOpen()
             ' enforce set fps
-            If clock.ElapsedTime.AsSeconds() < 1 / fps Then
-                Continue While
-            End If
+            If clock.ElapsedTime.AsSeconds() < 1 / fps Then Continue While
             Dim dt As Single = clock.Restart().AsSeconds()
             ' Console.WriteLine(1 / dt) ' fps
 

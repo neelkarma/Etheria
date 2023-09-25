@@ -127,6 +127,7 @@
         AddSystem(New ButtonActionSystem)
 
         AddSystem(New SpriteRenderSystem)
+        AddSystem(New ScrollingBackgroundSystem)
         AddSystem(New RectRenderSystem)
         AddSystem(New SliderSystem)
         AddSystem(New TextRenderSystem)

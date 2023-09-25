@@ -10,13 +10,13 @@ Public Class SpriteComponent
     Public ReadOnly Property Sprite As Sprite
         Get
             Dim s = sprites.GetSprites(name)(frame)
-            s.Scale = scale
+            s.Scale = New Vector2f(scale, scale)
             Return s
         End Get
     End Property
 
     Public name As String
-    Public scale As Vector2f
+    Public scale As Single
     Public frame As Integer
     Public framesUntilNext As Integer
     Public frameSpeed As Integer
@@ -29,7 +29,7 @@ Public Class SpriteComponent
         Me.name = name
         Me.frameDuration = frameDuration
         Me.overrideCollider = overrideCollider
-        Me.scale = New Vector2f(scale, scale)
+        Me.scale = scale
         Me.hidden = hidden
     End Sub
 End Class

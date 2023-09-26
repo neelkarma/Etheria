@@ -20,7 +20,7 @@ Public Module Program
     Public ReadOnly audio As New AudioManager
     Public ReadOnly leaderboard As New LeaderboardManager
     Public ReadOnly session As New SessionState
-    Public ReadOnly scenes As New SceneManager("Title")
+    Public ReadOnly scenes As New SceneManager("Shop")
 
     Sub Main()
         Window.SetVerticalSyncEnabled(True)

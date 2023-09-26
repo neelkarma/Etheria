@@ -7,8 +7,10 @@ Public Class SessionState
     Public level As Integer = 0
     Public score As Integer = 0
     Public shinies As Integer = 0
+    Public lives As Integer = 3
     Public shipSprite As String = "ship-blue"
-    Public boughtPowerUps As New HashSet(Of String)
+    Public boughtPowerUps As New HashSet(Of Powerup)
+    Public equippedPowerup As Powerup? = Nothing
 
     Public Sub Reset()
         level = 0
@@ -16,5 +18,6 @@ Public Class SessionState
         shinies = 0
         shipSprite = "ship-blue"
         boughtPowerUps.Clear()
+        equippedPowerup = Nothing
     End Sub
 End Class

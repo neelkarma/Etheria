@@ -124,9 +124,12 @@
         AddSystem(New TextColliderSystem)
 
         AddSystem(New InteractableSystem)
+        AddSystem(New ShopItemButtonSystem)
         AddSystem(New DraggableSystem)
         AddSystem(New TextButtonSystem)
         AddSystem(New ButtonActionSystem)
+        AddSystem(New ReactiveTextSystem)
+        AddSystem(New ShopPriceSystem)
 
         AddSystem(New SpriteRenderSystem)
         AddSystem(New ScrollingBackgroundSystem)
@@ -138,9 +141,11 @@
         AddSystem(New AnimationSystem)
 
         AddSystem(New MouseCoordsSystem)
-        AddSystem(New DebugSystem)
         AddSystem(New ColliderDebugSystem)
         AddSystem(New InteractableDebugSystem)
+        AddSystem(New CheatsSystem)
+        AddSystem(New WarpSystem)
+        AddSystem(New DebugSystem)
         ' TODO: Add systems as they get developed
     End Sub
 

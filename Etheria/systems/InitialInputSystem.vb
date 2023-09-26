@@ -6,6 +6,7 @@ Public Class InitialInputSystem
     Inherits System
 
     Private pressed As Keyboard.Key = Keyboard.Key.Unknown
+    Private continueBtnEnt As Entity = Nothing
 
     Public Overrides Function Match(entity As Entity) As Boolean
         Return entity.HasComponents("InitialInput", "Position")
@@ -54,6 +55,22 @@ Public Class InitialInputSystem
                      .Position = New Vector2i(textBounds.Left + textBounds.Width + 3, textBounds.Top),
                      .FillColor = Color.White
                 })
+            End If
+
+            ' handle the continue button if we're in the gameover scene
+            If scenes.currentSceneName = "GameOver" Then
+                If initialInput.value.Length = 3 And IsNothing(continueBtnEnt) Then
+                    ' add continue button
+                    continueBtnEnt = New TextButtonEntity("Continue", New Vector2i(50, 370), Sub()
+                                                                                                 leaderboard.RecordScore(initialInput.value, session.score)
+                                                                                                 scenes.Open("Title")
+                                                                                             End Sub)
+                    scenes.CurrentScene.AddEntity(continueBtnEnt)
+                ElseIf initialInput.value.Length <> 3 And Not IsNothing(continueBtnEnt) Then
+                    ' remove continue button
+                    scenes.CurrentScene.RemoveEntity(continueBtnEnt)
+                    continueBtnEnt = Nothing
+                End If
             End If
         Next
     End Sub

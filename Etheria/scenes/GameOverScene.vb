@@ -26,20 +26,23 @@ Public Class GameOverScene
 
         ' check if score made the leaderboard
         If leaderboard.CheckScore(session.score) Then
+            ' leaderboard message
             AddEntity(
-                New TextComponent("Congratulations! You made the leaderboard!"),
-                New PositionComponent(New Vector2i(50, 200))
-            )
+                    New TextComponent("Congratulations! You made the leaderboard!",, 0.5),
+                    New PositionComponent(New Vector2i(50, 200))
+                )
             AddEntity(
-                New TextComponent("Type your initials below:"),
+                New TextComponent("Type your initials below (3 letters):",, 0.5),
                 New PositionComponent(New Vector2i(50, 250))
             )
 
+            ' initial input
             AddEntity(
                 New InitialInputComponent(),
                 New PositionComponent(New Vector2i(50, 300))
             )
-            AddEntity(New TextButtonEntity("Continue", New Vector2i(50, 350), Sub() scenes.Open("Title")))
+
+            ' continue button is added in the InitialInputSystem on completion
         Else
             AddEntity(New TextButtonEntity("Continue", New Vector2i(50, 250), Sub() scenes.Open("Title")))
         End If

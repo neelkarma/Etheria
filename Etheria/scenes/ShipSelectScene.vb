@@ -13,12 +13,12 @@ Public Class ShipSelectScene
         ' Text: Select a Ship
         AddEntity(
             New TextComponent("Drag your ship into the box to continue!",, 0.6),
-            New PositionComponent(New Vector2i(10, 50))
+            New PositionComponent(New Vector2i(40, 50))
         )
 
         ' Drop Target
         Dim dropTarget = AddEntity(
-                New PositionComponent(New Vector2i(300, 350)),
+                New PositionComponent(New Vector2i(300, 300)),
                 New ColliderComponent(New IntRect(New Vector2i(), New Vector2i(200, 200))),
                 New DropTargetComponent(),
                 New RectComponent(New IntRect(-28, -37, 200, 200), Color.Transparent, Color.White, 5),
@@ -32,10 +32,9 @@ Public Class ShipSelectScene
             Dim i = tup.Item1
             Dim sprite = tup.Item2
             Dim spriteComponent As New SpriteComponent(sprite,, scale)
-            Console.WriteLine(spriteComponent.Sprite.GetGlobalBounds())
 
             AddEntity(
-                New PositionComponent(New Vector2i(30 + i * 150, 200)),
+                New PositionComponent(New Vector2i(30 + i * 150, 150)),
                 spriteComponent,
                 New ColliderComponent(spriteComponent.Sprite.GetGlobalBounds()),
                 New InteractableComponent(),

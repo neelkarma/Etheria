@@ -1,4 +1,5 @@
-﻿Imports SFML.Window
+﻿Imports SFML.System
+Imports SFML.Window
 
 Public Class DraggableSystem
     Inherits System
@@ -42,7 +43,17 @@ Public Class DraggableSystem
                     Dim other = collider.collisions.Find(predicate)
                     Dim sprite = other.GetComponent(Of SpriteComponent)("Sprite")
                     sprite.name = draggable.sprite
-                    If sprite.hidden Then sprite.hidden = False
+                    If sprite.hidden Then
+                        ' unhide the drop target sprite
+                        sprite.hidden = False
+
+                        If scenes.currentSceneName = "ShipSelect" Then
+                            ' add the advance button
+                            scenes.CurrentScene.AddEntity(
+                                New TextButtonEntity("Advance", New Vector2i(570, 400), Sub() Console.WriteLine("Advance clicked"))
+                            )
+                        End If
+                    End If
                 End If
 
                 ' set entity position to draggable initial position

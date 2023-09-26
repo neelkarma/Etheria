@@ -16,10 +16,10 @@
     ''' <summary>
     ''' Updates the scene, calling the update functions of all the systems contained within.
     ''' 
-    ''' This sub is called once every frame.
+    ''' This sub is called once every frame in <see cref="Program"/>, and shouldn't be called elsewhere.
     ''' </summary>
     Public Sub Update()
-        If scenes.CurrentScene IsNot Me Then Return
+        If scenes.currentSceneName <> Type Then Return
 
         For Each system In systems
             ' Calling GetSystemEntityMatches every frame for every system is very inefficient. Too bad!
@@ -66,7 +66,7 @@
     ''' <summary>
     ''' Gets an <see cref="Entity"/> from the scene, given it's id.
     ''' 
-    ''' Note: This just directly indexes the dictionary, meaning the game will crash if the ID doesn't exist! Use <see cref= "HasEntityWithId(Long)"/> first.
+    ''' Note: This directly indexes the dictionary, meaning the game will crash if the ID doesn't exist! Use <see cref= "HasEntityWithId(Long)"/> first.
     ''' </summary>
     ''' <param name="id">The id of the entity to get.</param>
     ''' <returns>The entity with the matching ID.</returns>
@@ -108,7 +108,9 @@
     ''' <param name="system">The system to use</param>
     ''' <returns>A list of matched entities</returns>
     Private Function GetSystemEntityMatches(system As System) As IEnumerable(Of Entity)
-        Return entities.Values.Where(Function(entity) system.Match(entity))
+        ' dotnet doesn't allow modification of collections while enumerating, so we have to make a copy (ToArray())
+        ' it's unfortunate, but unavoidable
+        Return entities.Values.Where(Function(entity) system.Match(entity)).ToArray()
     End Function
 
 
@@ -146,6 +148,5 @@
     ''' Initializes the entities in the scene. In most cases, this should be overridden.
     ''' </summary>
     Public Overridable Sub InitEntities()
-
     End Sub
 End Class

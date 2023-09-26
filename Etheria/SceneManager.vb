@@ -19,6 +19,7 @@
         Dim settings As New SettingsScene
         Dim shipSelect As New ShipSelectScene
         Dim gameOver As New GameOverScene
+        Dim confirmExit As New ConfirmExitScene
 
         scenes(title.Type) = title
         scenes(shipSelect.Type) = shipSelect
@@ -28,6 +29,7 @@
         scenes(leaderboard.Type) = leaderboard
         scenes(settings.Type) = settings
         scenes(gameOver.Type) = gameOver
+        scenes(confirmExit.Type) = confirmExit
 
         Open(initialScene)
     End Sub

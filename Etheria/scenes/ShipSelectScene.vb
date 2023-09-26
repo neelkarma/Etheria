@@ -18,21 +18,21 @@ Public Class ShipSelectScene
 
         ' Drop Target
         Dim dropTarget = AddEntity(
-                New PositionComponent(New Vector2i(300, 300)),
+                New PositionComponent(New Vector2i(300, 350)),
                 New ColliderComponent(New IntRect(New Vector2i(), New Vector2i(200, 200))),
                 New DropTargetComponent(),
-                New RectComponent(New IntRect(0, 0, 200, 200), Color.Transparent, Color.White, 5),
+                New RectComponent(New IntRect(-28, -37, 200, 200), Color.Transparent, Color.White, 5),
                 New SpriteComponent("ship-blue",, 0.4, True)
             )
 
         ' Ships
         For Each tup In Enumerate({"ship-blue", "ship-purple", "ship-red", "ship-yellow", "ship-green"})
+            Const scale = 0.3
+
             Dim i = tup.Item1
             Dim sprite = tup.Item2
-            Const scale = 0.3
             Dim spriteComponent As New SpriteComponent(sprite,, scale)
-
-            ' Console.WriteLine(GetGlobalRect(New PositionComponent(New Vector2i(30 + i * 150, 200)), New ColliderComponent(spriteComponent.Sprite.GetGlobalBounds())))
+            Console.WriteLine(spriteComponent.Sprite.GetGlobalBounds())
 
             AddEntity(
                 New PositionComponent(New Vector2i(30 + i * 150, 200)),
@@ -48,11 +48,6 @@ Public Class ShipSelectScene
             New TextButtonEntity("Back", New Vector2i(50, 400), Sub() scenes.Open("Title"))
         )
 
-        ' Advance Button
-        AddEntity(
-            New TextButtonEntity("Advance", New Vector2i(600, 600), Sub() Console.WriteLine("Advance Clicked"))
-        )
-
-
+        ' the advance button gets added in the DraggableSystem after a valid item is dropped
     End Sub
 End Class

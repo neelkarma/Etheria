@@ -21,7 +21,7 @@ Public Class TitleScene
         AddEntity(New TextButtonEntity("Controls", New Vector2i(50, 200), Sub() scenes.Open("Controls")))
         AddEntity(New TextButtonEntity("Leaderboard", New Vector2i(50, 250), Sub() scenes.Open("Leaderboard")))
         AddEntity(New TextButtonEntity("Settings", New Vector2i(50, 300), Sub() scenes.Open("Settings")))
-        AddEntity(New TextButtonEntity("Quit", New Vector2i(50, 350), Sub() Window.Close()))
+        AddEntity(New TextButtonEntity("Quit", New Vector2i(50, 350), Sub() scenes.Open("ConfirmExit")))
 
         ' Copyright notice
         AddEntity(

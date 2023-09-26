@@ -17,16 +17,16 @@ Public Class TitleScene
         )
 
         ' buttons
-        AddEntity(New TextButtonEntity("Start", New Vector2i(50, 100), Sub() scenes.Open("ShipSelect")))
-        AddEntity(New TextButtonEntity("Controls", New Vector2i(50, 150), Sub() scenes.Open("Controls")))
-        AddEntity(New TextButtonEntity("Leaderboard", New Vector2i(50, 200), Sub() scenes.Open("Leaderboard")))
-        AddEntity(New TextButtonEntity("Settings", New Vector2i(50, 250), Sub() scenes.Open("Settings")))
-        AddEntity(New TextButtonEntity("Quit", New Vector2i(50, 300), Sub() Window.Close()))
+        AddEntity(New TextButtonEntity("Start", New Vector2i(50, 150), Sub() scenes.Open("ShipSelect")))
+        AddEntity(New TextButtonEntity("Controls", New Vector2i(50, 200), Sub() scenes.Open("Controls")))
+        AddEntity(New TextButtonEntity("Leaderboard", New Vector2i(50, 250), Sub() scenes.Open("Leaderboard")))
+        AddEntity(New TextButtonEntity("Settings", New Vector2i(50, 300), Sub() scenes.Open("Settings")))
+        AddEntity(New TextButtonEntity("Quit", New Vector2i(50, 350), Sub() Window.Close()))
 
         ' Copyright notice
         AddEntity(
             New TextComponent("© Sample Text Studios 2023", Color.White, 0.5),
-            New PositionComponent(New Vector2i(50, 350))
+            New PositionComponent(New Vector2i(50, 420))
         )
     End Sub
 End Class

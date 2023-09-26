@@ -10,25 +10,20 @@ Public Class SettingsScene
         AddEntity(New MenuBackgroundEntity)
 
         ' title
-        AddEntity(New TextComponent("Settings"), New PositionComponent(New Vector2i(0, 0)))
+        AddEntity(New TextComponent("Settings",, 1.5), New PositionComponent(New Vector2i(50, 50)))
 
+        ' music slider
+        AddEntity(New TextComponent("Music Vol"), New PositionComponent(New Vector2i(50, 150)))
+        AddEntity(New SliderEntity(190, 100, 500, Sub(value) audio.BgmVolume = value * 100, audio.BgmVolume / 100))
 
-        ' sliders for sfx and bgm
+        ' sfx slider
+        AddEntity(New TextComponent("SFX Vol"), New PositionComponent(New Vector2i(50, 250)))
+        AddEntity(New SliderEntity(290, 100, 500, Sub(value) audio.SfxVolume = value * 100, audio.SfxVolume / 100))
 
-        '' Public Sub New(_soundType As String, _x As Integer, _y As Integer, _leftX As Integer, _rightX As Integer)
+        ' fullscreen button
+        AddEntity(New TextButtonEntity("Enter Fullscreen", New Vector2i(50, 360), Sub() Console.WriteLine("Fullscreen Triggered!")))
 
-
-
-        '' AddEntity(New SliderComponent("music", windowWidth / 2 - 10 + musicSliderPos, 71, windowWidth / 2 - 10, windowWidth / 2 + 64))
-        AddEntity(New TextComponent("Music"), New PositionComponent(New Vector2i(100, 150)))
-        AddEntity(New TextComponent("SFX"), New PositionComponent(New Vector2i(100, 300)))
-        AddEntity(New SliderEntity("music", 200, 150, 100, 500, Sub(value) audio.SetBGMVol(value * 100)))
-        AddEntity(New SliderEntity("soundfx", 200, 300, 100, 500, Sub(value) audio.SetSFXVol(value * 100)))
-
-        ' fullscreen
-        AddEntity(New TextButtonEntity("Fullscreen", New Vector2i(0, 400), Sub() Console.WriteLine("Fullscreen Triggered!")))
         ' back button
-        AddEntity(New TextButtonEntity("Back", New Vector2i(0, 500), Sub() scenes.Open("Title")))
-        'End Sub
+        AddEntity(New TextButtonEntity("Back", New Vector2i(50, 430), Sub() scenes.Open("Title")))
     End Sub
 End Class

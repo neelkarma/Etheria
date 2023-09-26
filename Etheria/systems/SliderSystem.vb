@@ -15,13 +15,19 @@ Public Class SliderSystem
             Dim slider = entity.GetComponent(Of SliderComponent)("Slider")
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
+
             Dim mousePos = Mouse.GetPosition(Window)
+            Dim handleBounds = GetGlobalRect(position, collider)
 
             ' if the mouse is being held, set the slider value and call the action.
-            If interactable.isHeld And GetGlobalRect(position, collider).Contains(mousePos.X, mousePos.Y) Or slider.dragging Then
-                slider.dragging = True
+            If interactable.isHeld And handleBounds.Contains(mousePos.X, mousePos.Y) Or slider.dragging Then
+                If Not slider.dragging Then
+                    slider.dragging = True
+                    slider.offset = handleBounds.Left - mousePos.X
+                End If
+
                 ' update the value
-                position.pos.X = Math.Clamp(mousePos.X, slider.leftX, slider.rightX)
+                position.pos.X = Math.Clamp(mousePos.X + slider.offset, slider.leftX, slider.rightX)
 
                 Dim value = (position.pos.X - slider.leftX) / (slider.rightX - slider.leftX)
                 slider.action(value)
@@ -42,9 +48,9 @@ Public Class SliderSystem
                 .FillColor = Color.White,
                 .Size = New Vector2i(collider.rect.Width, collider.rect.Height)
             }
+
             Window.Draw(barRect)
             Window.Draw(handleRect)
-
         Next
     End Sub
 End Class

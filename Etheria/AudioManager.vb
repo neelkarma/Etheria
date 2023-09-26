@@ -4,10 +4,34 @@ Imports SFML.Audio
 Public Class AudioManager
     Private ReadOnly sfx As New Dictionary(Of String, Sound)
     Private currentSfx As Sound
-    Private sfxVolume As Single = 100
+    Private setSfxVolume As Single = 100
     Private ReadOnly bgm As New Dictionary(Of String, Music)
     Private currentBgm As Music
-    Private bgmVolume As Single = 100
+    Private setBgmVolume As Single = 100
+
+    Public Property BgmVolume As Integer
+        Get
+            Return setBgmVolume
+        End Get
+        Set(value As Integer)
+            setBgmVolume = value
+            If Not IsNothing(currentBgm) Then
+                currentBgm.Volume = value
+            End If
+        End Set
+    End Property
+
+    Public Property SfxVolume As Integer
+        Get
+            Return setSfxVolume
+        End Get
+        Set(value As Integer)
+            setSfxVolume = value
+            If Not IsNothing(currentSfx) Then
+                currentSfx.Volume = value
+            End If
+        End Set
+    End Property
 
     Public Sub New()
         LoadSFX()
@@ -36,19 +60,5 @@ Public Class AudioManager
         currentBgm = bgm(name)
         currentBgm.Volume = bgmVolume
         currentBgm.Play()
-    End Sub
-
-    Public Sub SetBGMVol(value As Single)
-        bgmVolume = value
-        If Not IsNothing(currentBgm) Then
-            currentBgm.Volume = value
-        End If
-    End Sub
-
-    Public Sub SetSFXVol(value As Single)
-        sfxVolume = value
-        If Not IsNothing(currentSfx) Then
-            currentSfx.Volume = value
-        End If
     End Sub
 End Class

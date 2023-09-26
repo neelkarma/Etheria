@@ -6,13 +6,14 @@ Public Class SliderEntity
 
     Private Const size = 30
 
-    Public Sub New(sound As String, x As Integer, y As Integer, leftX As Integer, rightX As Integer, action As Action(Of Decimal))
-        MyBase.New()
+    Public Sub New(y As Integer, leftX As Integer, rightX As Integer, action As Action(Of Decimal), Optional initialValue As Decimal = 0)
+        Dim initialX = initialValue * (rightX - leftX) + leftX
+
         AddComponents(
-            New PositionComponent(New Vector2i(x, y)),
+            New PositionComponent(New Vector2i(initialX, y)),
             New ColliderComponent(New IntRect(0, 0, size, size)),
             New InteractableComponent(),
-            New SliderComponent(sound, leftX, rightX, action)
+            New SliderComponent(leftX, rightX, action)
         )
     End Sub
 

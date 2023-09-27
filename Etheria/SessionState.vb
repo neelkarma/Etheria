@@ -16,6 +16,7 @@ Public Class SessionState
         level = 0
         score = 0
         shinies = 0
+        lives = 3
         shipSprite = "ship-blue"
         boughtPowerUps.Clear()
         equippedPowerup = Nothing

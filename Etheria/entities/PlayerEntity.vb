@@ -1,10 +1,9 @@
-﻿Imports SFML.Graphics
-Imports SFML.System
+﻿Imports SFML.System
 Public Class PlayerEntity
     Inherits Entity
 
-    Public Sub New(Optional playerColor As String = "blue")
-        Dim spriteComponent As New SpriteComponent($"ship-{playerColor}", , 0.8)
+    Public Sub New()
+        Dim spriteComponent As New SpriteComponent(session.shipSprite, , 0.3)
         AddComponents(
             spriteComponent,
             New VelocityComponent(),

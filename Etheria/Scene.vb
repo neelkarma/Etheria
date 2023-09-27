@@ -122,8 +122,11 @@
         AddSystem(New VelocitySystem)
         AddSystem(New SpriteColliderSystem)
         AddSystem(New TextColliderSystem)
+        AddSystem(New ContainScreenSystem)
 
         AddSystem(New InteractableSystem)
+        AddSystem(New PlayerSystem)
+        AddSystem(New PlayerMovementSystem)
         AddSystem(New ShopItemButtonSystem)
         AddSystem(New DraggableSystem)
         AddSystem(New TextButtonSystem)
@@ -131,11 +134,12 @@
         AddSystem(New ReactiveTextSystem)
         AddSystem(New ShopPriceSystem)
 
-        AddSystem(New SpriteRenderSystem)
         AddSystem(New ScrollingBackgroundSystem)
+        AddSystem(New SpriteRenderSystem)
         AddSystem(New RectRenderSystem)
         AddSystem(New SliderSystem)
         AddSystem(New TextRenderSystem)
+        AddSystem(New LivesDisplaySystem)
         AddSystem(New InitialInputSystem)
 
         AddSystem(New AnimationSystem)

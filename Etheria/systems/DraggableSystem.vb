@@ -43,6 +43,7 @@ Public Class DraggableSystem
                     Dim other = collider.collisions.Find(predicate)
                     Dim sprite = other.GetComponent(Of SpriteComponent)("Sprite")
                     sprite.name = draggable.sprite
+                    session.shipSprite = draggable.sprite
                     If sprite.hidden Then
                         ' unhide the drop target sprite
                         sprite.hidden = False
@@ -50,7 +51,10 @@ Public Class DraggableSystem
                         If scenes.currentSceneName = "ShipSelect" Then
                             ' add the advance button
                             scenes.CurrentScene.AddEntity(
-                                New TextButtonEntity("Advance", New Vector2i(570, 400), Sub() Console.WriteLine("Advance clicked"))
+                                New TextButtonEntity("Advance", New Vector2i(570, 400), Sub()
+                                                                                            session.level = 1
+                                                                                            scenes.Open("Game")
+                                                                                        End Sub)
                             )
                         End If
                     End If

@@ -5,6 +5,10 @@ Public Class ShipSelectScene
     Inherits Scene
     Public Overrides ReadOnly Property Type As String = "ShipSelect"
 
+    Public Overrides Sub Open(Optional init As Boolean = True)
+        MyBase.Open(init)
+        session.Reset()
+    End Sub
 
     Public Overrides Sub InitEntities()
         ' Background

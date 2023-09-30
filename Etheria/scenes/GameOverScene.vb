@@ -7,10 +7,12 @@ Public Class GameOverScene
 
     Public Overrides ReadOnly Property Type As String = "GameOver"
 
-    Public Overrides Sub InitEntities()
-        ' menu background
-        AddEntity(New MenuBackgroundEntity())
+    Public Overrides Sub Open(Optional init As Boolean = True)
+        MyBase.Open(init)
+        audio.PlayBGM("gameover")
+    End Sub
 
+    Public Overrides Sub InitEntities()
         ' game over title
 
         AddEntity(

@@ -2,7 +2,6 @@
     Public MustOverride ReadOnly Property Type As String
     Private ReadOnly entities As New Dictionary(Of Long, Entity)
     Private ReadOnly systems As New List(Of System)
-    Public cursorEnabled As Boolean = True
 
     Public Overridable Sub Open(Optional init As Boolean = True)
         If init Then
@@ -83,6 +82,16 @@
         Return entities.ContainsKey(id)
     End Function
 
+    Public Function GetEntity(predicate As Func(Of Entity, Boolean)) As Entity
+        Return entities.FirstOrDefault(Function(pair) predicate(pair.Value), Nothing).Value
+    End Function
+
+    Public Function GetEntities(predicate As Func(Of Entity, Boolean)) As Entity()
+        ' dotnet doesn't allow modification of collections while enumerating, so we have to make a copy (ToArray())
+        ' it's unfortunate, but unavoidable
+        Return entities.Values.Where(predicate).ToArray()
+    End Function
+
     ''' <summary>
     ''' Checks if an entity exists in the scene, given a predicate function.
     ''' </summary>
@@ -107,10 +116,8 @@
     ''' </summary>
     ''' <param name="system">The system to use</param>
     ''' <returns>A list of matched entities</returns>
-    Private Function GetSystemEntityMatches(system As System) As IEnumerable(Of Entity)
-        ' dotnet doesn't allow modification of collections while enumerating, so we have to make a copy (ToArray())
-        ' it's unfortunate, but unavoidable
-        Return entities.Values.Where(Function(entity) system.Match(entity)).ToArray()
+    Private Function GetSystemEntityMatches(system As System) As Entity()
+        Return GetEntities(Function(entity) system.Match(entity))
     End Function
 
 
@@ -125,8 +132,6 @@
         AddSystem(New ContainScreenSystem)
 
         AddSystem(New InteractableSystem)
-        AddSystem(New PlayerSystem)
-        AddSystem(New PlayerMovementSystem)
         AddSystem(New ShopItemButtonSystem)
         AddSystem(New DraggableSystem)
         AddSystem(New TextButtonSystem)
@@ -142,7 +147,14 @@
         AddSystem(New LivesDisplaySystem)
         AddSystem(New InitialInputSystem)
 
+        AddSystem(New PlayerMovementSystem)
+        AddSystem(New PlayerShootSystem)
+        AddSystem(New PlayerCollisionSystem)
+        AddSystem(New EnemySpawnerSystem)
+        AddSystem(New EnemySystem)
+
         AddSystem(New AnimationSystem)
+        AddSystem(New DestroyOnLeaveSystem)
 
         AddSystem(New MouseCoordsSystem)
         AddSystem(New ColliderDebugSystem)

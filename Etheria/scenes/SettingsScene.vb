@@ -6,9 +6,6 @@ Public Class SettingsScene
     Public Overrides ReadOnly Property Type As String = "Settings"
 
     Public Overrides Sub InitEntities()
-        ' background
-        AddEntity(New MenuBackgroundEntity)
-
         ' title
         AddEntity(New TextComponent("Settings",, 1.5), New PositionComponent(New Vector2i(50, 50)))
 
@@ -23,7 +20,10 @@ Public Class SettingsScene
         ' fullscreen button
         AddEntity(New TextButtonEntity("Enter Fullscreen", New Vector2i(50, 360), Sub() Console.WriteLine("Fullscreen Triggered!")))
 
+        ' reset leaderboard button
+        AddEntity(New TextButtonEntity("Reset Leaderboard", New Vector2i(50, 410), Sub() scenes.Open("ConfirmLeaderboardReset")))
+
         ' back button
-        AddEntity(New TextButtonEntity("Back", New Vector2i(50, 430), Sub() scenes.Open("Title")))
+        AddEntity(New TextButtonEntity("Back", New Vector2i(50, 460), Sub() scenes.Open("Title")))
     End Sub
 End Class

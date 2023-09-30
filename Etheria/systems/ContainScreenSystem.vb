@@ -2,7 +2,7 @@
     Inherits System
 
     Public Overrides Function Match(entity As Entity) As Boolean
-        Return entity.HasComponents("Position", "Collider")
+        Return entity.HasComponents("Position", "Collider", "ContainScreen")
     End Function
 
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))

@@ -1,6 +1,4 @@
-﻿Imports System.Net.Security
-
-Public Class SceneManager
+﻿Public Class SceneManager
     Public currentSceneName As String
     Public sceneJustChanged As Boolean = False
 
@@ -22,6 +20,7 @@ Public Class SceneManager
         Dim shipSelect As New ShipSelectScene
         Dim gameOver As New GameOverScene
         Dim confirmExit As New ConfirmExitScene
+        Dim confirmLeaderboardReset As New ConfirmLeaderboardResetScene
         Dim shop As New ShopScene
 
         scenes(title.Type) = title
@@ -33,6 +32,7 @@ Public Class SceneManager
         scenes(settings.Type) = settings
         scenes(gameOver.Type) = gameOver
         scenes(confirmExit.Type) = confirmExit
+        scenes(confirmLeaderboardReset.Type) = confirmLeaderboardReset
         scenes(shop.Type) = shop
 
         Open(initialScene)

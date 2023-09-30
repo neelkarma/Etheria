@@ -5,9 +5,6 @@ Public Class LeaderboardScene
     Public Overrides ReadOnly Property Type As String = "Leaderboard"
 
     Public Overrides Sub InitEntities()
-        ' menu background
-        AddEntity(New MenuBackgroundEntity())
-
         ' title
         AddEntity(
             New TextComponent("Leaderboard",, 1.5),

@@ -25,7 +25,7 @@ Public Module PowerupsModule
     Public Enum Powerup
         PermanentSpeedUp
         DoubleShot
-        Helpers
+        AutoShoot
         ExtraLife
     End Enum
 
@@ -34,19 +34,19 @@ Public Module PowerupsModule
             "Perm. Speed Up",
             "speed-up",
             100,
-            "(Passive) Always enable speed up."
+            "Always enable speed up."
         ),
         New PowerupInfo(
             "Double Shot",
             "double-shot",
             100,
-            "(Active) Double your fire rate for 10s."
+            "Doubles your fire rate."
         ),
         New PowerupInfo(
-            "Helpers",
+            "Auto Shoot",
             "helpers",
             300,
-            "(Passive) Spawns 3 helpers for you."
+            "Automatically shoots for you."
         ),
         New PowerupInfo(
             "Extra Life",

@@ -40,7 +40,7 @@ Public Class SliderSystem
             ' render the slider
             Dim barRect As New RectangleShape() With {
                 .Position = New Vector2i(slider.leftX, position.pos.Y),
-                .FillColor = New Color(200, 200, 200),
+                .FillColor = New Color(150, 150, 150),
                 .Size = New Vector2i(slider.rightX - slider.leftX + collider.rect.Width, collider.rect.Height)
             }
             Dim handleRect As New RectangleShape() With {

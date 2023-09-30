@@ -13,6 +13,7 @@ Public Module Program
     Public mouseWasHeldLastFrame As Boolean = False
     Public isDebug As Boolean = False
 
+    Public ReadOnly rng As New Random()
     Public ReadOnly font As New Font("../../../resources/fonts/PublicPixel.ttf")
     Public ReadOnly clock As New Clock
 
@@ -24,9 +25,6 @@ Public Module Program
 
     Sub Main()
         Window.SetVerticalSyncEnabled(True)
-
-        ' TODO: change this after some time
-        audio.PlayBGM("grass-beach")
 
         While Window.IsOpen()
             ' enforce set fps

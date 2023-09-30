@@ -6,10 +6,12 @@ Public Class TitleScene
 
     Public Overrides ReadOnly Property Type As String = "Title"
 
-    Public Overrides Sub InitEntities()
-        ' background
-        AddEntity(New MenuBackgroundEntity())
+    Public Overrides Sub Open(Optional init As Boolean = True)
+        MyBase.Open(init)
+        audio.PlayBGM("menu")
+    End Sub
 
+    Public Overrides Sub InitEntities()
         ' title
         AddEntity(
             New TextComponent("Etheria", Nothing, 1.5),

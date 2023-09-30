@@ -37,10 +37,9 @@ Public Class DraggableSystem
 
             If interactable.wasReleased Then
                 ' check if mouse cursor is over a valid drop target
-                Dim predicate = Function(ent As Entity) ent.HasComponents("DropTarget", "Sprite") And draggable.validDropTargets.Contains(ent.id)
-                If collider.collisions.Any(predicate) Then
+                Dim other = collider.collisions.Find(Function(ent As Entity) ent.HasComponents("DropTarget", "Sprite") And draggable.validDropTargets.Contains(ent.id))
+                If Not IsNothing(other) Then
                     ' if so, set the drop sprite to the thing
-                    Dim other = collider.collisions.Find(predicate)
                     Dim sprite = other.GetComponent(Of SpriteComponent)("Sprite")
                     sprite.name = draggable.sprite
                     session.shipSprite = draggable.sprite

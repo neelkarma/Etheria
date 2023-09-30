@@ -28,6 +28,4 @@ Public Class CollisionSystem
             Next
         Next
     End Sub
-
-
 End Class

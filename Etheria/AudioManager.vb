@@ -41,24 +41,39 @@ Public Class AudioManager
     Private Sub LoadSFX()
         For Each filename In Directory.EnumerateFiles("../../../resources/audio/sfx/")
             sfx(Path.GetFileNameWithoutExtension(filename)) = New Sound(New SoundBuffer(filename))
+            Console.WriteLine($"AUDIO: SFX {Path.GetFileNameWithoutExtension(filename)} loaded")
         Next
     End Sub
 
     Private Sub LoadBGM()
         For Each filename In Directory.EnumerateFiles("../../../resources/audio/bgm/")
             bgm(Path.GetFileNameWithoutExtension(filename)) = New Music(filename) With {.[Loop] = True}
+            Console.WriteLine($"AUDIO: BGM {Path.GetFileNameWithoutExtension(filename)} loaded")
         Next
     End Sub
 
     Public Sub PlaySFX(name As String)
+        If Not sfx.ContainsKey(name) Then
+            Console.WriteLine($"AUDIO: Warning: No SFX with name {name} exists in the AudioManager!")
+            Return
+        End If
+
         currentSfx = sfx(name)
         currentSfx.Volume = sfxVolume
         currentSfx.Play()
     End Sub
 
-    Public Sub PlayBGM(name As String)
+    Public Sub PlayBGM(name As String, Optional restart As Boolean = False)
+        If Not bgm.ContainsKey(name) Then
+            Console.WriteLine($"AUDIO: Warning: No BGM with name {name} exists in the AudioManager!")
+            Return
+        End If
+
+        If bgm(name) Is currentBgm And Not restart Then Return
+
+        If Not IsNothing(currentBgm) Then currentBgm.Stop()
         currentBgm = bgm(name)
-        currentBgm.Volume = bgmVolume
+        currentBgm.Volume = BgmVolume
         currentBgm.Play()
     End Sub
 End Class

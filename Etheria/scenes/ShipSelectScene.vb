@@ -11,9 +11,6 @@ Public Class ShipSelectScene
     End Sub
 
     Public Overrides Sub InitEntities()
-        ' Background
-        AddEntity(New MenuBackgroundEntity())
-
         ' Text: Select a Ship
         AddEntity(
             New TextComponent("Drag your ship into the box to continue!",, 0.6),

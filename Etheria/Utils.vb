@@ -1,4 +1,5 @@
 ﻿Imports SFML.Graphics
+Imports SFML.System
 Imports SFML.Window
 
 Public Module Utils
@@ -10,7 +11,11 @@ Public Module Utils
     End Function
 
     Public Function GetGlobalRect(p As PositionComponent, c As ColliderComponent) As IntRect
-        Return New IntRect(c.rect.Left + p.pos.X, c.rect.Top + p.pos.Y, c.rect.Width, c.rect.Height)
+        Return New IntRect(p.pos.X + c.rect.Left, p.pos.Y + c.rect.Top, c.rect.Width, c.rect.Height)
+    End Function
+
+    Public Function GetRectCenter(rect As IntRect) As Vector2i
+        Return New Vector2i(rect.Left + (rect.Width / 2), rect.Top + (rect.Height / 2))
     End Function
 
     Public Function CalculateTextRect(text As String, Optional scale As Decimal = 1) As IntRect

@@ -6,10 +6,12 @@ Public Class ShopScene
 
     Public Overrides ReadOnly Property Type As String = "Shop"
 
-    Public Overrides Sub InitEntities()
-        ' menu background
-        AddEntity(New MenuBackgroundEntity())
+    Public Overrides Sub Open(Optional init As Boolean = True)
+        MyBase.Open(init)
+        audio.PlayBGM("menu")
+    End Sub
 
+    Public Overrides Sub InitEntities()
         ' title
         AddEntity(
             New TextComponent("Shop",, 0.8),
@@ -112,6 +114,7 @@ Public Class ShopScene
         AddEntity(
             New TextButtonEntity("Advance", New Vector2i(580, 550), Sub()
                                                                         session.level += 1
+                                                                        If session.level > 10 Then session.level = 1
                                                                         scenes.Open("Game")
                                                                     End Sub)
         )

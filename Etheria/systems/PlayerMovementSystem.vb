@@ -12,8 +12,7 @@ Public Class PlayerMovementSystem
             Dim velocity = entity.GetComponent(Of VelocityComponent)("Velocity")
             Dim player = entity.GetComponent(Of PlayerComponent)("Player")
 
-
-            Dim speed As Integer = player.speed
+            Dim speed As Integer = PlayerComponent.speed
 
             Dim speedUp = Keyboard.IsKeyPressed(Keyboard.Key.LShift) Or session.equippedPowerup = Powerup.PermanentSpeedUp
             If speedUp Then

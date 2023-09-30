@@ -6,9 +6,6 @@ Public Class ConfirmExitScene
     Public Overrides ReadOnly Property Type As String = "ConfirmExit"
 
     Public Overrides Sub InitEntities()
-        ' menu background
-        AddEntity(New MenuBackgroundEntity())
-
         ' text
         AddEntity(
             New TextComponent("Are you sure you want to exit?",, 0.8),

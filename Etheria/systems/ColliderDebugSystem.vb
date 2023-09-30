@@ -15,10 +15,11 @@ Public Class ColliderDebugSystem
         For Each entity In entities
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
+
+            Dim rect = GetGlobalRect(position, collider)
             Window.Draw(
-                New RectangleShape() With {
-                    .Position = position.pos,
-                    .Size = New Vector2f(collider.rect.Width, collider.rect.Height),
+                New RectangleShape(New Vector2i(rect.Width, rect.Height)) With {
+                    .Position = New Vector2i(rect.Left, rect.Top),
                     .FillColor = Color.Transparent,
                     .OutlineColor = Color.Red,
                     .OutlineThickness = 2

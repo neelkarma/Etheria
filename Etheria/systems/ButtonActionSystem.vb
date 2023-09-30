@@ -11,6 +11,7 @@
             Dim button = entity.GetComponent(Of ButtonComponent)("Button")
             If interactable.wasClicked Then
                 button.action()
+                audio.PlaySFX("ui-select")
             End If
         Next
     End Sub

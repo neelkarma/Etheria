@@ -7,8 +7,10 @@ Public Class SpriteManager
     Private Class FileNameComparer
         Implements IComparer(Of FileInfo)
 
+        Private ReadOnly comparer As New CaseInsensitiveComparer()
+
         Private Function Compare(x As FileInfo, y As FileInfo) As Integer Implements IComparer(Of FileInfo).Compare
-            Return New CaseInsensitiveComparer().Compare(x.Name, y.Name)
+            Return comparer.Compare(x.Name, y.Name)
         End Function
     End Class
 

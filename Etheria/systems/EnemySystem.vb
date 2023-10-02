@@ -24,9 +24,9 @@ Public Class EnemySystem
             Dim canShoot = enemy.framesUntilCanFire <= 0
             If canShoot Then
                 ' Make bullets shoot in the direction of the player
-                Dim bulletOrigin = position.pos + enemy.bulletPos
+                Dim bulletOrigin = position.pos + enemy.info.bulletPos
 
-                Dim bulletEntity = New BulletEntity("enemy-bullet", New Vector2i(-5, 0), position.pos + enemy.bulletPos, enemy.bulletScale)
+                Dim bulletEntity = New BulletEntity(enemy.info.bulletSprite, New Vector2i(-5, 0), position.pos + enemy.info.bulletPos, enemy.info.bulletScale)
                 bulletEntity.AddComponent(New EnemyBulletComponent())
 
                 Dim playerEntity = scenes.CurrentScene.GetEntity(Function(ent) ent.HasComponents("Player", "Position", "Collider"))
@@ -40,12 +40,12 @@ Public Class EnemySystem
 
                     Dim angle = Math.Atan2(playerCenter.Y - bulletCenter.Y, playerCenter.X - bulletCenter.X)
 
-                    Dim bulletVelocity = New Vector2i(Math.Cos(angle) * enemy.bulletSpeed, Math.Sin(angle) * enemy.bulletSpeed)
+                    Dim bulletVelocity = New Vector2i(Math.Cos(angle) * enemy.info.bulletSpeed, Math.Sin(angle) * enemy.info.bulletSpeed)
 
                     bulletEntity.AddComponent(New VelocityComponent(bulletVelocity))
 
                     scenes.CurrentScene.AddEntity(bulletEntity)
-                    enemy.framesUntilCanFire = enemy.fireRate
+                    enemy.framesUntilCanFire = enemy.info.fireRate
                 End If
             Else
                 enemy.framesUntilCanFire -= 1
@@ -56,9 +56,12 @@ Public Class EnemySystem
                 scenes.CurrentScene.RemoveEntity(playerBullet)
                 enemy.health -= 1
                 If enemy.health <= 0 Then ' die
-                    session.score += enemy.value * session.level * 100
-                    session.shinies += enemy.value * rng.Next(1, 20)
+                    session.score += enemy.info.value * session.level * 100
+                    session.shinies += enemy.info.value * rng.Next(1, 20)
+                    audio.PlaySFX(enemy.info.deathSfx)
                     scenes.CurrentScene.RemoveEntity(entity)
+                Else
+                    audio.PlaySFX(enemy.info.hitSfx)
                 End If
             Next
         Next

@@ -13,17 +13,17 @@
         'If scenes.CurrentScene.GetEntities(Function(ent) ent.HasComponent("Enemy")).Length >= enemyCap Then Return
 
         For Each entity In entities
-                Dim enemies = GetEnemiesForLevel(session.level)
-                Dim spawner = entity.GetComponent(Of EnemySpawnerComponent)("EnemySpawner")
+            Dim enemies = GetEnemiesForLevel(session.level)
+            Dim spawner = entity.GetComponent(Of EnemySpawnerComponent)("EnemySpawner")
 
-                If spawner.framesUntilNext > 0 Then
-                    spawner.framesUntilNext -= 1
-                    Continue For
-                End If
+            If spawner.framesUntilNext > 0 Then
+                spawner.framesUntilNext -= 1
+                Continue For
+            End If
 
-                Dim chosenEnemy = enemies(rng.Next(0, enemies.Length - 1))
-                scenes.CurrentScene.AddEntity(New EnemyEntity(chosenEnemy))
-                spawner.framesUntilNext = spawner.rate + rng.Next(-spawner.spread, spawner.spread)
-            Next
+            Dim chosenEnemy = enemies(rng.Next(0, enemies.Length))
+            scenes.CurrentScene.AddEntity(New EnemyEntity(chosenEnemy))
+            spawner.framesUntilNext = spawner.rate + rng.Next(-spawner.spread, spawner.spread)
+        Next
     End Sub
 End Class

@@ -13,9 +13,15 @@ Public Class GameScene
         audio.PlayBGM($"lvl{session.level}")
     End Sub
 
-    Public Overloads Sub Update()
+    Public Overrides Sub Update()
         MyBase.Update()
+
         frameCount += 1
+
+        If frameCount / fps > 120 Then
+            audio.PlaySFX("level-clear")
+            scenes.Open("Shop")
+        End If
     End Sub
 
     Public Overrides Sub InitEntities()
@@ -23,7 +29,7 @@ Public Class GameScene
         AddEntity(New ScrollingBackgroundComponent("menu-bg")) ' todo: change sprite
 
         ' level, score, high score, shinies
-        AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {frameCount}", New Vector2i(5, 5)))
+        AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {120 - CInt(frameCount / fps)}", New Vector2i(5, 5)))
 
         ' lives
         AddEntity(
@@ -36,7 +42,5 @@ Public Class GameScene
 
         ' enemy spawner
         AddEntity(New EnemySpawnerComponent(60, 10))
-
     End Sub
-
 End Class

@@ -17,7 +17,7 @@
     ''' 
     ''' This sub is called once every frame in <see cref="Program"/>, and shouldn't be called elsewhere.
     ''' </summary>
-    Public Sub Update()
+    Public Overridable Sub Update()
         If scenes.currentSceneName <> Type Then Return
 
         For Each system In systems

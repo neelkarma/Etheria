@@ -39,6 +39,7 @@ Public Class AudioManager
     End Sub
 
     Private Sub LoadSFX()
+        sfx("") = New Sound() ' for no sound
         For Each filename In Directory.EnumerateFiles("../../../resources/audio/sfx/")
             sfx(Path.GetFileNameWithoutExtension(filename)) = New Sound(New SoundBuffer(filename))
             Console.WriteLine($"AUDIO: SFX {Path.GetFileNameWithoutExtension(filename)} loaded")

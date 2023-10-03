@@ -68,6 +68,11 @@ Public Module EnemiesModule
         ''' </summary>
         Public deathSfx As String
 
+        ''' <summary>
+        ''' Creates a new EnemyInfo instance.
+        ''' </summary>
+        ''' <param name="spriteName">The name of the enemy's sprite</param>
+        ''' <param name="spriteScale">The scale of the enemy's sprite</param>
         Public Sub New(spriteName As String, spriteScale As Single)
             Me.spriteName = spriteName
             Me.spriteScale = spriteScale

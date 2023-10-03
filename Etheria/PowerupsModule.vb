@@ -33,25 +33,25 @@ Public Module PowerupsModule
         New PowerupInfo(
             "Perm. Speed Up",
             "speed-up",
-            100,
+            800,
             "Always enable speed up."
-        ),
-        New PowerupInfo(
-            "Double Shot",
-            "double-shot",
-            100,
-            "Doubles your fire rate."
         ),
         New PowerupInfo(
             "Auto Shoot",
             "helpers",
-            300,
+            1000,
             "Automatically shoots for you."
+        ),
+        New PowerupInfo(
+            "Double Shot",
+            "double-shot",
+            1200,
+            "Doubles your fire rate."
         ),
         New PowerupInfo(
             "Extra Life",
             "extra-life",
-            400,
+            500,
             "(Immediate) Obtain an extra life."
         )
     )

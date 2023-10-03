@@ -7,7 +7,7 @@
 
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
         For Each entity In entities
-            Dim enemies = GetEnemiesForLevel(session.level)
+            Dim enemies = GetEnemiesForLevel(session.TrueLevel)
             Dim spawner = entity.GetComponent(Of EnemySpawnerComponent)("EnemySpawner")
 
             If spawner.framesUntilNext > 0 Then

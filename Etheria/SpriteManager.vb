@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Text.RegularExpressions
 Imports SFML.Graphics
 
 
@@ -7,10 +8,16 @@ Public Class SpriteManager
     Private Class FileNameComparer
         Implements IComparer(Of FileInfo)
 
-        Private ReadOnly comparer As New CaseInsensitiveComparer()
+        Private Shared Function ExtractNumber(str As String) As Integer
+            If Not Regex.IsMatch(str, "\d+") Then
+                Console.WriteLine($"FileNameComparer: Warning: No number found in file name {str} - sprite animation frame order may be incorrect!")
+                Return -1
+            End If
+            Return Regex.Match(str, "\d+").Value
+        End Function
 
         Private Function Compare(x As FileInfo, y As FileInfo) As Integer Implements IComparer(Of FileInfo).Compare
-            Return comparer.Compare(x.Name, y.Name)
+            Return ExtractNumber(x.Name).CompareTo(ExtractNumber(y.Name))
         End Function
     End Class
 

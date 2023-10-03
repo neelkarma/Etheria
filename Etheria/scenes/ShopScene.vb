@@ -114,7 +114,6 @@ Public Class ShopScene
         AddEntity(
             New TextButtonEntity("Advance", New Vector2f(580, 550), Sub()
                                                                         session.level += 1
-                                                                        If session.level > 10 Then session.level = 1
                                                                         scenes.Open("Game")
                                                                     End Sub)
         )

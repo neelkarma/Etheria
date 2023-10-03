@@ -4,6 +4,12 @@
 ''' Things like level, score, shinies, selected ship, available powerups go here.
 ''' </summary>
 Public Class SessionState
+    Public ReadOnly Property TrueLevel
+        Get
+            Return ((level - 1) Mod 10) + 1
+        End Get
+    End Property
+
     Public level As Integer = 0
     Public score As Integer = 0
     Public shinies As Integer = 0

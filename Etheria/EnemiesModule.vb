@@ -105,6 +105,17 @@ Public Module EnemiesModule
                 .bulletSpeed = 3,
                 .hitSfx = "lvl1-parrot-enemy-hit",
                 .deathSfx = "lvl1-parrot-enemy-death"
+            },
+            New EnemyInfo("lvl1-piratescurse-enemy", 1) With {
+                .health = 2,
+                .value = 2,
+                .speed = 2,
+                .fireRate = 90,
+                .bulletSprite = "lvl1-piratebullet-projectile",
+                .bulletScale = 1.5,
+                .bulletSpeed = 3,
+                .hitSfx = "",
+                .deathSfx = "lvl1-piratescurse-enemy-death"
             }
         },
         New EnemyInfo() {
@@ -118,6 +129,30 @@ Public Module EnemiesModule
                 .bulletSpeed = 4,
                 .hitSfx = "lvl2-elfcopter-enemy-hit",
                 .deathSfx = "lvl2-elfcopter-enemy-death"
+            },
+            New EnemyInfo("lvl2-flocko-enemy", 1) With {
+                .health = 3,
+                .value = 3,
+                .speed = 3,
+                .fireRate = 60,
+                .bulletSprite = "lvl2-icemist-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 1,
+                .hitSfx = "",
+                .deathSfx = "lvl2-flocko-enemy-death"
+            },
+            New EnemyInfo("lvl2-icequeen-enemy", 1) With {
+                .spriteRate = 2,
+                .health = 5,
+                .value = 5,
+                .speed = 3,
+                .fireRate = 120,
+                .bulletSprite = "lvl2-icesickle-projectile",
+                .bulletSpriteRate = 2,
+                .bulletScale = 1,
+                .bulletSpeed = 3,
+                .hitSfx = "lvl2-icequeen-enemy-hit",
+                .deathSfx = "lvl2-icequeen-enemy-death"
             }
         }
     }

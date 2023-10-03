@@ -13,7 +13,7 @@ Public Class GameScene
         MyBase.Open(init)
         frameCount = 0
         paused = False
-        audio.PlayBGM($"lvl{session.level}")
+        audio.PlayBGM($"lvl{session.TrueLevel}")
     End Sub
 
     Public Overrides Sub Update()
@@ -74,6 +74,6 @@ Public Class GameScene
         AddEntity(New PlayerEntity())
 
         ' enemy spawner
-        AddEntity(New EnemySpawnerComponent(60, 10))
+        AddEntity(New EnemySpawnerComponent(90, 30))
     End Sub
 End Class

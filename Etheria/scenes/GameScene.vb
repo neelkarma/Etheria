@@ -51,7 +51,7 @@ Public Class GameScene
 
         frameCount += 1
 
-        If frameCount / fps > 120 Then
+        If frameCount / fps > 2 Then
             audio.PlaySFX("level-clear")
             scenes.Open("Shop")
         End If
@@ -59,7 +59,7 @@ Public Class GameScene
 
     Public Overrides Sub InitEntities()
         ' scrolling background
-        AddEntity(New ScrollingBackgroundComponent("menu-bg",, 1.5))
+        AddEntity(New ScrollingBackgroundComponent($"lvl{session.level}-bg",, 1.5))
 
         ' level, score, high score, shinies
         AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {120 - CInt(frameCount / fps)}", New Vector2f(5, 5)))

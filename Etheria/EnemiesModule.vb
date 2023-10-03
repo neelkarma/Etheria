@@ -10,7 +10,7 @@ Public Module EnemiesModule
         ''' <summary>
         ''' Scale of the sprite
         ''' </summary>
-        Public spriteScale As Single
+        Public spriteScale As Double
 
         ''' <summary>
         ''' Number of frames per frame of the sprite's animation, if any.
@@ -20,7 +20,7 @@ Public Module EnemiesModule
         ''' <summary>
         ''' Probability of this enemy spawning, from 0 to 1
         ''' </summary>
-        Public chance As Single
+        Public chance As Double
 
         ''' <summary>
         ''' Number of hits the enemy can take before dying.  
@@ -35,7 +35,7 @@ Public Module EnemiesModule
         ''' <summary>
         ''' Speed of the enemy.
         ''' </summary>
-        Public speed As Integer
+        Public speed As Double
 
         ''' <summary>
         ''' How many frames between successive shots.
@@ -53,11 +53,11 @@ Public Module EnemiesModule
         ''' <summary>
         ''' The bullet's speed
         ''' </summary>
-        Public bulletSpeed As Integer
+        Public bulletSpeed As Double
         ''' <summary>
         ''' The bullet's sprite's scale
         ''' </summary>
-        Public bulletScale As Single
+        Public bulletScale As Double
         ''' <summary>
         ''' The bullet's position, relative to the enemy position.
         ''' This is automatically calculated, so in most cases, this doesn't have to be set.
@@ -79,7 +79,7 @@ Public Module EnemiesModule
         ''' </summary>
         ''' <param name="spriteName">The name of the enemy's sprite</param>
         ''' <param name="spriteScale">The scale of the enemy's sprite</param>
-        Public Sub New(spriteName As String, spriteScale As Single)
+        Public Sub New(spriteName As String, spriteScale As Double)
             Me.spriteName = spriteName
             Me.spriteScale = spriteScale
             Dim sprite = sprites.GetSprites(spriteName)(0)

@@ -17,7 +17,7 @@
 
             Dim chosenEnemy = enemies(0)
 
-            Dim chosen = rng.NextSingle()
+            Dim chosen = rng.NextDouble()
             For Each enemy In enemies
                 If chosen < enemy.chance Then
                     chosenEnemy = enemy

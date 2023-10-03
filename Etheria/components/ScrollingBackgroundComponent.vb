@@ -16,10 +16,10 @@ Public Class ScrollingBackgroundComponent
 
     Public speed As Integer
     Public name As String
-    Public scale As Single
+    Public scale As Double
     Public offset As Integer = 0
 
-    Public Sub New(name As String, Optional speed As Integer = 1, Optional scale As Single = 1)
+    Public Sub New(name As String, Optional speed As Integer = 1, Optional scale As Double = 1)
         Me.name = name
         Me.speed = speed
         Me.scale = scale

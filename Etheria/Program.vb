@@ -29,7 +29,7 @@ Public Module Program
         While Window.IsOpen()
             ' enforce set fps
             If clock.ElapsedTime.AsSeconds() < 1 / fps Then Continue While
-            Dim dt As Single = clock.Restart().AsSeconds()
+            Dim dt As Double = clock.Restart().AsSeconds()
             ' Console.WriteLine(1 / dt) ' fps
 
             Window.DispatchEvents()

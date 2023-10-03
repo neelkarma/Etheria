@@ -4,10 +4,10 @@ Imports SFML.Audio
 Public Class AudioManager
     Private ReadOnly sfx As New Dictionary(Of String, Sound)
     Private currentSfx As Sound
-    Private setSfxVolume As Single = 100
+    Private setSfxVolume As Double = 100
     Private ReadOnly bgm As New Dictionary(Of String, Music)
     Private currentBgm As Music
-    Private setBgmVolume As Single = 100
+    Private setBgmVolume As Double = 100
 
     Public Property BgmVolume As Integer
         Get

@@ -50,7 +50,7 @@ Public Module EnemiesModule
         ''' </summary>
         Public bulletSpeed As Integer
         ''' <summary>
-        ''' The bullet's scale
+        ''' The bullet's sprite's scale
         ''' </summary>
         Public bulletScale As Single
         ''' <summary>

@@ -7,7 +7,7 @@ Public Class BulletEntity
         AddComponents(
             New PositionComponent(initialPosition),
             New VelocityComponent(velocity),
-            New SpriteComponent(spriteName,, scale,, True),
+            New SpriteComponent(spriteName,, scale),
             New ColliderComponent(),
             New DestroyOnLeaveComponent()
         )

@@ -479,9 +479,9 @@ Public Module EnemiesModule
                 .health = 12,
                 .value = 12,
                 .speed = 1.4,
-                .fireRate = 50,
+                .fireRate = 650,
                 .bulletSprite = "lvl9-darksigil-projectile",
-                .bulletScale = 0.5,
+                .bulletScale = 1,
                 .bulletSpeed = 1,
                 .hitSfx = "lvl9-darkmage-enemy-hit",
                 .deathSfx = "lvl9-darkmage-enemy-death"
@@ -502,47 +502,47 @@ Public Module EnemiesModule
         New EnemyInfo() {
             New EnemyInfo("lvl10-floatygross-enemy", 1) With {
                 .chance = 0.45,
-                .health = 20,
-                .value = 20,
+                .health = 4,
+                .value = 4,
                 .speed = 5,
-                .fireRate = 90,
+                .fireRate = 280,
                 .bulletSprite = "lvl10-imp-projectile",
                 .bulletScale = 0.6,
                 .bulletSpeed = 3,
                 .hitSfx = "lvl10-floatygross-enemy-hit",
-                .deathSfx = "lvl10-floaty-gross-enemy-death"
+                .deathSfx = "lvl10-floatygross-enemy-death"
             },
             New EnemyInfo("lvl10-brainofcthulu-enemy", 1) With {
                 .chance = 0.25,
                 .spriteRate = 2,
-                .health = 69,
-                .value = 69,
+                .health = 30,
+                .value = 30,
                 .speed = 3,
                 .fireRate = 720,
                 .bulletSprite = "lvl6-bloodcloud-projectile",
                 .bulletScale = 3,
                 .bulletSpeed = 0.5,
-                .hitSfx = "lvl10-brainofcthulu-hit",
-                .deathSfx = "lvl10-brainofcthulu-death"
+                .hitSfx = "lvl10-brainofcthulu-enemy-hit",
+                .deathSfx = "lvl10-brainofcthulu-enemy-death"
             },
             New EnemyInfo("lvl10-thetwins-enemy", 1) With {
                 .chance = 0.25,
                 .spriteRate = 2,
-                .health = 45,
-                .value = 45,
+                .health = 35,
+                .value = 35,
                 .speed = 3,
-                .fireRate = 50,
+                .fireRate = 150,
                 .bulletSprite = "lvl10-eyefire-projectile",
-                .bulletScale = 0.5,
+                .bulletScale = 1,
                 .bulletSpeed = 2,
                 .hitSfx = "lvl10-thetwins-enemy-hit",
                 .deathSfx = "lvl10-thetwins-enemy-death"
             },
-            New EnemyInfo("lvl10-brimstoneelemental-enemy", 1) With {
+            New EnemyInfo("lvl10-brimstoneelement-enemy", 1) With {
                 .chance = 0.05,
                 .health = 120,
                 .value = 120,
-                .speed = 0.02,
+                .speed = 1,
                 .fireRate = 450,
                 .bulletSprite = "lvl10-ghast-projectile",
                 .bulletScale = 1.5,

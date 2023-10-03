@@ -6,6 +6,8 @@ Public Class GameScene
     Inherits Scene
     Public Overrides ReadOnly Property Type As String = "Game"
 
+    Const durationSeconds = 120
+
     Private frameCount As Integer
     Private paused As Boolean
 
@@ -51,7 +53,7 @@ Public Class GameScene
 
         frameCount += 1
 
-        If frameCount / fps > 2 Then
+        If frameCount / fps > durationSeconds Then
             audio.PlaySFX("level-clear")
             scenes.Open("Shop")
         End If
@@ -62,7 +64,7 @@ Public Class GameScene
         AddEntity(New ScrollingBackgroundComponent($"lvl{session.level}-bg",, 1.5))
 
         ' level, score, high score, shinies
-        AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {120 - CInt(frameCount / fps)}", New Vector2f(5, 5)))
+        AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {durationSeconds - CInt(frameCount / fps)}", New Vector2f(5, 5)))
 
         ' lives
         AddEntity(

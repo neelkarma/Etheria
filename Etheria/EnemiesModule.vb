@@ -445,6 +445,111 @@ Public Module EnemiesModule
                 .hitSfx = "lvl8-lunaticcultist-enemy-hit",
                 .deathSfx = "lvl8-lunaticcultist-enemy-death"
             }
+        },
+        New EnemyInfo() {
+            New EnemyInfo("lvl9-queenbee-enemy", 1) With {
+                .chance = 0.35,
+                .spriteRate = 2,
+                .health = 10,
+                .value = 10,
+                .speed = 5,
+                .fireRate = 90,
+                .bulletSprite = "lvl9-beestinger-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 5,
+                .hitSfx = "lvl9-queenbee-enemy-hit",
+                .deathSfx = "lvl9-queenbee-enemy-death"
+            },
+            New EnemyInfo("lvl9-queenbee-enemy", 1) With {
+                .chance = 0.15,
+                .spriteRate = 2,
+                .health = 15,
+                .value = 10,
+                .speed = 3,
+                .fireRate = 180,
+                .bulletSprite = "lvl9-bee-projectile",
+                .bulletScale = 1.2,
+                .bulletSpeed = 6,
+                .hitSfx = "lvl9-queenbee-enemy-hit",
+                .deathSfx = "lvl9-queenbee-enemy-death"
+            },
+            New EnemyInfo("lvl9-darkmage-enemy", 1) With {
+                .chance = 0.46,
+                .spriteRate = 2,
+                .health = 12,
+                .value = 12,
+                .speed = 1.4,
+                .fireRate = 50,
+                .bulletSprite = "lvl9-darksigil-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 1,
+                .hitSfx = "lvl9-darkmage-enemy-hit",
+                .deathSfx = "lvl9-darkmage-enemy-death"
+            },
+            New EnemyInfo("lvl9-moonlord-enemy", 1) With {
+                .chance = 0.04,
+                .health = 85,
+                .value = 85,
+                .speed = 0.1,
+                .fireRate = 450,
+                .bulletSprite = "lvl9-phantasmalsphere-projectile",
+                .bulletScale = 1.5,
+                .bulletSpeed = 3,
+                .hitSfx = "lvl9-moonlord-enemy-hit",
+                .deathSfx = "lvl9-moonlord-enemy-death"
+            }
+        },
+        New EnemyInfo() {
+            New EnemyInfo("lvl10-floatygross-enemy", 1) With {
+                .chance = 0.45,
+                .health = 20,
+                .value = 20,
+                .speed = 5,
+                .fireRate = 90,
+                .bulletSprite = "lvl10-imp-projectile",
+                .bulletScale = 0.6,
+                .bulletSpeed = 3,
+                .hitSfx = "lvl10-floatygross-enemy-hit",
+                .deathSfx = "lvl10-floaty-gross-enemy-death"
+            },
+            New EnemyInfo("lvl10-brainofcthulu-enemy", 1) With {
+                .chance = 0.25,
+                .spriteRate = 2,
+                .health = 69,
+                .value = 69,
+                .speed = 3,
+                .fireRate = 720,
+                .bulletSprite = "lvl6-bloodcloud-projectile",
+                .bulletScale = 3,
+                .bulletSpeed = 0.5,
+                .hitSfx = "lvl10-brainofcthulu-hit",
+                .deathSfx = "lvl10-brainofcthulu-death"
+            },
+            New EnemyInfo("lvl10-thetwins-enemy", 1) With {
+                .chance = 0.25,
+                .spriteRate = 2,
+                .health = 45,
+                .value = 45,
+                .speed = 3,
+                .fireRate = 50,
+                .bulletSprite = "lvl10-eyefire-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 2,
+                .hitSfx = "lvl10-thetwins-enemy-hit",
+                .deathSfx = "lvl10-thetwins-enemy-death"
+            },
+            New EnemyInfo("lvl10-brimstoneelemental-enemy", 1) With {
+                .chance = 0.05,
+                .health = 120,
+                .value = 120,
+                .speed = 0.02,
+                .fireRate = 450,
+                .bulletSprite = "lvl10-ghast-projectile",
+                .bulletScale = 1.5,
+                .bulletSpeed = 3,
+                .hitSfx = "lvl10-brimstoneelemental-hit",
+                .deathSfx = "lvl10-brimstoneelemental-death"
+            }
         }
     }
 

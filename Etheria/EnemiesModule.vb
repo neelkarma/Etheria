@@ -171,6 +171,280 @@ Public Module EnemiesModule
                 .hitSfx = "lvl2-icequeen-enemy-hit",
                 .deathSfx = "lvl2-icequeen-enemy-death"
             }
+        },
+        New EnemyInfo() {
+            New EnemyInfo("lvl3-antlion-enemy", 1) With {
+                .chance = 0.5,
+                .health = 2,
+                .value = 2,
+                .speed = 1,
+                .fireRate = 90,
+                .bulletSprite = "lvl3-fireball-projectile",
+                .bulletScale = 2,
+                .bulletSpeed = 2.5,
+                .hitSfx = "lvl3-antlion-enemy-hit",
+                .deathSfx = "lvl3-antlion-enemy-death"
+            },
+            New EnemyInfo("lvl3-desertspirit-enemy", 1) With {
+                .chance = 0.35,
+                .health = 2,
+                .value = 2,
+                .speed = 3,
+                .fireRate = 200,
+                .bulletSprite = "lvl3-spiritflame-projectile",
+                .bulletSpriteRate = 2,
+                .bulletScale = 1,
+                .bulletSpeed = 1,
+                .hitSfx = "lvl3-desertspirit-enemy-teleport",
+                .deathSfx = "lvl3-desertspirit-enemy-death"
+            },
+            New EnemyInfo("lvl3-golem-enemy", 1) With {
+                .chance = 0.15,
+                .spriteRate = 2,
+                .health = 10,
+                .value = 10,
+                .speed = 1,
+                .fireRate = 50,
+                .bulletSprite = "lvl3-eyebeam-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 5,
+                .hitSfx = "lvl3-golem-enemy-hit",
+                .deathSfx = "lvl3-golem-enemy-death"
+            }
+        },
+                New EnemyInfo() {
+            New EnemyInfo("lvl4-pixie-enemy", 1) With {
+                .chance = 0.7,
+                .health = 2,
+                .value = 2,
+                .speed = 1,
+                .fireRate = 150,
+                .bulletSprite = "lvl4-greenfairy-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 4,
+                .hitSfx = "lvl4-pixie-enemy-hit",
+                .deathSfx = "lvl4-pixie-enemy-death"
+            },
+            New EnemyInfo("lvl4-ocram-enemy", 1) With {
+                .chance = 0.1,
+                .health = 10,
+                .value = 10,
+                .speed = 3,
+                .fireRate = 200,
+                .bulletSprite = "lvl4-ocramscythe-projectile",
+                .bulletSpriteRate = 2,
+                .bulletScale = 1,
+                .bulletSpeed = 3,
+                .hitSfx = "lvl4-ocram-enemy-hit",
+                .deathSfx = "lvl4-ocram-enemy-death"
+            },
+            New EnemyInfo("lvl4-ocram-enemy", 1) With {
+                .chance = 0.1,
+                .health = 10,
+                .value = 10,
+                .speed = 3,
+                .fireRate = 60,
+                .bulletSprite = "lvl4-ocramlaser-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 4,
+                .hitSfx = "lvl4-ocram-enemy-hit",
+                .deathSfx = "lvl4-ocram-enemy-death"
+            },
+            New EnemyInfo("lvl4-lightempress-enemy", 1) With {
+                .chance = 0.05,
+                .spriteRate = 2,
+                .health = 16,
+                .value = 16,
+                .speed = 1,
+                .fireRate = 90,
+                .bulletSprite = "lvl4-ethereallance-projectile",
+                .bulletScale = 1.2,
+                .bulletSpeed = 6,
+                .hitSfx = "lvl4-lightempress-enemy-hit",
+                .deathSfx = "lvl4-lightempress-enemy-death"
+            },
+            New EnemyInfo("lvl4-lightempress-enemy", 1) With {
+                .chance = 0.05,
+                .spriteRate = 2,
+                .health = 16,
+                .value = 16,
+                .speed = 1,
+                .fireRate = 60,
+                .bulletSprite = "lvl4-everlastingrainbow-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 3,
+                .hitSfx = "lvl4-lightempress-enemy-hit",
+                .deathSfx = "lvl4-lightempress-enemy-death"
+            }
+        },
+        New EnemyInfo() {
+            New EnemyInfo("lvl5-probe-enemy", 1) With {
+                .chance = 0.7,
+                .health = 2,
+                .value = 2,
+                .speed = 1,
+                .fireRate = 90,
+                .bulletSprite = "lvl5-laser-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl5-probe-enemy-hit",
+                .deathSfx = "lvl5-probe-enemy-death"
+            },
+            New EnemyInfo("lvl5-martiandrone-enemy", 1) With {
+                .chance = 0.25,
+                .health = 6,
+                .value = 6,
+                .speed = 3,
+                .fireRate = 200,
+                .bulletSprite = "lvl5-laser2-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl5-martiandrone-enemy-hit",
+                .deathSfx = "lvl5-martiandrone-enemy-death"
+            },
+            New EnemyInfo("lvl5-martiansaucer-enemy", 1) With {
+                .chance = 0.05,
+                .spriteRate = 2,
+                .health = 25,
+                .value = 25,
+                .speed = 1,
+                .fireRate = 100,
+                .bulletSprite = "lvl5-saucerdebris-projectile",
+                .bulletScale = 2,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl5-martiansaucer-enemy-hit",
+                .deathSfx = "lvl5-martiansaucer-enemy-death"
+            }
+        },
+        New EnemyInfo() {
+            New EnemyInfo("lvl6-bloodjelly-enemy", 1) With {
+                .chance = 0.5,
+                .health = 2,
+                .value = 2,
+                .speed = 4,
+                .fireRate = 160,
+                .bulletSprite = "lvl6-bloodcloud-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 1,
+                .hitSfx = "lvl6-bloodjelly-enemy-hit",
+                .deathSfx = "lvl6-bloodjelly-enemy-death"
+            },
+            New EnemyInfo("lvl6-bloodfeeder-enemy", 1) With {
+                .chance = 0.46,
+                .health = 3,
+                .value = 3,
+                .speed = 3,
+                .fireRate = 300,
+                .bulletSprite = "lvl6-bloodcloud-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl6-bloodfeeder-enemy-hit",
+                .deathSfx = "lvl6-bloodfeeder-enemy-death"
+            },
+            New EnemyInfo("lvl6-betsy-enemy", 1) With {
+                .chance = 0.04,
+                .spriteRate = 2,
+                .health = 40,
+                .value = 40,
+                .speed = 2.5,
+                .fireRate = 550,
+                .bulletSprite = "lvl6-betsysfireball-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 4,
+                .hitSfx = "lvl6-betsy-enemy-hit",
+                .deathSfx = "lvl6-betsy-enemy-death"
+            }
+        },
+        New EnemyInfo() {
+            New EnemyInfo("lvl7-shark-enemy", 1) With {
+                .chance = 0.5,
+                .health = 3,
+                .value = 3,
+                .speed = 4,
+                .fireRate = 450,
+                .bulletSprite = "lvl7-sharknadobolt-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl7-shark-enemy-hit",
+                .deathSfx = "lvl7-shark-enemy-death"
+            },
+            New EnemyInfo("lvl7-orca-enemy", 1) With {
+                .chance = 0.4,
+                .health = 5,
+                .value = 5,
+                .speed = 3,
+                .fireRate = 355,
+                .bulletSprite = "lvl7-sharknadobolt-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl7-orca-enemy-hit",
+                .deathSfx = "lvl7-orca-enemy-death"
+            },
+            New EnemyInfo("lvl7-dukefishron-enemy", 1) With {
+                .chance = 0.1,
+                .spriteRate = 2,
+                .health = 50,
+                .value = 50,
+                .speed = 2,
+                .fireRate = 450,
+                .bulletSprite = "lvl7-sharknado-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 4,
+                .hitSfx = "lvl7-dukefishron-enemy-hit",
+                .deathSfx = "lvl7-dukefishron-enemydeath"
+            }
+        },
+         New EnemyInfo() {
+            New EnemyInfo("lvl8-ghost-enemy", 1) With {
+                .chance = 0.3,
+                .health = 30,
+                .value = 20,
+                .speed = 30,
+                .fireRate = 750,
+                .bulletSprite = "lvl8-spiritmist-projectile",
+                .bulletScale = 0.5,
+                .bulletSpeed = 0.8,
+                .hitSfx = "lvl8-ghost-enemy-hit",
+                .deathSfx = "lvl8-ghost-enemy-death"
+            },
+            New EnemyInfo("lvl8-spirit-enemy", 1) With {
+                .chance = 0.65,
+                .health = 1,
+                .value = 1,
+                .speed = 3,
+                .fireRate = 100,
+                .bulletSprite = "lvl8-spiritbolt-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 8,
+                .hitSfx = "lvl8-spirit-enemy-hit",
+                .deathSfx = "lvl8-spirit-enemy-death"
+            },
+            New EnemyInfo("lvl8-lunaticcultist-enemy", 1) With {
+                .chance = 0.025,
+                .spriteRate = 2,
+                .health = 50,
+                .value = 50,
+                .speed = 0.1,
+                .fireRate = 450,
+                .bulletSprite = "lvl8-lunaticcultistfireball-projectile",
+                .bulletScale = 1,
+                .bulletSpeed = 4,
+                .hitSfx = "lvl8-lunaticcultist-enemy-hit",
+                .deathSfx = "lvl8-lunaticcultist-enemy-death"
+            },
+            New EnemyInfo("lvl8-lunaticcultist-enemy", 1) With {
+                .chance = 0.025,
+                .spriteRate = 2,
+                .health = 70,
+                .value = 70,
+                .speed = 0.1,
+                .fireRate = 450,
+                .bulletSprite = "lvl8-lunaticcultistlightning-projectile",
+                .bulletScale = 1.2,
+                .bulletSpeed = 1,
+                .hitSfx = "lvl8-lunaticcultist-enemy-hit",
+                .deathSfx = "lvl8-lunaticcultist-enemy-death"
+            }
         }
     }
 

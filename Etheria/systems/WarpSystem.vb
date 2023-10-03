@@ -13,6 +13,10 @@ Public Class WarpSystem
         Console.Write("Warp to (leave blank to cancel): ")
         Dim scene = Console.ReadLine()
         If scene.Length = 0 Then Return
+        If Not scenes.HasScene(scene) Then
+            Console.WriteLine("Invalid scene provided.")
+            Return
+        End If
         scenes.Open(scene)
         Console.WriteLine($"Warped to {scene}.")
     End Sub

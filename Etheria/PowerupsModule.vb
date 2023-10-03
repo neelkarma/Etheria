@@ -24,8 +24,8 @@ Public Module PowerupsModule
 
     Public Enum Powerup
         PermanentSpeedUp
-        DoubleShot
         AutoShoot
+        DoubleShot
         ExtraLife
     End Enum
 

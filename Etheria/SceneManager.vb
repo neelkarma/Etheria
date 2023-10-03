@@ -47,4 +47,8 @@
 
         CurrentScene.Open(init)
     End Sub
+
+    Public Function HasScene(name As String)
+        Return scenes.ContainsKey(name)
+    End Function
 End Class

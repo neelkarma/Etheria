@@ -13,24 +13,35 @@ Public Class CheatsSystem
         Console.WriteLine("Choose which variable you wish to modify:")
         Console.WriteLine("0) Cancel 1) Score 2) Shinies 3) Level 4) Lives")
         Console.Write("> ")
-        Dim variable = CInt(Console.ReadLine())
+        Dim variable = Console.ReadLine()
+
+        If Not Integer.TryParse(variable, vbNull) Then
+            Console.WriteLine("Invalid variable provided.")
+            Return
+        End If
+
         Console.Write("Value: ")
         Dim value = CInt(Console.ReadLine())
 
+        If Not Integer.TryParse(value, vbNull) Then
+            Console.WriteLine("Invalid Value Provided.")
+            Return
+        End If
+
         Dim modified As String
         Select Case variable
-            Case 0
+            Case "0"
                 Return
-            Case 1
+            Case "1"
                 session.score = value
                 modified = "score"
-            Case 2
+            Case "2"
                 session.shinies = value
                 modified = "shinies"
-            Case 3
+            Case "3"
                 session.level = value
                 modified = "level"
-            Case 4
+            Case "4"
                 session.lives = value
                 modified = "lives"
             Case Else

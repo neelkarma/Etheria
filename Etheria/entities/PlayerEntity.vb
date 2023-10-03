@@ -14,8 +14,6 @@ Public Class PlayerEntity
             New PositionComponent(New Vector2f(15, windowHeight / 2)),
             New PlayerComponent(),
             New ColliderComponent(New FloatRect(60, 45, 50, 15)),
-            New AutoShootComponent(10, New Vector2f(35, 7)),
-            New ScreenColliderComponent("collide", 11, 1, 37, 13),
             New ContainScreenComponent()
         )
     End Sub

@@ -29,7 +29,8 @@ Public Class EnemySystem
 
                 Dim playerEntity = scenes.CurrentScene.GetEntity(Function(ent) ent.HasComponents("Player", "Position", "Collider"))
                 If Not IsNothing(playerEntity) Then
-                    Dim bulletBounds = bulletEntity.GetComponent(Of SpriteComponent)("Sprite").Sprite.GetGlobalBounds()
+                    Dim bulletSprite = bulletEntity.GetComponent(Of SpriteComponent)("Sprite")
+                    Dim bulletBounds = bulletSprite.Sprite.GetGlobalBounds()
                     Dim bulletCenter = GetRectCenter(GetGlobalRect(New PositionComponent(bulletOrigin), New ColliderComponent(New FloatRect(0, 0, bulletBounds.Width, bulletBounds.Height))))
 
                     Dim playerPos = playerEntity.GetComponent(Of PositionComponent)("Position")
@@ -41,6 +42,7 @@ Public Class EnemySystem
                     Dim bulletVelocity = New Vector2f(Math.Cos(angle) * enemy.info.bulletSpeed, Math.Sin(angle) * enemy.info.bulletSpeed)
 
                     bulletEntity.AddComponent(New VelocityComponent(bulletVelocity))
+                    bulletSprite.rotation = angle * (180 / Math.PI) ' sfml uses degrees, not radians
 
                     scenes.CurrentScene.AddEntity(bulletEntity)
                     enemy.framesUntilCanFire = enemy.info.fireRate

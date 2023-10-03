@@ -1,4 +1,5 @@
 ﻿Imports SFML.Graphics
+Imports SFML.System
 
 Public Class SpriteColliderSystem
     Inherits System
@@ -11,9 +12,11 @@ Public Class SpriteColliderSystem
         For Each entity In entities
             Dim sprite = entity.GetComponent(Of SpriteComponent)("Sprite")
             If Not sprite.overrideCollider Then Continue For
+
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
+            sprite.Sprite.Position = New Vector2f()
             Dim spriteBounds = sprite.Sprite.GetGlobalBounds()
-            collider.rect = New FloatRect(0, 0, spriteBounds.Width, spriteBounds.Height)
+            collider.rect = spriteBounds
         Next
     End Sub
 End Class

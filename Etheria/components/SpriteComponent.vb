@@ -11,6 +11,7 @@ Public Class SpriteComponent
         Get
             Dim s = sprites.GetSprites(name)(frame)
             s.Scale = New Vector2f(scale, scale)
+            s.Rotation = rotation
             Return s
         End Get
     End Property
@@ -19,10 +20,9 @@ Public Class SpriteComponent
     Public scale As Single
     Public frame As Integer
     Public framesUntilNext As Integer
-    Public frameSpeed As Integer
-    Public subFrame As Integer
     Public frameDuration As Integer
     Public hidden As Boolean = False
+    Public rotation As Single = 0
     Public overrideCollider As Boolean = True
 
     Public Sub New(name As String, Optional frameDuration As Integer = 1, Optional scale As Single = 1, Optional hidden As Boolean = False, Optional overrideCollider As Boolean = True)

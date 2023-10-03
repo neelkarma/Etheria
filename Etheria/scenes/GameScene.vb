@@ -31,20 +31,19 @@ Public Class GameScene
         If isPressed And Not isPressedNow Then isPressed = False
 
         If paused Then
-            Window.Draw(New Text() With {
-                .DisplayedString = "PAUSED",
-                .Font = font,
-                .CharacterSize = 36,
-                .Position = New Vector2f(5, 5),
+            Window.Draw(New Text("PAUSED", font, 36) With {
+                .Position = New Vector2f(50, 50),
                 .FillColor = Color.White
             })
-            Window.Draw(New Text() With {
-                .DisplayedString = "Press P to unpause",
-                .Font = font,
-                .CharacterSize = 24,
-                .Position = New Vector2f(5, 55),
+            Window.Draw(New Text("Press P to unpause", font, 24) With {
+                .Position = New Vector2f(50, 120),
                 .FillColor = Color.White
             })
+            Window.Draw(New Text("Press Q to quit", font, 24) With {
+                .Position = New Vector2f(50, 170),
+                .FillColor = Color.White
+            })
+            If Keyboard.IsKeyPressed(Keyboard.Key.Q) Then scenes.Open("Title")
             Return
         End If
 
@@ -60,7 +59,7 @@ Public Class GameScene
 
     Public Overrides Sub InitEntities()
         ' scrolling background
-        AddEntity(New ScrollingBackgroundComponent("menu-bg")) ' todo: change sprite
+        AddEntity(New ScrollingBackgroundComponent("menu-bg",, 1.5))
 
         ' level, score, high score, shinies
         AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {120 - CInt(frameCount / fps)}", New Vector2f(5, 5)))

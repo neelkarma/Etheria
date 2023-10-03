@@ -1,4 +1,5 @@
-﻿Public Class DebugSystem
+﻿Imports SFML.Graphics
+Public Class DebugSystem
     Inherits System
 
     Public Overrides Function Match(entity As Entity) As Boolean
@@ -6,6 +7,5 @@
     End Function
 
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
-        ' Console.WriteLine(InteractableComponent.holdIsLocked)
     End Sub
 End Class

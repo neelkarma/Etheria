@@ -1,4 +1,5 @@
-﻿Imports SFML.System
+﻿Imports SFML.Graphics
+Imports SFML.System
 
 Public Class EnemySystem
     Inherits System
@@ -6,7 +7,6 @@ Public Class EnemySystem
     Public Overrides Function Match(entity As Entity) As Boolean
         Return entity.HasComponents("Enemy", "Position", "Velocity", "Collider")
     End Function
-
 
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
         For Each entity In entities
@@ -19,20 +19,18 @@ Public Class EnemySystem
             position.pos.X = Math.Clamp(position.pos.X, windowWidth / 2, windowWidth)
             If position.pos.X - windowWidth < -1 Then velocity.vel.X = (1 / (position.pos.X - windowWidth)) * 200
 
-
             ' shoot
-            Dim canShoot = enemy.framesUntilCanFire <= 0
-            If canShoot Then
+            If enemy.framesUntilCanFire <= 0 Then
                 ' Make bullets shoot in the direction of the player
                 Dim bulletOrigin = position.pos + enemy.info.bulletPos
 
-                Dim bulletEntity = New BulletEntity(enemy.info.bulletSprite, New Vector2f(-5, 0), position.pos + enemy.info.bulletPos, enemy.info.bulletScale)
+                Dim bulletEntity = New BulletEntity(enemy.info.bulletSprite, New Vector2f(-5, 0), bulletOrigin, enemy.info.bulletScale)
                 bulletEntity.AddComponent(New EnemyBulletComponent())
 
                 Dim playerEntity = scenes.CurrentScene.GetEntity(Function(ent) ent.HasComponents("Player", "Position", "Collider"))
                 If Not IsNothing(playerEntity) Then
                     Dim bulletBounds = bulletEntity.GetComponent(Of SpriteComponent)("Sprite").Sprite.GetGlobalBounds()
-                    Dim bulletCenter = GetRectCenter(GetGlobalRect(New PositionComponent(bulletOrigin), New ColliderComponent(bulletBounds)))
+                    Dim bulletCenter = GetRectCenter(GetGlobalRect(New PositionComponent(bulletOrigin), New ColliderComponent(New FloatRect(0, 0, bulletBounds.Width, bulletBounds.Height))))
 
                     Dim playerPos = playerEntity.GetComponent(Of PositionComponent)("Position")
                     Dim playerCollider = playerEntity.GetComponent(Of ColliderComponent)("Collider")

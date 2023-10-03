@@ -30,11 +30,13 @@ Public Class PlayerCollisionSystem
                 Continue For
             End If
 
-            Dim enemyBullet = collider.collisions.Find(Function(ent As Entity) ent.HasComponent("EnemyBullet"))
+            Dim enemyEntity = collider.collisions.Find(Function(ent As Entity) ent.HasComponent("EnemyBullet") Or ent.HasComponent("Enemy"))
 
-            If IsNothing(enemyBullet) Then Continue For ' no collision
+            If IsNothing(enemyEntity) Then Continue For ' no collision
 
-            scenes.CurrentScene.RemoveEntity(enemyBullet)
+            ' only remove entity if it is a bullet, not an enemy
+            If enemyEntity.HasComponent("EnemyBullet") Then scenes.CurrentScene.RemoveEntity(enemyEntity)
+
             session.lives -= 1
             audio.PlaySFX("player-death")
             player.invincibilityFrames = 180

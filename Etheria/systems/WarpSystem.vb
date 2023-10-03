@@ -10,8 +10,9 @@ Public Class WarpSystem
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
         If Not Keyboard.IsKeyPressed(Keyboard.Key.F3) Then Return
 
-        Console.Write("Warp to: ")
+        Console.Write("Warp to (leave blank to cancel): ")
         Dim scene = Console.ReadLine()
+        If scene.Length = 0 Then Return
         scenes.Open(scene)
         Console.WriteLine($"Warped to {scene}.")
     End Sub

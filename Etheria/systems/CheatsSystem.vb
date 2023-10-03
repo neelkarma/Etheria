@@ -11,7 +11,7 @@ Public Class CheatsSystem
         If Not Keyboard.IsKeyPressed(Keyboard.Key.F1) Then Return
 
         Console.WriteLine("Choose which variable you wish to modify:")
-        Console.WriteLine("1) Score 2) Shinies 3) Level 4) Lives")
+        Console.WriteLine("0) Cancel 1) Score 2) Shinies 3) Level 4) Lives")
         Console.Write("> ")
         Dim variable = CInt(Console.ReadLine())
         Console.Write("Value: ")
@@ -19,6 +19,8 @@ Public Class CheatsSystem
 
         Dim modified As String
         Select Case variable
+            Case 0
+                Return
             Case 1
                 session.score = value
                 modified = "score"

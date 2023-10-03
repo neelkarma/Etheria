@@ -19,7 +19,7 @@ Public Class PlayerShootSystem
             Dim canShoot = player.framesUntilCanFire <= 0
 
             If isTriggered And canShoot Then
-                Dim bulletEntity = New BulletEntity("player-bullet", New Vector2i(15, 0), position.pos + New Vector2i(100, 50))
+                Dim bulletEntity = New BulletEntity("player-bullet", New Vector2f(15, 0), position.pos + New Vector2f(100, 50))
                 bulletEntity.AddComponent(New PlayerBulletComponent())
                 scenes.CurrentScene.AddEntity(bulletEntity)
                 player.framesUntilCanFire = player.fireRate

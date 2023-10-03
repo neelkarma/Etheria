@@ -10,8 +10,8 @@ Public Class SliderEntity
         Dim initialX = initialValue * (rightX - leftX) + leftX
 
         AddComponents(
-            New PositionComponent(New Vector2i(initialX, y)),
-            New ColliderComponent(New IntRect(0, 0, size, size)),
+            New PositionComponent(New Vector2f(initialX, y)),
+            New ColliderComponent(New FloatRect(0, 0, size, size)),
             New InteractableComponent(),
             New SliderComponent(leftX, rightX, action)
         )

@@ -11,7 +11,7 @@ Public Class LeaderboardManager
 
     Private Sub PadScores()
         While leaderboard.Count < 10
-            leaderboard.Add(("-", 0))
+            leaderboard.Add(("---", 0))
         End While
     End Sub
 

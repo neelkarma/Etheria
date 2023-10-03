@@ -26,7 +26,7 @@ Public Class EnemySystem
                 ' Make bullets shoot in the direction of the player
                 Dim bulletOrigin = position.pos + enemy.info.bulletPos
 
-                Dim bulletEntity = New BulletEntity(enemy.info.bulletSprite, New Vector2i(-5, 0), position.pos + enemy.info.bulletPos, enemy.info.bulletScale)
+                Dim bulletEntity = New BulletEntity(enemy.info.bulletSprite, New Vector2f(-5, 0), position.pos + enemy.info.bulletPos, enemy.info.bulletScale)
                 bulletEntity.AddComponent(New EnemyBulletComponent())
 
                 Dim playerEntity = scenes.CurrentScene.GetEntity(Function(ent) ent.HasComponents("Player", "Position", "Collider"))
@@ -40,7 +40,7 @@ Public Class EnemySystem
 
                     Dim angle = Math.Atan2(playerCenter.Y - bulletCenter.Y, playerCenter.X - bulletCenter.X)
 
-                    Dim bulletVelocity = New Vector2i(Math.Cos(angle) * enemy.info.bulletSpeed, Math.Sin(angle) * enemy.info.bulletSpeed)
+                    Dim bulletVelocity = New Vector2f(Math.Cos(angle) * enemy.info.bulletSpeed, Math.Sin(angle) * enemy.info.bulletSpeed)
 
                     bulletEntity.AddComponent(New VelocityComponent(bulletVelocity))
 

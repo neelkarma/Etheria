@@ -39,14 +39,14 @@ Public Class SliderSystem
 
             ' render the slider
             Dim barRect As New RectangleShape() With {
-                .Position = New Vector2i(slider.leftX, position.pos.Y),
+                .Position = New Vector2f(slider.leftX, position.pos.Y),
                 .FillColor = New Color(150, 150, 150),
-                .Size = New Vector2i(slider.rightX - slider.leftX + collider.rect.Width, collider.rect.Height)
+                .Size = New Vector2f(slider.rightX - slider.leftX + collider.rect.Width, collider.rect.Height)
             }
             Dim handleRect As New RectangleShape() With {
-                .Position = New Vector2i(position.pos.X, position.pos.Y),
+                .Position = New Vector2f(position.pos.X, position.pos.Y),
                 .FillColor = Color.White,
-                .Size = New Vector2i(collider.rect.Width, collider.rect.Height)
+                .Size = New Vector2f(collider.rect.Width, collider.rect.Height)
             }
 
             Window.Draw(barRect)

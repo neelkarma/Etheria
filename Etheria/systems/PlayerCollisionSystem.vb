@@ -20,11 +20,11 @@ Public Class PlayerCollisionSystem
 
                 ' draw invincibility barrier
                 Dim rect = GetGlobalRect(position, collider)
-                Window.Draw(New RectangleShape(New Vector2i(rect.Width, rect.Height)) With {
+                Window.Draw(New RectangleShape(New Vector2f(rect.Width, rect.Height)) With {
                     .FillColor = Color.Transparent,
                     .OutlineColor = Color.Yellow,
                     .OutlineThickness = 3,
-                    .Position = New Vector2i(rect.Left, rect.Top)
+                    .Position = New Vector2f(rect.Left, rect.Top)
                 })
 
                 Continue For
@@ -36,10 +36,10 @@ Public Class PlayerCollisionSystem
 
             scenes.CurrentScene.RemoveEntity(enemyBullet)
             session.lives -= 1
-            player.invincibilityFrames = 300
+            audio.PlaySFX("player-death")
+            player.invincibilityFrames = 180
 
             If session.lives <= 0 Then ' die
-                audio.PlaySFX("player-death")
                 scenes.Open("GameOver")
             End If
         Next

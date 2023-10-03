@@ -18,12 +18,12 @@ Public Class MouseCoordsSystem
 
         Dim xLine As New VertexArray
         For y = 0 To windowHeight
-            xLine.Append(New Vertex(New Vector2i(mousePos.X, y)))
+            xLine.Append(New Vertex(New Vector2f(mousePos.X, y)))
         Next
 
         Dim yLine As New VertexArray()
         For x = 0 To windowWidth
-            yLine.Append(New Vertex(New Vector2i(x, mousePos.Y)))
+            yLine.Append(New Vertex(New Vector2f(x, mousePos.Y)))
         Next
 
         Dim coordsText As New Text With {
@@ -31,7 +31,7 @@ Public Class MouseCoordsSystem
             .Font = font,
             .DisplayedString = $"({mousePos.X},{mousePos.Y})",
             .Scale = New Vector2f(0.3, 0.3),
-            .Position = New Vector2i(mousePos.X + 3, mousePos.Y + 3)
+            .Position = New Vector2f(mousePos.X + 3, mousePos.Y + 3)
         }
 
         Window.Draw(xLine)

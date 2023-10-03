@@ -7,8 +7,8 @@ Public Class LeaderboardScene
     Public Overrides Sub InitEntities()
         ' title
         AddEntity(
-            New TextComponent("Leaderboard",, 1.5),
-            New PositionComponent(New Vector2i(50, 50))
+            New TextComponent("Leaderboard",, 42),
+            New PositionComponent(New Vector2f(50, 50))
         )
 
         ' leaderboard entries
@@ -22,12 +22,12 @@ Public Class LeaderboardScene
             Dim score = lbEntry.Item2
 
             AddEntity(
-                New TextComponent($"{(i + 1):D2}: {name} {score:D8}",, 0.8),
-                New PositionComponent(New Vector2i(50, scorePadding + (scoreGap * i)))
+                New TextComponent($"{(i + 1):D2}: {name} {score:D8}",, 24),
+                New PositionComponent(New Vector2f(50, scorePadding + (scoreGap * i)))
             )
         Next
 
         ' back button
-        AddEntity(New TextButtonEntity("Back", New Vector2i(50, 530), Sub() scenes.Open("Title")))
+        AddEntity(New TextButtonEntity("Back", New Vector2f(50, 530), Sub() scenes.Open("Title")))
     End Sub
 End Class

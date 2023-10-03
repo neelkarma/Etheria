@@ -7,8 +7,8 @@ Public Class DraggableComponent
     Public isDragging As Boolean = False
     Public sprite As String
     Public validDropTargets As Integer()
-    Public positionOffset As New Vector2i
-    Public initialPosition As New Vector2i
+    Public positionOffset As New Vector2f
+    Public initialPosition As New Vector2f
 
     Public Sub New(validDropTargets As Integer(), sprite As String)
         Me.validDropTargets = validDropTargets

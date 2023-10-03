@@ -77,4 +77,17 @@ Public Class AudioManager
         currentBgm.Volume = BgmVolume
         currentBgm.Play()
     End Sub
+
+    Public Sub TogglePauseBGM()
+        If IsNothing(currentBgm) Then Return
+
+        Select Case currentBgm.Status
+            Case SoundStatus.Playing
+                currentBgm.Pause()
+            Case SoundStatus.Paused
+                currentBgm.Play()
+            Case SoundStatus.Stopped
+                Console.WriteLine("AUDIO: Warning: Attempted to pause stopped BGM")
+        End Select
+    End Sub
 End Class

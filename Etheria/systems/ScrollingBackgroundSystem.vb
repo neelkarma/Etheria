@@ -19,7 +19,7 @@ Public Class ScrollingBackgroundSystem
 
             For y = 0 To repeatY
                 For x = 0 To repeatX
-                    sprite.Position = New Vector2i(x * spriteBounds.Width - scrollingBackground.offset, y * spriteBounds.Height)
+                    sprite.Position = New Vector2f(x * spriteBounds.Width - scrollingBackground.offset, y * spriteBounds.Height)
                     Window.Draw(sprite)
                 Next
             Next

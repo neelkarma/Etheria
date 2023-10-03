@@ -13,16 +13,16 @@ Public Class ShipSelectScene
     Public Overrides Sub InitEntities()
         ' Text: Select a Ship
         AddEntity(
-            New TextComponent("Drag your ship into the box to continue!",, 0.6),
-            New PositionComponent(New Vector2i(40, 50))
+            New TextComponent("Drag your ship into the box to continue!",, 18),
+            New PositionComponent(New Vector2f(40, 50))
         )
 
         ' Drop Target
         Dim dropTarget = AddEntity(
-                New PositionComponent(New Vector2i(300, 300)),
-                New ColliderComponent(New IntRect(New Vector2i(), New Vector2i(200, 200))),
+                New PositionComponent(New Vector2f(300, 300)),
+                New ColliderComponent(New FloatRect(New Vector2f(), New Vector2f(200, 200))),
                 New DropTargetComponent(),
-                New RectComponent(New IntRect(-28, -37, 200, 200), Color.Transparent, Color.White, 5),
+                New RectComponent(New FloatRect(-28, -37, 200, 200), Color.Transparent, Color.White, 5),
                 New SpriteComponent("ship-blue",, 0.4, True)
             )
 
@@ -35,7 +35,7 @@ Public Class ShipSelectScene
             Dim spriteComponent As New SpriteComponent(sprite,, scale)
 
             AddEntity(
-                New PositionComponent(New Vector2i(30 + i * 150, 150)),
+                New PositionComponent(New Vector2f(30 + i * 150, 150)),
                 spriteComponent,
                 New ColliderComponent(spriteComponent.Sprite.GetGlobalBounds()),
                 New InteractableComponent(),
@@ -45,7 +45,7 @@ Public Class ShipSelectScene
 
         ' Back Button
         AddEntity(
-            New TextButtonEntity("Back", New Vector2i(50, 400), Sub() scenes.Open("Title"))
+            New TextButtonEntity("Back", New Vector2f(50, 400), Sub() scenes.Open("Title"))
         )
 
         ' the advance button gets added in the DraggableSystem after a valid item is dropped

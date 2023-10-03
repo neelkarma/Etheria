@@ -17,7 +17,7 @@ Public Class LivesDisplaySystem
             Dim heartBounds = heartSprite.GetGlobalBounds()
 
             For i = 1 To session.lives
-                heartSprite.Position = New Vector2i(position.pos.X - ((heartBounds.Width + 2) * i), position.pos.Y)
+                heartSprite.Position = New Vector2f(position.pos.X - ((heartBounds.Width + 2) * i), position.pos.Y)
                 Window.Draw(heartSprite)
             Next
         Next

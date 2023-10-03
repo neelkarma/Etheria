@@ -14,15 +14,15 @@ Public Class ShopScene
     Public Overrides Sub InitEntities()
         ' title
         AddEntity(
-            New TextComponent("Shop",, 0.8),
-            New PositionComponent(New Vector2i(20, 20))
+            New TextComponent("Shop",, 24),
+            New PositionComponent(New Vector2f(20, 20))
         )
 
         ' Balance
         AddEntity(
-            New TextComponent("",, 0.8),
+            New TextComponent("",, 24),
             New ReactiveTextComponent(Function() $"Balance: {session.shinies} SHN"),
-            New PositionComponent(New Vector2i(350, 20))
+            New PositionComponent(New Vector2f(350, 20))
         )
 
         ' items
@@ -35,26 +35,26 @@ Public Class ShopScene
             ' powerup sprite
             AddEntity(
                 New SpriteComponent(pow.spriteName,, 0.2),
-                New PositionComponent(New Vector2i(50, top))
+                New PositionComponent(New Vector2f(50, top))
             )
 
             ' powerup name
             AddEntity(
-                New TextComponent(pow.title,, 0.7),
-                New PositionComponent(New Vector2i(150, top))
+                New TextComponent(pow.title,, 24),
+                New PositionComponent(New Vector2f(150, top))
             )
 
             ' price
             AddEntity(
-                New TextComponent($"",, 0.6),
+                New TextComponent($"",, 20),
                 New ShopPriceComponent(i),
-                New PositionComponent(New Vector2i(150, top + 30))
+                New PositionComponent(New Vector2f(150, top + 30))
             )
 
             ' description
             AddEntity(
-                New TextComponent(pow.description,, 0.5),
-                New PositionComponent(New Vector2i(150, top + 55))
+                New TextComponent(pow.description,, 16),
+                New PositionComponent(New Vector2f(150, top + 55))
             )
 
             ' button rect
@@ -62,11 +62,11 @@ Public Class ShopScene
             Const height = 100
 
             AddEntity(
-                New ColliderComponent(New IntRect(0, 0, width, height)),
+                New ColliderComponent(New FloatRect(0, 0, width, height)),
                 New InteractableComponent(),
-                New RectComponent(New IntRect(0, 0, width, height), Color.Transparent, Color.White, 3),
+                New RectComponent(New FloatRect(0, 0, width, height), Color.Transparent, Color.White, 3),
                 New ShopItemButtonComponent(),
-                New PositionComponent(New Vector2i(40, top - 10)),
+                New PositionComponent(New Vector2f(40, top - 10)),
                 New ButtonComponent(Sub()
                                         If i = Powerup.ExtraLife Then
                                             If pow.price > session.shinies Or session.lives >= 5 Then
@@ -100,19 +100,19 @@ Public Class ShopScene
 
         ' player stats (ship icon, score, shinies, lives)
         AddEntity(
-            New TextComponent($"Score: {session.score}",, 0.5),
-            New PositionComponent(New Vector2i(50, 560))
+            New TextComponent($"Score: {session.score}",, 18),
+            New PositionComponent(New Vector2f(50, 560))
         )
 
         AddEntity(
-            New TextComponent("",, 0.5),
+            New TextComponent("",, 18),
             New ReactiveTextComponent(Function() $"Lives: {session.lives}"),
-            New PositionComponent(New Vector2i(400, 560))
+            New PositionComponent(New Vector2f(400, 560))
         )
 
         ' advance button
         AddEntity(
-            New TextButtonEntity("Advance", New Vector2i(580, 550), Sub()
+            New TextButtonEntity("Advance", New Vector2f(580, 550), Sub()
                                                                         session.level += 1
                                                                         If session.level > 10 Then session.level = 1
                                                                         scenes.Open("Game")

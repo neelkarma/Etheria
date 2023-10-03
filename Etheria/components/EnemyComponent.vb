@@ -12,6 +12,6 @@ Public Class EnemyComponent
     Public Sub New(enemyInfo As EnemyInfo)
         info = enemyInfo
         health = enemyInfo.health
-        framesUntilCanFire = enemyInfo.fireRate
+        framesUntilCanFire = enemyInfo.fireRate / 3
     End Sub
 End Class

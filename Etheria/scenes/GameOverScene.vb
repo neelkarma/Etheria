@@ -16,37 +16,37 @@ Public Class GameOverScene
         ' game over title
 
         AddEntity(
-            New TextComponent("Game Over",, 1.5),
-            New PositionComponent(New Vector2i(50, 50))
+            New TextComponent("Game Over",, 42),
+            New PositionComponent(New Vector2f(50, 50))
         )
 
         ' score: {score} (Level {level})
         AddEntity(
             New TextComponent($"Score: {session.score} (Level {session.level})"),
-            New PositionComponent(New Vector2i(50, 120))
+            New PositionComponent(New Vector2f(50, 120))
         )
 
         ' check if score made the leaderboard
         If leaderboard.CheckScore(session.score) Then
             ' leaderboard message
             AddEntity(
-                    New TextComponent("Congratulations! You made the leaderboard!",, 0.5),
-                    New PositionComponent(New Vector2i(50, 200))
+                    New TextComponent("Congratulations! You made the leaderboard!",, 16),
+                    New PositionComponent(New Vector2f(50, 200))
                 )
             AddEntity(
-                New TextComponent("Type your initials below (3 letters):",, 0.5),
-                New PositionComponent(New Vector2i(50, 250))
+                New TextComponent("Type your initials below (3 letters):",, 16),
+                New PositionComponent(New Vector2f(50, 250))
             )
 
             ' initial input
             AddEntity(
                 New InitialInputComponent(),
-                New PositionComponent(New Vector2i(50, 300))
+                New PositionComponent(New Vector2f(50, 300))
             )
 
             ' continue button is added in the InitialInputSystem on completion
         Else
-            AddEntity(New TextButtonEntity("Continue", New Vector2i(50, 250), Sub() scenes.Open("Title")))
+            AddEntity(New TextButtonEntity("Continue", New Vector2f(50, 250), Sub() scenes.Open("Title")))
         End If
 
         ' continue button

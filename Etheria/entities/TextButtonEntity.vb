@@ -3,7 +3,7 @@
 Public Class TextButtonEntity
     Inherits Entity
 
-    Public Sub New(text As String, position As Vector2i, action As Action)
+    Public Sub New(text As String, position As Vector2f, action As Action)
         AddComponents(
             New TextComponent(text),
             New PositionComponent(position),

@@ -16,7 +16,7 @@ Public Module EnemiesModule
         Public bulletSpriteRate As Integer
         Public bulletSpeed As Integer
         Public bulletScale As Single
-        Public bulletPos As Vector2i
+        Public bulletPos As Vector2f
 
         Public hitSfx As String
         Public deathSfx As String
@@ -27,7 +27,7 @@ Public Module EnemiesModule
             Dim sprite = sprites.GetSprites(spriteName)(0)
             sprite.Scale = New Vector2f(spriteScale, spriteScale)
             Dim spriteBounds = sprite.GetGlobalBounds()
-            bulletPos = New Vector2i(-20, spriteBounds.Height / 2)
+            bulletPos = New Vector2f(-20, spriteBounds.Height / 2)
         End Sub
     End Class
 
@@ -59,6 +59,23 @@ Public Module EnemiesModule
     }
 
     Public Function GetEnemiesForLevel(level As Integer) As EnemyInfo()
+        If level > enemyData.Length Then
+            Console.WriteLine("ENEMIES: WARNING: Level is greater than enemy data length, returning dummy enemy data")
+            Return New EnemyInfo() {
+                New EnemyInfo("error", 0.5) With {
+                    .health = 1,
+                    .value = 1,
+                    .speed = 1,
+                    .fireRate = 60,
+                    .bulletSprite = "enemy-bullet",
+                    .bulletScale = 0.3,
+                    .bulletSpeed = 3,
+                    .hitSfx = "",
+                    .deathSfx = ""
+                }
+            }
+        End If
+
         Return enemyData(level - 1)
     End Function
 End Module

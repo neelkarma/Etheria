@@ -18,8 +18,8 @@ Public Class ColliderDebugSystem
 
             Dim rect = GetGlobalRect(position, collider)
             Window.Draw(
-                New RectangleShape(New Vector2i(rect.Width, rect.Height)) With {
-                    .Position = New Vector2i(rect.Left, rect.Top),
+                New RectangleShape(New Vector2f(rect.Width, rect.Height)) With {
+                    .Position = New Vector2f(rect.Left, rect.Top),
                     .FillColor = Color.Transparent,
                     .OutlineColor = Color.Red,
                     .OutlineThickness = 2

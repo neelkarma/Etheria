@@ -10,16 +10,16 @@ Public Module Utils
         Next
     End Function
 
-    Public Function GetGlobalRect(p As PositionComponent, c As ColliderComponent) As IntRect
-        Return New IntRect(p.pos.X + c.rect.Left, p.pos.Y + c.rect.Top, c.rect.Width, c.rect.Height)
+    Public Function GetGlobalRect(p As PositionComponent, c As ColliderComponent) As FloatRect
+        Return New FloatRect(p.pos.X + c.rect.Left, p.pos.Y + c.rect.Top, c.rect.Width, c.rect.Height)
     End Function
 
-    Public Function GetRectCenter(rect As IntRect) As Vector2i
-        Return New Vector2i(rect.Left + (rect.Width / 2), rect.Top + (rect.Height / 2))
+    Public Function GetRectCenter(rect As FloatRect) As Vector2f
+        Return New Vector2f(rect.Left + (rect.Width / 2), rect.Top + (rect.Height / 2))
     End Function
 
-    Public Function CalculateTextRect(text As String, Optional scale As Decimal = 1) As IntRect
-        Return New Text(text, font, scale).GetGlobalBounds()
+    Public Function CalculateTextRect(text As String, Optional size As Integer = 36) As FloatRect
+        Return New Text(text, font, size).GetGlobalBounds()
     End Function
 
     Public Function GetCurrentlyPressedAlphaKey() As Keyboard.Key

@@ -3,9 +3,9 @@
 Public Class PlayerHUDEntity
     Inherits Entity
 
-    Public Sub New(content As Func(Of String), position As Vector2i)
+    Public Sub New(content As Func(Of String), position As Vector2f)
         AddComponents(
-            New TextComponent("",, 0.5),
+            New TextComponent("",, 16),
             New ReactiveTextComponent(content),
             New PositionComponent(position)
         )

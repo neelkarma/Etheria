@@ -8,8 +8,8 @@ Public Class EnemyEntity
         Dim bounds = sprite.Sprite.GetGlobalBounds()
 
         AddComponents(
-            New PositionComponent(New Vector2i(windowWidth, rng.Next(bounds.Height, windowHeight - bounds.Height))),
-            New VelocityComponent(New Vector2i(-enemyInfo.speed, 0)),
+            New PositionComponent(New Vector2f(windowWidth, rng.Next(bounds.Height, windowHeight - bounds.Height))),
+            New VelocityComponent(New Vector2f(-enemyInfo.speed, 0)),
             sprite,
             New ColliderComponent(),
             New EnemyComponent(enemyInfo)

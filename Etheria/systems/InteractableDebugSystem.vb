@@ -34,8 +34,8 @@ Public Class InteractableDebugSystem
 
                 Window.Draw(
                     New RectangleShape() With {
-                        .Position = New Vector2i(position.pos.X + (i * (size + gap)), position.pos.Y - gap - size),
-                        .Size = New Vector2i(size, size),
+                        .Position = New Vector2f(position.pos.X + (i * (size + gap)), position.pos.Y - gap - size),
+                        .Size = New Vector2f(size, size),
                         .FillColor = color
                     }
                 )

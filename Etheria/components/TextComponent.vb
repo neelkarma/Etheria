@@ -1,5 +1,4 @@
 ﻿Imports SFML.Graphics
-Imports SFML.System
 
 Public Class TextComponent
     Inherits Component
@@ -7,24 +6,21 @@ Public Class TextComponent
 
     Public ReadOnly Property Text As Text
         Get
-            Return New Text With {
-                .Font = font,
-                .DisplayedString = content,
-                .Scale = New Vector2f(scale, scale) * windowScale,
+            Return New Text(content, font, size) With {
                 .FillColor = color
             }
         End Get
     End Property
 
     Public content As String
-    Public scale As Decimal
+    Public size As Decimal
     Public color As Color
 
-    Public Sub New(Optional content As String = "", Optional color As Color = Nothing, Optional scale As Decimal = 1)
+    Public Sub New(Optional content As String = "", Optional color As Color = Nothing, Optional size As Integer = 30)
         If color = Nothing Then color = Color.White
 
         Me.content = content
-        Me.scale = scale
+        Me.size = size
         Me.color = color
     End Sub
 End Class

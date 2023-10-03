@@ -25,7 +25,8 @@ Public Class DraggableSystem
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim draggable = entity.GetComponent(Of DraggableComponent)("Draggable")
 
-            Dim mousePos = Mouse.GetPosition(Window)
+            Dim mousePosI = Mouse.GetPosition(Window)
+            Dim mousePos = New Vector2f(mousePosI.X, mousePosI.Y)
 
             If interactable.isHeld Then
                 ' make the entity move with the cursor
@@ -50,7 +51,7 @@ Public Class DraggableSystem
                         If scenes.currentSceneName = "ShipSelect" Then
                             ' add the advance button
                             scenes.CurrentScene.AddEntity(
-                                New TextButtonEntity("Advance", New Vector2i(570, 400), Sub()
+                                New TextButtonEntity("Advance", New Vector2f(570, 400), Sub()
                                                                                             session.level = 1
                                                                                             scenes.Open("Game")
                                                                                         End Sub)

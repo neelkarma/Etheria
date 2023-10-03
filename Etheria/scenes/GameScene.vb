@@ -1,19 +1,53 @@
 ﻿Imports SFML.Graphics
 Imports SFML.System
+Imports SFML.Window
 
 Public Class GameScene
     Inherits Scene
     Public Overrides ReadOnly Property Type As String = "Game"
 
     Private frameCount As Integer
+    Private paused As Boolean
 
     Public Overrides Sub Open(Optional init As Boolean = True)
         MyBase.Open(init)
         frameCount = 0
+        paused = False
         audio.PlayBGM($"lvl{session.level}")
     End Sub
 
     Public Overrides Sub Update()
+        ' i know putting pause in update is bad but i'm lazy
+        ' its the only way to preserve scene state without a major rework of things
+
+        Static isPressed As Boolean = False
+        Dim isPressedNow = Keyboard.IsKeyPressed(Keyboard.Key.P)
+
+        If isPressedNow And Not isPressed Then
+            isPressed = True
+            paused = Not paused
+            audio.TogglePauseBGM()
+        End If
+        If isPressed And Not isPressedNow Then isPressed = False
+
+        If paused Then
+            Window.Draw(New Text() With {
+                .DisplayedString = "PAUSED",
+                .Font = font,
+                .CharacterSize = 36,
+                .Position = New Vector2f(5, 5),
+                .FillColor = Color.White
+            })
+            Window.Draw(New Text() With {
+                .DisplayedString = "Press P to unpause",
+                .Font = font,
+                .CharacterSize = 24,
+                .Position = New Vector2f(5, 55),
+                .FillColor = Color.White
+            })
+            Return
+        End If
+
         MyBase.Update()
 
         frameCount += 1
@@ -29,12 +63,12 @@ Public Class GameScene
         AddEntity(New ScrollingBackgroundComponent("menu-bg")) ' todo: change sprite
 
         ' level, score, high score, shinies
-        AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {120 - CInt(frameCount / fps)}", New Vector2i(5, 5)))
+        AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {120 - CInt(frameCount / fps)}", New Vector2f(5, 5)))
 
         ' lives
         AddEntity(
             New LivesComponent(),
-            New PositionComponent(New Vector2i(windowWidth - 5, 5))
+            New PositionComponent(New Vector2f(windowWidth - 5, 5))
         )
 
         ' player

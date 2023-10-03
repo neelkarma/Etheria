@@ -13,7 +13,7 @@ Public Class SpriteColliderSystem
             If Not sprite.overrideCollider Then Continue For
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim spriteBounds = sprite.Sprite.GetGlobalBounds()
-            collider.rect = New IntRect(0, 0, spriteBounds.Width, spriteBounds.Height)
+            collider.rect = New FloatRect(0, 0, spriteBounds.Width, spriteBounds.Height)
         Next
     End Sub
 End Class

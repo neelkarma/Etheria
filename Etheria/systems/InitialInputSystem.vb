@@ -48,11 +48,11 @@ Public Class InitialInputSystem
 
             ' Draw cursor
             If initialInput.value.Length <> 3 Then
-                Static cursorSize As New Vector2i(3, 27) ' do not change this
+                Static cursorSize As New Vector2f(3, 27) ' do not change this
                 Dim textBounds = textRenderable.GetGlobalBounds()
 
                 Window.Draw(New RectangleShape(cursorSize) With {
-                     .Position = New Vector2i(textBounds.Left + textBounds.Width + 3, textBounds.Top),
+                     .Position = New Vector2f(textBounds.Left + textBounds.Width + 3, textBounds.Top),
                      .FillColor = Color.White
                 })
             End If
@@ -61,7 +61,7 @@ Public Class InitialInputSystem
             If scenes.currentSceneName = "GameOver" Then
                 If initialInput.value.Length = 3 And IsNothing(continueBtnEnt) Then
                     ' add continue button
-                    continueBtnEnt = New TextButtonEntity("Continue", New Vector2i(50, 370), Sub()
+                    continueBtnEnt = New TextButtonEntity("Continue", New Vector2f(50, 370), Sub()
                                                                                                  leaderboard.RecordScore(initialInput.value, session.score)
                                                                                                  scenes.Open("Title")
                                                                                              End Sub)

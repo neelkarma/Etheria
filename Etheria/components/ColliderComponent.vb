@@ -8,13 +8,13 @@ Public Class ColliderComponent
     ''' <summary>
     ''' Collider rectangle in local coordinates
     ''' </summary>
-    Public rect As New IntRect
+    Public rect As New FloatRect
 
     Public ReadOnly collisions As New List(Of Entity)
 
     Public Sub New()
     End Sub
-    Public Sub New(rect As IntRect)
+    Public Sub New(rect As FloatRect)
         Me.rect = rect
     End Sub
 End Class

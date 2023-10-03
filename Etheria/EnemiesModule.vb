@@ -18,6 +18,11 @@ Public Module EnemiesModule
         Public spriteRate As Integer = 1
 
         ''' <summary>
+        ''' Probability of this enemy spawning, from 0 to 1
+        ''' </summary>
+        Public chance As Single
+
+        ''' <summary>
         ''' Number of hits the enemy can take before dying.  
         ''' </summary>
         Public health As Integer
@@ -62,11 +67,12 @@ Public Module EnemiesModule
         ''' <summary>
         ''' The sfx to play on enemy hit
         ''' </summary>
-        Public hitSfx As String
+        Public hitSfx As String = ""
         ''' <summary>
         ''' The sfx to play on enemy death
         ''' </summary>
-        Public deathSfx As String
+        Public deathSfx As String = ""
+
 
         ''' <summary>
         ''' Creates a new EnemyInfo instance.
@@ -90,6 +96,7 @@ Public Module EnemiesModule
     Private ReadOnly enemyData()() As EnemyInfo = {
         New EnemyInfo() {
             New EnemyInfo("lvl1-flyingdutchman-enemy", 0.5) With {
+                .chance = 0.2,
                 .health = 3,
                 .value = 3,
                 .speed = 1,
@@ -101,6 +108,7 @@ Public Module EnemiesModule
                 .deathSfx = "lvl1-flyingdutchman-enemy-death"
             },
             New EnemyInfo("lvl1-parrot-enemy", 1) With {
+                .chance = 0.4,
                 .health = 1,
                 .value = 1,
                 .speed = 2,
@@ -112,6 +120,7 @@ Public Module EnemiesModule
                 .deathSfx = "lvl1-parrot-enemy-death"
             },
             New EnemyInfo("lvl1-piratescurse-enemy", 1) With {
+                .chance = 0.4,
                 .health = 2,
                 .value = 2,
                 .speed = 2,
@@ -125,6 +134,7 @@ Public Module EnemiesModule
         },
         New EnemyInfo() {
             New EnemyInfo("lvl2-elfcopter-enemy", 1) With {
+                .chance = 0.4,
                 .health = 2,
                 .value = 2,
                 .speed = 3,
@@ -136,6 +146,7 @@ Public Module EnemiesModule
                 .deathSfx = "lvl2-elfcopter-enemy-death"
             },
             New EnemyInfo("lvl2-flocko-enemy", 1) With {
+                .chance = 0.4,
                 .health = 3,
                 .value = 3,
                 .speed = 3,
@@ -147,6 +158,7 @@ Public Module EnemiesModule
                 .deathSfx = "lvl2-flocko-enemy-death"
             },
             New EnemyInfo("lvl2-icequeen-enemy", 1) With {
+                .chance = 0.2,
                 .spriteRate = 2,
                 .health = 5,
                 .value = 5,

@@ -15,7 +15,17 @@
                 Continue For
             End If
 
-            Dim chosenEnemy = enemies(rng.Next(0, enemies.Length))
+            Dim chosenEnemy = enemies(0)
+
+            Dim chosen = rng.NextSingle()
+            For Each enemy In enemies
+                If chosen < enemy.chance Then
+                    chosenEnemy = enemy
+                    Exit For
+                End If
+                chosen -= enemy.chance
+            Next
+
             scenes.CurrentScene.AddEntity(New EnemyEntity(chosenEnemy))
             spawner.framesUntilNext = spawner.rate + rng.Next(-spawner.spread, spawner.spread)
         Next

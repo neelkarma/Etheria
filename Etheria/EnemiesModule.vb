@@ -406,21 +406,21 @@ Public Module EnemiesModule
                 .bulletScale = 1,
                 .bulletSpeed = 4,
                 .hitSfx = "lvl7-dukefishron-enemy-hit",
-                .deathSfx = "lvl7-dukefishron-enemydeath"
+                .deathSfx = "lvl7-dukefishron-enemy-death"
             }
         },
          New EnemyInfo() {
             New EnemyInfo("lvl8-ghost-enemy", 1) With {
                 .chance = 0.3,
-                .spriteScale = 1.5,
-                .health = 30,
+                .spriteScale = 2,
+                .health = 60,
                 .value = 20,
-                .speed = 30,
-                .fireRate = 750,
+                .speed = 0.2,
+                .fireRate = 1050,
                 .bulletSprite = "lvl8-spiritmist-projectile",
                 .bulletScale = 0.5,
-                .bulletSpeed = 0.8,
-                .hitSfx = "lvl8-ghost-enemy-hit",
+                .bulletSpeed = 0.5,
+                .hitSfx = "",
                 .deathSfx = "lvl8-ghost-enemy-death"
             },
             New EnemyInfo("lvl8-spirit-enemy", 1) With {
@@ -506,7 +506,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl9-moonlord-enemy", 1) With {
                 .chance = 0.04,
-                .spriteScale = 1.2,
+                .spriteScale = 2.5,
                 .health = 85,
                 .value = 85,
                 .speed = 0.1,
@@ -525,7 +525,7 @@ Public Module EnemiesModule
                 .health = 4,
                 .value = 4,
                 .speed = 5,
-                .fireRate = 130,
+                .fireRate = 180,
                 .bulletSprite = "lvl10-imp-projectile",
                 .bulletScale = 0.6,
                 .bulletSpeed = 3,
@@ -536,24 +536,24 @@ Public Module EnemiesModule
                 .chance = 0.25,
                 .spriteScale = 1.2,
                 .spriteRate = 2,
-                .health = 30,
-                .value = 30,
+                .health = 20,
+                .value = 20,
                 .speed = 3,
                 .fireRate = 620,
                 .bulletSprite = "lvl6-bloodcloud-projectile",
-                .bulletScale = 5,
+                .bulletScale = 3.6,
                 .bulletSpeed = 0.5,
                 .hitSfx = "lvl10-brainofcthulu-enemy-hit",
                 .deathSfx = "lvl10-brainofcthulu-enemy-death"
             },
             New EnemyInfo("lvl10-thetwins-enemy", 1) With {
                 .chance = 0.25,
-                .spriteScale = 0.7,
+                .spriteScale = 1.1,
                 .spriteRate = 2,
-                .health = 35,
-                .value = 35,
+                .health = 20,
+                .value = 20,
                 .speed = 3,
-                .fireRate = 150,
+                .fireRate = 250,
                 .bulletSprite = "lvl10-eyefire-projectile",
                 .bulletScale = 1,
                 .bulletSpeed = 2,
@@ -570,8 +570,8 @@ Public Module EnemiesModule
                 .bulletSprite = "lvl10-ghast-projectile",
                 .bulletScale = 1.5,
                 .bulletSpeed = 3,
-                .hitSfx = "lvl10-brimstoneelemental-hit",
-                .deathSfx = "lvl10-brimstoneelemental-death"
+                .hitSfx = "lvl10-brimstoneelemental-enemy-hit",
+                .deathSfx = "lvl10-brimstoneelemental-enemy-death"
             }
         }
     }

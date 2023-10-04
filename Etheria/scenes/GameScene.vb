@@ -61,7 +61,7 @@ Public Class GameScene
 
     Public Overrides Sub InitEntities()
         ' scrolling background
-        AddEntity(New ScrollingBackgroundComponent($"lvl{session.level}-bg",, 1.5))
+        AddEntity(New ScrollingBackgroundComponent($"lvl{session.TrueLevel}-bg",, 1.5))
 
         ' level, score, high score, shinies
         AddEntity(New PlayerHUDEntity(Function() $"LVL {session.level}  SCORE {session.score}  {session.shinies} SHN  TIME {durationSeconds - CInt(frameCount / fps)}", New Vector2f(5, 5)))

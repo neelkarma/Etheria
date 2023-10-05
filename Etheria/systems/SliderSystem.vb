@@ -16,7 +16,7 @@ Public Class SliderSystem
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim position = entity.GetComponent(Of PositionComponent)("Position")
 
-            Dim mousePos = Mouse.GetPosition(Window)
+            Dim mousePos = GetMousePosition()
             Dim handleBounds = GetGlobalRect(position, collider)
 
             ' if the mouse is being held, set the slider value and call the action.

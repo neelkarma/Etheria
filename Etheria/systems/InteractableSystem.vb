@@ -14,7 +14,7 @@ Public Class InteractableSystem
             Dim interactable = entity.GetComponent(Of InteractableComponent)("Interactable")
 
             Dim rect = GetGlobalRect(position, collider)
-            Dim mousePosition = Mouse.GetPosition(Window)
+            Dim mousePosition = GetMousePosition()
 
             interactable.isHovered = rect.Contains(mousePosition.X, mousePosition.Y)
             interactable.isHeld = Mouse.IsButtonPressed(Mouse.Button.Left) And ((interactable.isHovered And InteractableComponent.holdIsLocked = -1) Or (InteractableComponent.holdIsLocked = entity.id))

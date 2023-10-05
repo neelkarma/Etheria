@@ -7,8 +7,8 @@ Public Module Program
     Public Const windowWidth As Integer = 800
     Public Const windowHeight As Integer = 600
 
-    Public windowScale As Integer = 1
-    Public WithEvents Window As New RenderWindow(New VideoMode(windowWidth, windowHeight), "Etheria")
+    Public WithEvents Window As RenderWindow
+    Public isFullscreen As Boolean = False
 
     Public mouseWasHeldLastFrame As Boolean = False
     Public isDebug As Boolean = False
@@ -24,14 +24,9 @@ Public Module Program
     Public ReadOnly scenes As New SceneManager("Title")
 
     Sub Main()
-        Window.SetVerticalSyncEnabled(True)
+        InitWindow()
 
         While Window.IsOpen()
-            ' enforce set fps
-            If clock.ElapsedTime.AsSeconds() < 1 / fps Then Continue While
-            Dim dt As Double = clock.Restart().AsSeconds()
-            ' Console.WriteLine(1 / dt) ' fps
-
             Window.DispatchEvents()
             Window.Clear()
             scenes.CurrentScene.Update()
@@ -49,8 +44,43 @@ Public Module Program
         End While
     End Sub
 
-    Sub HandleWindowClose() Handles Window.Closed
+    Public Sub InitWindow()
+        If Not IsNothing(Window) Then Window.Close()
+        Window = New RenderWindow(
+            If(isFullscreen, New VideoMode(), New VideoMode(windowWidth, windowHeight)),
+            "Etheria",
+            If(isFullscreen, Styles.Fullscreen, Styles.Default)
+        )
+        Window.SetFramerateLimit(60)
+        Window.SetVerticalSyncEnabled(True)
+        UpdateViewportSize()
+        Window.Display()
+    End Sub
+
+    Private Sub UpdateViewportSize()
+        ' Dear future self: DO NOT FUCKING TOUCH THIS CODE YOU WILL BREAK IT SOMEHOW
+
+        Dim viewport As New FloatRect(0, 0, 1, 1)
+
+        If Window.Size.X > Window.Size.Y * (windowWidth / windowHeight) Then
+            viewport.Width = (Window.Size.Y / Window.Size.X) * (windowWidth / windowHeight)
+            viewport.Left = (1 - viewport.Width) / 2
+        ElseIf Window.Size.Y > Window.Size.X * (windowHeight / windowWidth) Then
+            viewport.Height = (Window.Size.X / Window.Size.Y) * (windowHeight / windowWidth)
+            viewport.Top = (1 - viewport.Height) / 2
+        End If
+
+        Window.SetView(New View(New FloatRect(0, 0, windowWidth, windowHeight)) With {
+            .Viewport = viewport
+        })
+    End Sub
+
+    Private Sub HandleWindowClose() Handles Window.Closed
         ' this handles closing the app when the x button is clicked
         Window.Close()
+    End Sub
+
+    Private Sub HandleResize() Handles Window.Resized
+        UpdateViewportSize()
     End Sub
 End Module

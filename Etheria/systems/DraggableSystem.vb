@@ -25,7 +25,7 @@ Public Class DraggableSystem
             Dim collider = entity.GetComponent(Of ColliderComponent)("Collider")
             Dim draggable = entity.GetComponent(Of DraggableComponent)("Draggable")
 
-            Dim mousePosI = Mouse.GetPosition(Window)
+            Dim mousePosI = GetMousePosition()
             Dim mousePos = New Vector2f(mousePosI.X, mousePosI.Y)
 
             If interactable.isHeld Then

@@ -116,4 +116,8 @@ Public Module Utils
                 Return ""
         End Select
     End Function
+
+    Public Function GetMousePosition() As Vector2f
+        Return Window.MapPixelToCoords(Mouse.GetPosition(Window))
+    End Function
 End Module

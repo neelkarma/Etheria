@@ -14,7 +14,7 @@ Public Class MouseCoordsSystem
     Public Overrides Sub Update(entities As IEnumerable(Of Entity))
         If Not isDebug Then Return
 
-        Dim mousePos = Mouse.GetPosition(Window)
+        Dim mousePos = GetMousePosition()
 
         Dim xLine As New VertexArray
         For y = 0 To windowHeight

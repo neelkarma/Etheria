@@ -26,6 +26,13 @@
                 chosen -= enemy.chance
             Next
 
+            ' increase difficulty for each 10 levels
+            Dim diffInc = Math.Floor((session.level - 1) / 10) ' this will evaluate to 0 for levels 1-10, 1 for 11-20, etc.
+            chosenEnemy.bulletSpeed += diffInc
+            chosenEnemy.value += diffInc
+            chosenEnemy.health += diffInc
+            chosenEnemy.fireRate = Math.Max(chosenEnemy.fireRate - diffInc * 5, 10) ' this prevents very low, zero or negative fireRates
+
             scenes.CurrentScene.AddEntity(New EnemyEntity(chosenEnemy))
             spawner.framesUntilNext = spawner.rate + rng.Next(-spawner.spread, spawner.spread)
         Next

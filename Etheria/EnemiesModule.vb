@@ -97,6 +97,7 @@ Public Module EnemiesModule
         New EnemyInfo() {
             New EnemyInfo("lvl1-flyingdutchman-enemy", 0.5) With {
                 .chance = 0.2,
+                .spriteScale = 1.5,
                 .health = 3,
                 .value = 3,
                 .speed = 1,
@@ -109,6 +110,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl1-parrot-enemy", 1) With {
                 .chance = 0.4,
+                .spriteScale = 1.5,
                 .health = 1,
                 .value = 1,
                 .speed = 2,
@@ -121,6 +123,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl1-piratescurse-enemy", 1) With {
                 .chance = 0.4,
+                .spriteScale = 1.5,
                 .health = 2,
                 .value = 2,
                 .speed = 2,
@@ -135,6 +138,7 @@ Public Module EnemiesModule
         New EnemyInfo() {
             New EnemyInfo("lvl2-elfcopter-enemy", 1) With {
                 .chance = 0.4,
+                .spriteScale = 1.5,
                 .health = 2,
                 .value = 2,
                 .speed = 3,
@@ -147,10 +151,11 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl2-flocko-enemy", 1) With {
                 .chance = 0.4,
+                .spriteScale = 1.5,
                 .health = 3,
                 .value = 3,
                 .speed = 3,
-                .fireRate = 60,
+                .fireRate = 180,
                 .bulletSprite = "lvl2-icemist-projectile",
                 .bulletScale = 0.5,
                 .bulletSpeed = 1,
@@ -159,6 +164,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl2-icequeen-enemy", 1) With {
                 .chance = 0.2,
+                .spriteScale = 2,
                 .spriteRate = 2,
                 .health = 5,
                 .value = 5,
@@ -187,6 +193,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl3-desertspirit-enemy", 1) With {
                 .chance = 0.35,
+                .spriteScale = 1.2,
                 .health = 2,
                 .value = 2,
                 .speed = 3,
@@ -200,7 +207,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl3-golem-enemy", 1) With {
                 .chance = 0.15,
-                .spriteRate = 2,
+                .spriteScale = 2.5,
                 .health = 10,
                 .value = 10,
                 .speed = 1,
@@ -215,6 +222,7 @@ Public Module EnemiesModule
                 New EnemyInfo() {
             New EnemyInfo("lvl4-pixie-enemy", 1) With {
                 .chance = 0.7,
+                .spriteScale = 2,
                 .health = 2,
                 .value = 2,
                 .speed = 1,
@@ -227,8 +235,8 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl4-ocram-enemy", 1) With {
                 .chance = 0.1,
-                .health = 10,
-                .value = 10,
+                .health = 15,
+                .value = 15,
                 .speed = 3,
                 .fireRate = 200,
                 .bulletSprite = "lvl4-ocramscythe-projectile",
@@ -240,8 +248,8 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl4-ocram-enemy", 1) With {
                 .chance = 0.1,
-                .health = 10,
-                .value = 10,
+                .health = 15,
+                .value = 15,
                 .speed = 3,
                 .fireRate = 60,
                 .bulletSprite = "lvl4-ocramlaser-projectile",
@@ -252,6 +260,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl4-lightempress-enemy", 1) With {
                 .chance = 0.05,
+                .spriteScale = 1.2,
                 .spriteRate = 2,
                 .health = 16,
                 .value = 16,
@@ -265,6 +274,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl4-lightempress-enemy", 1) With {
                 .chance = 0.05,
+                .spriteScale = 1.5,
                 .spriteRate = 2,
                 .health = 16,
                 .value = 16,
@@ -283,7 +293,7 @@ Public Module EnemiesModule
                 .health = 2,
                 .value = 2,
                 .speed = 1,
-                .fireRate = 90,
+                .fireRate = 60,
                 .bulletSprite = "lvl5-laser-projectile",
                 .bulletScale = 1,
                 .bulletSpeed = 8,
@@ -304,6 +314,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl5-martiansaucer-enemy", 1) With {
                 .chance = 0.05,
+                .spriteScale = 2,
                 .spriteRate = 2,
                 .health = 25,
                 .value = 25,
@@ -320,6 +331,7 @@ Public Module EnemiesModule
             New EnemyInfo("lvl6-bloodjelly-enemy", 1) With {
                 .chance = 0.5,
                 .health = 2,
+                .spriteScale = 1.5,
                 .value = 2,
                 .speed = 4,
                 .fireRate = 160,
@@ -331,6 +343,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl6-bloodfeeder-enemy", 1) With {
                 .chance = 0.46,
+                .spriteScale = 1.5,
                 .health = 3,
                 .value = 3,
                 .speed = 3,
@@ -343,6 +356,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl6-betsy-enemy", 1) With {
                 .chance = 0.04,
+                .spriteScale = 3,
                 .spriteRate = 2,
                 .health = 40,
                 .value = 40,
@@ -382,6 +396,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl7-dukefishron-enemy", 1) With {
                 .chance = 0.1,
+                .spriteScale = 1.2,
                 .spriteRate = 2,
                 .health = 50,
                 .value = 50,
@@ -391,20 +406,21 @@ Public Module EnemiesModule
                 .bulletScale = 1,
                 .bulletSpeed = 4,
                 .hitSfx = "lvl7-dukefishron-enemy-hit",
-                .deathSfx = "lvl7-dukefishron-enemydeath"
+                .deathSfx = "lvl7-dukefishron-enemy-death"
             }
         },
          New EnemyInfo() {
             New EnemyInfo("lvl8-ghost-enemy", 1) With {
                 .chance = 0.3,
-                .health = 30,
+                .spriteScale = 2,
+                .health = 60,
                 .value = 20,
-                .speed = 30,
-                .fireRate = 750,
+                .speed = 0.2,
+                .fireRate = 1050,
                 .bulletSprite = "lvl8-spiritmist-projectile",
                 .bulletScale = 0.5,
-                .bulletSpeed = 0.8,
-                .hitSfx = "lvl8-ghost-enemy-hit",
+                .bulletSpeed = 0.5,
+                .hitSfx = "",
                 .deathSfx = "lvl8-ghost-enemy-death"
             },
             New EnemyInfo("lvl8-spirit-enemy", 1) With {
@@ -421,6 +437,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl8-lunaticcultist-enemy", 1) With {
                 .chance = 0.025,
+                .spriteScale = 2,
                 .spriteRate = 2,
                 .health = 50,
                 .value = 50,
@@ -434,6 +451,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl8-lunaticcultist-enemy", 1) With {
                 .chance = 0.025,
+                .spriteScale = 2,
                 .spriteRate = 2,
                 .health = 70,
                 .value = 70,
@@ -488,6 +506,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl9-moonlord-enemy", 1) With {
                 .chance = 0.04,
+                .spriteScale = 2.5,
                 .health = 85,
                 .value = 85,
                 .speed = 0.1,
@@ -502,10 +521,11 @@ Public Module EnemiesModule
         New EnemyInfo() {
             New EnemyInfo("lvl10-floatygross-enemy", 1) With {
                 .chance = 0.45,
+                .spriteScale = 2,
                 .health = 4,
                 .value = 4,
                 .speed = 5,
-                .fireRate = 280,
+                .fireRate = 180,
                 .bulletSprite = "lvl10-imp-projectile",
                 .bulletScale = 0.6,
                 .bulletSpeed = 3,
@@ -514,24 +534,26 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl10-brainofcthulu-enemy", 1) With {
                 .chance = 0.25,
+                .spriteScale = 1.2,
                 .spriteRate = 2,
-                .health = 30,
-                .value = 30,
+                .health = 20,
+                .value = 20,
                 .speed = 3,
-                .fireRate = 720,
+                .fireRate = 620,
                 .bulletSprite = "lvl6-bloodcloud-projectile",
-                .bulletScale = 3,
+                .bulletScale = 3.6,
                 .bulletSpeed = 0.5,
                 .hitSfx = "lvl10-brainofcthulu-enemy-hit",
                 .deathSfx = "lvl10-brainofcthulu-enemy-death"
             },
             New EnemyInfo("lvl10-thetwins-enemy", 1) With {
                 .chance = 0.25,
+                .spriteScale = 1.1,
                 .spriteRate = 2,
-                .health = 35,
-                .value = 35,
+                .health = 20,
+                .value = 20,
                 .speed = 3,
-                .fireRate = 150,
+                .fireRate = 250,
                 .bulletSprite = "lvl10-eyefire-projectile",
                 .bulletScale = 1,
                 .bulletSpeed = 2,
@@ -540,6 +562,7 @@ Public Module EnemiesModule
             },
             New EnemyInfo("lvl10-brimstoneelement-enemy", 1) With {
                 .chance = 0.05,
+                .spriteScale = 1,
                 .health = 120,
                 .value = 120,
                 .speed = 1,
@@ -547,8 +570,8 @@ Public Module EnemiesModule
                 .bulletSprite = "lvl10-ghast-projectile",
                 .bulletScale = 1.5,
                 .bulletSpeed = 3,
-                .hitSfx = "lvl10-brimstoneelemental-hit",
-                .deathSfx = "lvl10-brimstoneelemental-death"
+                .hitSfx = "lvl10-brimstoneelemental-enemy-hit",
+                .deathSfx = "lvl10-brimstoneelemental-enemy-death"
             }
         }
     }

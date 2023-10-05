@@ -22,22 +22,14 @@ Public Class GameScene
         ' i know putting pause in update is bad but i'm lazy
         ' its the only way to preserve scene state without a major rework of things
 
-        Static isPressed As Boolean = False
-        Dim isPressedNow = Keyboard.IsKeyPressed(Keyboard.Key.P)
-
-        If isPressedNow And Not isPressed Then
-            isPressed = True
-            paused = Not paused
-            audio.TogglePauseBGM()
-        End If
-        If isPressed And Not isPressedNow Then isPressed = False
+        If KeyWasPressed(Keyboard.Key.P) Or KeyWasPressed(Keyboard.Key.Escape) Then paused = Not paused
 
         If paused Then
             Window.Draw(New Text("PAUSED", font, 36) With {
                 .Position = New Vector2f(50, 50),
                 .FillColor = Color.White
             })
-            Window.Draw(New Text("Press P to unpause", font, 24) With {
+            Window.Draw(New Text("Press P or Escape to unpause", font, 24) With {
                 .Position = New Vector2f(50, 120),
                 .FillColor = Color.White
             })

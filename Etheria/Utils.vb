@@ -120,4 +120,20 @@ Public Module Utils
     Public Function GetMousePosition() As Vector2f
         Return Window.MapPixelToCoords(Mouse.GetPosition(Window))
     End Function
+
+    Public Function KeyWasPressed(key As Keyboard.Key)
+        Static lastKeyPressed = Keyboard.Key.Unknown
+
+        Dim keyIsPressed = Keyboard.IsKeyPressed(key)
+        Dim keyWasPressedVal = False
+
+        If keyIsPressed And Not lastKeyPressed = key Then
+            lastKeyPressed = key
+            keyWasPressedVal = True
+        End If
+
+        If lastKeyPressed = key And Not keyIsPressed Then lastKeyPressed = Keyboard.Key.Unknown
+
+        Return keyWasPressedVal
+    End Function
 End Module

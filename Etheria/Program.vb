@@ -32,7 +32,7 @@ Public Module Program
             scenes.CurrentScene.Update()
 
             mouseWasHeldLastFrame = Mouse.IsButtonPressed(Mouse.Button.Left)
-            If Keyboard.IsKeyPressed(Keyboard.Key.F2) Then
+            If KeyWasPressed(Keyboard.Key.F2) Then
                 isDebug = Not isDebug
             End If
 

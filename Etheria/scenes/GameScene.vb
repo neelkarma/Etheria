@@ -6,7 +6,7 @@ Public Class GameScene
     Inherits Scene
     Public Overrides ReadOnly Property Type As String = "Game"
 
-    Const durationSeconds = 120
+    Const durationSeconds = 60
 
     Private frameCount As Integer
     Private paused As Boolean
